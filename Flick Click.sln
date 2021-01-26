@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flick Click", "Flick Click\Flick Click.csproj", "{7F03E58E-B008-4A2F-969A-0A26369A0339}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FlickClick_ClassLibrary", "FlickClick_ClassLibrary\FlickClick_ClassLibrary.fsproj", "{54B38CE5-8BAF-4508-BDD6-01D05DFBA576}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlickClick_ClassLibary", "FlickClick_ClassLibary\FlickClick_ClassLibary.csproj", "{057023C0-94F4-4C40-A0C9-30D32C8942BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{7F03E58E-B008-4A2F-969A-0A26369A0339}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F03E58E-B008-4A2F-969A-0A26369A0339}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F03E58E-B008-4A2F-969A-0A26369A0339}.Release|Any CPU.Build.0 = Release|Any CPU
-		{54B38CE5-8BAF-4508-BDD6-01D05DFBA576}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{54B38CE5-8BAF-4508-BDD6-01D05DFBA576}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{54B38CE5-8BAF-4508-BDD6-01D05DFBA576}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{54B38CE5-8BAF-4508-BDD6-01D05DFBA576}.Release|Any CPU.Build.0 = Release|Any CPU
+		{057023C0-94F4-4C40-A0C9-30D32C8942BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{057023C0-94F4-4C40-A0C9-30D32C8942BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{057023C0-94F4-4C40-A0C9-30D32C8942BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{057023C0-94F4-4C40-A0C9-30D32C8942BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
