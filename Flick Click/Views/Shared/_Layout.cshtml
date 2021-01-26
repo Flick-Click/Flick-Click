@@ -30,8 +30,13 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </div>
+    <div class="text-center">
+        <footer class="HFBackground FTekstColor">
+            <p>@Html.ActionLink("HOME", "Index", "Home") | @Html.ActionLink("NEWS", "About", "Home") | @Html.ActionLink("CONTACT", "Contact", "Home")</p>
+            <p>
+            </p>
+            <p>&copy; @DateTime.Now.Year Flick Click ApS</p>
         </footer>
     </div>
 
