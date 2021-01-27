@@ -81,9 +81,12 @@ textarea {
     margin-top: 26px;
 }
 
+.FPlacement {
+    bottom: 100%
+}
 
 .FooterPadding {
-    padding: 15px 0px 15px 0px;
+    padding: 15px 0px 0px 0px;
 }
 
 .FLinkFix a {

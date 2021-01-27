@@ -7,7 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body style="padding-top: 0px">
+<body style="padding-top: 0px; padding-bottom: 0px">
     <div class="navbar navbar-inverse navbar-static-top HFBackground HLinkFix">
         <div class="">
             <div class="navbar-header">
@@ -56,15 +56,35 @@
         @RenderBody()
         <a href="~/Views/Home/Index.cshtml">~/Views/Home/Index.cshtml</a>
         <hr />
+        <div style="display: flex">
+            <div style="width: 50%; margin-right: 10px">
+                <div style="text-align: right">
+                    <b style="float: left;">NEWS</b>
+                    @Html.ActionLink("SHOW ALL", "News", "News")
+                </div>
+                <div>
+
+                </div>
+            </div>
+            <div style="width: 50%; margin-left: 10px">
+                <div style="text-align: right">
+                    <b style="float: left;">COMING SOON</b>
+                    @Html.ActionLink("SHOW ALL", "ShowAll", "ShowAll")
+                </div>
+                <div>
+
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="text-center navbar-fixed-bottom">
-        <footer class="HFBackground HFTekstColor FooterPadding">
+
+    <div class="text-center">
+        <footer class="navbar-fixed-bottom HFBackground HFTekstColor FooterPadding">
             <p class="FLinkFix">@Html.ActionLink("HOME", "Index", "Home") | @Html.ActionLink("NEWS", "News", "News") | @Html.ActionLink("CONTACT", "Contact", "Contact")</p>
             <p> social media icons here</p>
             <p>&copy; @DateTime.Now.Year Flick Click ApS</p>
         </footer>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
