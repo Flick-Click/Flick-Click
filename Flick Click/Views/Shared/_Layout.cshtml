@@ -23,16 +23,16 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav HPlacement">
                     <li>@Html.ActionLink("HOME", "Index", "Home")</li>
-                    <li>@Html.ActionLink("NEWS", "About", "Home")</li>
-                    <li>@Html.ActionLink("CONTACT", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("NEWS", "News", "News")</li>
+                    <li>@Html.ActionLink("CONTACT", "Contact", "Contact")</li>
                 </ul>
             </div>
         </div>
         <dív class="H2Border">
             <div class="HFTekstColor" style="display:inline-flex; text-align: left ">
-                <p class="H2Spacing">@Html.ActionLink("SHOW ALL", "Index", "Home")</p>
-                <p class="H2Spacing">@Html.ActionLink("LATEST TRAILERS", "About", "Home")</p>
-                <p class="H2Spacing">@Html.ActionLink("MOST COMMENTED", "Contact", "Home")</p>
+                <p class="H2Spacing">@Html.ActionLink("SHOW ALL", "ShowAll", "ShowAll")</p>
+                <p class="H2Spacing">@Html.ActionLink("LATEST TRAILERS", "LatestTrailer", "LatestTrailer")</p>
+                <p class="H2Spacing">@Html.ActionLink("MOST COMMENTED", "MostCommetedMovie", "MostCommetedMovie")</p>
             </div>
             <div style="display: inline-flex; text-align: right">
                 <p class="H2Spacing HFTekstColor">SEARCH</p>
@@ -59,7 +59,7 @@
     </div>
     <div class="text-center navbar-fixed-bottom">
         <footer class="HFBackground HFTekstColor FooterPadding">
-            <p class="FLinkFix">@Html.ActionLink("HOME", "Index", "Home") | @Html.ActionLink("NEWS", "About", "Home") | @Html.ActionLink("CONTACT", "Contact", "Home")</p>
+            <p class="FLinkFix">@Html.ActionLink("HOME", "Index", "Home") | @Html.ActionLink("NEWS", "News", "News") | @Html.ActionLink("CONTACT", "Contact", "Contact")</p>
             <p> social media icons here</p>
             <p>&copy; @DateTime.Now.Year Flick Click ApS</p>
         </footer>
