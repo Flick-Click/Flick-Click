@@ -8,34 +8,48 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+    <div class="navbar navbar-inverse navbar-fixed-top HFBackground HLinkFix">
+        <div class="">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a href="https://localhost:44355/">
+                    <img src="~/Content/Pictures/logo.png" />
+                </a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <ul class="nav navbar-nav HPlacement">
+                    <li>@Html.ActionLink("HOME", "Index", "Home")</li>
+                    <li>@Html.ActionLink("NEWS", "About", "Home")</li>
+                    <li>@Html.ActionLink("CONTACT", "Contact", "Home")</li>
                 </ul>
             </div>
         </div>
+        <dív style="display: inline-flex">
+            <p>
+                @Html.ActionLink("HOME", "Index", "Home")
+                @Html.ActionLink("NEWS", "About", "Home")
+                @Html.ActionLink("CONTACT", "Contact", "Home")
+            </p>
+            <form class="input-group" style="float:right">
+                <input type="search" placeholder="Search" aria-label="Search">
+                <button type="submit">Search</button>
+            </form>
+        </dív>
     </div>
+
     <div class="container body-content">
         @RenderBody()
+        <a href="~/Views/Home/Index.cshtml">~/Views/Home/Index.cshtml</a>
         <hr />
     </div>
     <div class="text-center">
-        <footer class="HFBackground FTekstColor">
-            <p>@Html.ActionLink("HOME", "Index", "Home") | @Html.ActionLink("NEWS", "About", "Home") | @Html.ActionLink("CONTACT", "Contact", "Home")</p>
-            <p>
-            </p>
+        <footer class="HFBackground HFTekstColor FooterPadding">
+            <p class="FLinkFix">@Html.ActionLink("HOME", "Index", "Home") | @Html.ActionLink("NEWS", "About", "Home") | @Html.ActionLink("CONTACT", "Contact", "Home")</p>
+            <p> social media icons here</p>
             <p>&copy; @DateTime.Now.Year Flick Click ApS</p>
         </footer>
     </div>
