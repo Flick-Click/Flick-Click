@@ -9,7 +9,7 @@ namespace Flick_Click.Controllers
     public class NewsController : Controller
     {
         // GET: News
-        public ActionResult Index()
+        public ActionResult News()
         {
             return View();
         }

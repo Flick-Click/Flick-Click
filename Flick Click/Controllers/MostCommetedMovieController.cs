@@ -9,7 +9,7 @@ namespace Flick_Click.Controllers
     public class MostCommetedMovieController : Controller
     {
         // GET: MostCommetedMovie
-        public ActionResult Index()
+        public ActionResult MostedCommetedMovie()
         {
             return View();
         }

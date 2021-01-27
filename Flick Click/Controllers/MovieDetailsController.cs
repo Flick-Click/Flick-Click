@@ -9,7 +9,7 @@ namespace Flick_Click.Controllers
     public class MovieDetailsController : Controller
     {
         // GET: MovieDetails
-        public ActionResult Index()
+        public ActionResult MovieDetails()
         {
             return View();
         }

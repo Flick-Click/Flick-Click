@@ -9,7 +9,7 @@ namespace Flick_Click.Controllers
     public class SignInController : Controller
     {
         // GET: SignIn
-        public ActionResult Index()
+        public ActionResult SignIn()
         {
             return View();
         }

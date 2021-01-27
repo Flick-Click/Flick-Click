@@ -9,7 +9,7 @@ namespace Flick_Click.Controllers
     public class ShowAllController : Controller
     {
         // GET: ShowAll
-        public ActionResult Index()
+        public ActionResult ShowAll()
         {
             return View();
         }

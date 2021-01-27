@@ -9,7 +9,7 @@ namespace Flick_Click.Controllers
     public class VarifyAccountController : Controller
     {
         // GET: VarifyAccount
-        public ActionResult Index()
+        public ActionResult VarifyAccount()
         {
             return View();
         }
