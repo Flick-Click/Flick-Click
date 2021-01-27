@@ -120,7 +120,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LatestTrailerController.cs" />
+    <Compile Include="Controllers\MostCommetedMovieController.cs" />
+    <Compile Include="Controllers\MovieDetailsController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\ShowAllController.cs" />
+    <Compile Include="Controllers\SignInController.cs" />
+    <Compile Include="Controllers\VarifyAccountController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -167,6 +175,14 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Contact\" />
+    <Folder Include="Views\LatestTrailer\" />
+    <Folder Include="Views\MostCommetedMovie\" />
+    <Folder Include="Views\MovieDetails\" />
+    <Folder Include="Views\News\" />
+    <Folder Include="Views\ShowAll\" />
+    <Folder Include="Views\SignIn\" />
+    <Folder Include="Views\VarifyAccount\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
