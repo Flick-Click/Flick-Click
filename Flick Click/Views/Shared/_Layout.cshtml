@@ -21,7 +21,7 @@
                 </a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav HPlacement">
+                <ul class="nav navbar-nav HPlacement" style="color: white;">
                     <li>@Html.ActionLink("HOME", "Index", "Home")</li>
                     <li>@Html.ActionLink("NEWS", "News", "News")</li>
                     <li>@Html.ActionLink("CONTACT", "Contact", "Contact")</li>
@@ -30,15 +30,15 @@
         </div>
         <dív class="H2Border">
             <div class="HFTekstColor" style="display:inline-flex; text-align: left ">
-                <p class="H2Spacing">@Html.ActionLink("SHOW ALL", "ShowAll", "ShowAll")</p>
-                <p class="H2Spacing">@Html.ActionLink("LATEST TRAILERS", "LatestTrailer", "LatestTrailer")</p>
-                <p class="H2Spacing">@Html.ActionLink("MOST COMMENTED", "MostCommetedMovie", "MostCommetedMovie")</p>
+                <p class="H2Spacing"><b>@Html.ActionLink("SHOW ALL", "ShowAll", "ShowAll")</b></p>
+                <p class="H2Spacing"><b>@Html.ActionLink("LATEST TRAILERS", "LatestTrailer", "LatestTrailer")</b></p>
+                <p class="H2Spacing"><b>@Html.ActionLink("MOST COMMENTED", "MostCommetedMovie", "MostCommetedMovie")</b></p>
             </div>
             <div style="display: inline-flex; text-align: right">
-                <p class="H2Spacing HFTekstColor">SEARCH</p>
+                <p class="H2Spacing HFTekstColor"><b>SEARCH</b></p>
                 <form class="input-group">
                     <input class="Input1" type="search" placeholder="Enter search here" aria-label="Search">
-                    <button class="H2Spacing b1 HFTekstColor" type="submit">GO!</button>
+                    <button class="H2Spacing b1 HFTekstColor" type="submit"><b>GO!</b></button>
                 </form>
             </div>
         </dív>
@@ -54,7 +54,6 @@
 
     <div class="container body-content">
         @RenderBody()
-        <a href="~/Views/Home/Index.cshtml">~/Views/Home/Index.cshtml</a>
         <hr />
         <div style="display: flex">
             <div style="width: 50%; margin-right: 10px">
