@@ -20,7 +20,7 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 1125px;
 }
 
 .HFBackground {
@@ -81,9 +81,12 @@ textarea {
     margin-top: 26px;
 }
 
+.FPlacement {
+    bottom: 100%
+}
 
 .FooterPadding {
-    padding: 15px 0px 15px 0px;
+    padding: 15px 0px 0px 0px;
 }
 
 .FLinkFix a {
@@ -104,4 +107,8 @@ a:hover {
 
 .Input1 {
     margin: 0px 10px 0px 10px;
+}
+
+.body-content {
+    background-color: #f9f9f9;
 }

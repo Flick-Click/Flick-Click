@@ -1,16 +1,32 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<head>
+    <link rel="stylesheet" href="~/Content/CSS/Contact.css" />
+</head>
+<div  sstyle="display: flex; flex-direction: column">
+    <div>
+        <h2>@ViewBag.Title</h2>
+        <h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna nisl, euismod commodo massa aliquet vel. Nunc consectetur neque orci, in suscipit lectus lobortis nec. Suspendisse et condimentum turpis. Praesent aliquam pellentesque massa, ac tincidunt justo. Maecenas rutrum arcu malesuada eros semper ornare. Etiam sem velit, commodo vel tempus ut, tempus tincidunt neque. Mauris quis sem rutrum, dignissim dui quis, pellentesque urna.</p>
+        <br />
+    </div>
+    <div style="text-align: center;">
+        <div>
+            <p class="ContactTitle"><b>Get in touch</b></p>
+        </div>
+        <div>
+            <form class="ContactForm">
+                <input type="text" placeholder="Your Name..." aria-label="Search">
+                <br />
+                <input type="email" placeholder="Your Email Address..." aria-label="Search">
+                <br />
+                <textarea class="" name="message" placeholder="Your Message..."></textarea>
+                <br />
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</div>

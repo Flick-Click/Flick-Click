@@ -1,0 +1,26 @@
+﻿.ContactTitle {
+    color: darkred;
+    font-size: 20px;
+    width: 100%;
+}
+
+.ContactForm {
+    width: 100%;
+}
+
+.ContactForm input {
+    width: 62%;
+    height: 30px;
+    margin: 5px 0px 5px 0px;
+}
+
+.ContactForm textarea {
+    width: 62%;
+    max-width: 62% !important;
+    height: 125px;
+    margin: 5px 0px 5px 0px;
+}
+
+.ContactForm button {
+    margin: 5px 57.7% 5px 0px;
+}
