@@ -126,6 +126,7 @@
     <Compile Include="Controllers\MostCommetedMovieController.cs" />
     <Compile Include="Controllers\MovieDetailsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ShowAllController.cs" />
     <Compile Include="Controllers\SignInController.cs" />
     <Compile Include="Controllers\VarifyAccountController.cs" />
@@ -178,9 +179,11 @@
     <Content Include="Views\ShowAll\ShowAll.cshtml" />
     <Content Include="Views\SignIn\SignIn.cshtml" />
     <Content Include="Views\VarifyAccount\VarityAccount.cshtml" />
+    <Content Include="Views\Search\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
