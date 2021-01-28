@@ -7,7 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body style=" position: relative; height:100%">
+<body style=" position: relative; min-height: 100%;">
     <div class="navbar navbar-inverse navbar-static-top HFBackground HLinkFix">
         <div class="">
             <div class="navbar-header">
@@ -83,7 +83,7 @@
         </div>
     </div>
 
-    <div class="text-center FPlacement">
+    <div class="text-center navbar-fixed-bottom">
         <footer class="HFBackground HFTekstColor FooterPadding">
             <p class="FLinkFix"><b>@Html.ActionLink("HOME", "Index", "Home")</b> | <b>@Html.ActionLink("NEWS", "News", "News")</b> | <b>@Html.ActionLink("CONTACT", "Contact", "Contact")</b></p>
             <p> social media icons here</p>

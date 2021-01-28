@@ -5,6 +5,7 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    padding-bottom: 200px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -74,11 +75,6 @@ textarea {
     border-right: 0px;
     border-left: 0px;
     margin-top: 26px;
-}
-
-.FPlacement {
-    margin-bottom: 0;
-    border-width: 1px 0 0;
 }
 
 .FooterPadding {
