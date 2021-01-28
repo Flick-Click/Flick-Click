@@ -2,13 +2,13 @@
 }
 
 .container{
-    display:flex;
+    display: flex;
     flex-direction: column;
 }
 
 .flex-row {
-    justify-content: space-between;
-    flex-flow: row wrap;
+    flex-direction: row;
+    margin: 1% 2% -2% 0;
     color: red;
 }
 
@@ -16,22 +16,17 @@
     margin: 0 -8% 0 0;
 }
 
-.flex-titel p{
-    margin: 7px 2% -10px 0;
-}
-
-.movie-img{
+.movie-img {
     width: 95%;
-    padding: 0.5%;
 }
 
-.comment-img{
-    float: right;
+.comment-img {
+    height: 37px;
     padding-right: 4%;
-    height:37px
+    float: right;
 }
 
-.div-width{
+.div-width {
     width: 15%;
-    display: inline-block
+    display: inline-block;
 }
