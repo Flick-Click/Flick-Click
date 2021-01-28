@@ -1,0 +1,50 @@
+﻿body {
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+.grid-container p{
+    font-size:12px;
+    margin: 2px;
+}
+.container{
+    padding: 2px;
+}
+.Title{
+    grid-column: 1/ span 2;
+}
+.Title h4{
+    margin-top: 0;
+}
+
+.CommentsAmount{
+    grid-column: 3 / span 2;
+    text-align: right;
+}
+.bold{
+    font-weight: bold;
+}
+.ReleaseDate{
+    text-align: right;
+}
+.Trailer{
+    grid-column: 2 / span 3;
+}
+
+.Writers{
+    grid-column: 2/ span 2;
+    text-align: center;
+}
+
+.Stars{
+    text-align: right;
+}
+
+.Comment{
+    grid-column: 1 / span 4;
+}
+
+.Textarea{
+    grid-column: 1 / span 4;
+}
