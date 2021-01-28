@@ -7,7 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body style="padding-top: 0px; padding-bottom: 0px">
+<body style=" position: relative; min-height: 100%;">
     <div class="navbar navbar-inverse navbar-static-top HFBackground HLinkFix">
         <div class="">
             <div class="navbar-header">
@@ -28,28 +28,34 @@
                 </ul>
             </div>
         </div>
-        <dív class="H2Border">
-            <div class="HFTekstColor" style="display:inline-flex; text-align: left ">
-                <p class="H2Spacing"><b>@Html.ActionLink("SHOW ALL", "ShowAll", "ShowAll")</b></p>
-                <p class="H2Spacing"><b>@Html.ActionLink("LATEST TRAILERS", "LatestTrailer", "LatestTrailer")</b></p>
-                <p class="H2Spacing"><b>@Html.ActionLink("MOST COMMENTED", "MostCommetedMovie", "MostCommetedMovie")</b></p>
+        <div style="display: flex; flex-direction: column;">
+            <dív class="H2Border" style="flex-wrap: wrap; display: inline-flex">
+                <div class="HFTekstColor" style="text-align: left; display: inline-flex">
+                    <p class="H2Spacing"><b>@Html.ActionLink("SHOW ALL", "ShowAll", "ShowAll")</b></p>
+                    <p class="H2Spacing"><b>@Html.ActionLink("LATEST TRAILERS", "LatestTrailer", "LatestTrailer")</b></p>
+                    <p class="H2Spacing"><b>@Html.ActionLink("MOST COMMENTED", "MostCommetedMovie", "MostCommetedMovie")</b></p>
+                </div>
+                <div style="text-align: right; display: inline-flex">
+                    <form style="display: inline-flex">
+                        <p class="H2Spacing HFTekstColor"><b>SEARCH</b></p>
+                        <input class="Input1" type="search" placeholder="Enter search here" aria-label="Search">
+                        <button class="H2Spacing b1 HFTekstColor" type="submit"><b>GO!</b></button>
+                    </form>
+                </div>
+            </dív>
+            <div class="H3Border" style="flex-wrap: wrap; display: inline-flex">
+                <div style="display: inline-flex;"></div>
+                <div style="display: inline-flex;text-align: right; flex-wrap: wrap;">
+                    <form style="display: inline-flex;">
+                        <input class="Input1" type="Email" placeholder="Email" aria-label="Email">
+                        <input class="Input1" type="Password" placeholder="password" aria-label="Password">
+                    </form>
+                    <button class="H2Spacing b1 HFTekstColor" type="submit">Sign In</button>
+                    <button class="H2Spacing b1 HFTekstColor">Not a member?</button>
+                </div>
             </div>
-            <div style="display: inline-flex; text-align: right">
-                <p class="H2Spacing HFTekstColor"><b>SEARCH</b></p>
-                <form class="input-group">
-                    <input class="Input1" type="search" placeholder="Enter search here" aria-label="Search">
-                    <button class="H2Spacing b1 HFTekstColor" type="submit"><b>GO!</b></button>
-                </form>
-            </div>
-        </dív>
-        <div class="H3Border">
-            <form class="input-group">
-                <input class="Input1" type="Email" placeholder="Email" aria-label="Email">
-                <input class="Input1" type="Password" placeholder="password" aria-label="Password">
-                <button class="H2Spacing b1 HFTekstColor" type="submit">Sign In</button>
-            </form>
-            <button class="H2Spacing b1 HFTekstColor">Not a member?</button>
         </div>
+        
     </div>
 
     <div class="container body-content">
@@ -77,11 +83,11 @@
         </div>
     </div>
 
-    <div class="text-center">
-        <footer class="navbar-fixed-bottom HFBackground HFTekstColor FooterPadding">
-            <p class="FLinkFix">@Html.ActionLink("HOME", "Index", "Home") | @Html.ActionLink("NEWS", "News", "News") | @Html.ActionLink("CONTACT", "Contact", "Contact")</p>
+    <div class="text-center navbar-fixed-bottom">
+        <footer class="HFBackground HFTekstColor FooterPadding">
+            <p class="FLinkFix"><b>@Html.ActionLink("HOME", "Index", "Home")</b> | <b>@Html.ActionLink("NEWS", "News", "News")</b> | <b>@Html.ActionLink("CONTACT", "Contact", "Contact")</b></p>
             <p> social media icons here</p>
-            <p>&copy; @DateTime.Now.Year Flick Click ApS</p>
+            <p style="margin-bottom: 0px">&copy; @DateTime.Now.Year Flick Click ApS</p>
         </footer>
     </div>
     @Scripts.Render("~/bundles/jquery")

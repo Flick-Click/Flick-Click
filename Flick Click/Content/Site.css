@@ -1,12 +1,11 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    padding-bottom: 200px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -56,15 +55,12 @@ textarea {
     border-left-width: 0px;
     border-right: 0px;
     border-color: white;
-    display: flex;
     justify-content: space-between
 }
 
 .H3Border {
     margin: 0px 0px 5px 0px;
-    display: flex;
     justify-content: space-between;
-    float: right;
 }
 
 .H2Spacing {
@@ -79,10 +75,6 @@ textarea {
     border-right: 0px;
     border-left: 0px;
     margin-top: 26px;
-}
-
-.FPlacement {
-    bottom: 100%
 }
 
 .FooterPadding {
@@ -106,6 +98,7 @@ a:hover {
 }
 
 .Input1 {
+    width: 75%;
     margin: 0px 10px 0px 10px;
 }
 
