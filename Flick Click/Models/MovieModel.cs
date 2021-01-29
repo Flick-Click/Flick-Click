@@ -14,10 +14,12 @@ namespace Flick_Click.Models
         public TimeSpan Created { get; set; }
         public int Duration { get; set; }
         public string Description { get; set; }
-        public List<RatingModel> Ratings { get; set; }
-        public List<ConnentModel> MyProperty { get; set; }
-        public List<DirecotorModel> Director { get; set; }
-        public List<WriterModel> Writer { get; set; }
+        public string TrailerLink { get; set; }
+
+        //find a sulusen to get mor the 1 director and writer
+        //public List<DirecotorModel> Director { get; set; }
+        //public List<WriterModel> Writers { get; set; }
+
 
     }
 }
