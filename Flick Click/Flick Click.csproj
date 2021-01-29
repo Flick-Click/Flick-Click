@@ -172,11 +172,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ContactController.cs" />
-    <Compile Include="Controllers\CreateUserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LatestTrailerController.cs" />
     <Compile Include="Controllers\MostCommetedMovieController.cs" />
-    <Compile Include="Controllers\MovieCreaterController.cs" />
     <Compile Include="Controllers\MovieDetailsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\NewsDetailsController.cs" />
@@ -192,7 +190,6 @@
     <Compile Include="Models\IPeople.cs" />
     <Compile Include="Models\MovieModel.cs" />
     <Compile Include="Models\RatingModel.cs" />
-    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\WriterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -237,16 +234,13 @@
     <Content Include="Views\Contact\Contact.cshtml" />
     <Content Include="Views\LatestTrailer\LatestTrailer.cshtml" />
     <Content Include="Views\MostCommetedMovie\MostCommetedMovie.cshtml" />
+    <Content Include="Views\MovieDetails\MovieDetails.cshtml" />
     <Content Include="Views\News\News.cshtml" />
     <Content Include="Views\ShowAll\ShowAll.cshtml" />
     <Content Include="Views\SignIn\SignIn.cshtml" />
     <Content Include="Views\VarifyAccount\VarityAccount.cshtml" />
     <Content Include="Views\Search\Search.cshtml" />
-<<<<<<< HEAD
-    <Content Include="Views\CreateUser\CreateUser.cshtml" />
-=======
     <Content Include="Views\NewsDetails\NewsDetails.cshtml" />
->>>>>>> df59c321f06bc61b4ddb2be4a1851454c73cb0ca
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
