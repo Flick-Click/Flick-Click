@@ -21,10 +21,10 @@
                 </a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav HPlacement" style="color: white;">
-                    <li>@Html.ActionLink("HOME", "Index", "Home")</li>
-                    <li>@Html.ActionLink("NEWS", "News", "News")</li>
-                    <li>@Html.ActionLink("CONTACT", "Contact", "Contact")</li>
+                <ul class="nav navbar-nav HPlacement">
+                    <li style="font-weight: bold;">@Html.ActionLink("HOME", "Index", "Home")</li>
+                    <li style="font-weight: bold;">@Html.ActionLink("NEWS", "News", "News")</li>
+                    <li style="font-weight: bold;">@Html.ActionLink("CONTACT", "Contact", "Contact")</li>
                 </ul>
             </div>
         </div>
@@ -65,7 +65,7 @@
             <div style="width: 50%; margin-right: 10px">
                 <div style="text-align: right">
                     <b style="float: left;">NEWS</b>
-                    @Html.ActionLink("SHOW ALL", "News", "News")
+                    <P class="FLinkFix RedColorUnderline">@Html.ActionLink("SHOW ALL", "News", "News")</P>
                 </div>
                 <div>
 
@@ -74,7 +74,7 @@
             <div style="width: 50%; margin-left: 10px">
                 <div style="text-align: right">
                     <b style="float: left;">COMING SOON</b>
-                    @Html.ActionLink("SHOW ALL", "ShowAll", "ShowAll")
+                    <p class="FLinkFix RedColorUnderline">@Html.ActionLink("SHOW ALL", "ShowAll", "ShowAll")</p>
                 </div>
                 <div>
 

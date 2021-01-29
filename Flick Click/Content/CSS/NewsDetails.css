@@ -1,0 +1,12 @@
+﻿body {
+}
+
+.container{
+    padding:2px
+}
+.bold{
+    font-weight: bold;
+}
+.date{
+    color: red;
+}

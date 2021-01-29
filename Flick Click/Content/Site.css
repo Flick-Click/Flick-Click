@@ -82,7 +82,7 @@ textarea {
 }
 
 .FLinkFix a {
-    border-bottom: 1px solid white !important;
+    text-decoration: underline;
     color: inherit;
 }
 
@@ -100,6 +100,20 @@ a:hover {
 .Input1 {
     width: 75%;
     margin: 0px 10px 0px 10px;
+}
+
+.RedColorUnderline {
+    color: red;
+    text-decoration: underline;
+    float: right;
+}
+
+.RedColorUnderline a {
+    color: red;
+}
+
+.RedColorUnderline a:hover {
+    text-decoration: underline;
 }
 
 .body-content {

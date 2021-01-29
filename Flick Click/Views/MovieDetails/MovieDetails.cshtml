@@ -1,31 +1,81 @@
 ﻿@{
     ViewBag.Title = "MovieDetails";
 }
+<head>
+    <link href="~/Content/CSS/MovieDetails.css" rel="stylesheet" />
+</head>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+
+<div class="grid-container">
+    <div class="Title">
+        <h4 class="bold">MOVIE TITLE</h4>
+    </div>
+    <div class="CommentsAmount">
+        <p class="bold">Comments: Comments_Count</p>
+    </div>
+    <div class="Rating">
+        <p class="bold">Age Rating: </p>
+    </div>
+    <div class="MovieDuration">
+        <p class="bold">Duration: </p> 
+    </div>
+    <div class="Genre">
+        <p class="bold">Genre: </p> 
+    </div>
+    <div class="ReleaseDate">
+        <p class="bold">Release Date: </p>
+    </div>
+    <div class="Image">
+        <img src="" alt="Image" />
+    </div>
+    <div class="Trailer">
+        <h1>Movie Trailer</h1>
+    </div>
+    <div class="Director">
+        <p class="bold">Director: </p>
+    </div>
+    <div class="Writers">
+        <p class="bold">Writers:</p>
+    </div>
+    <div class="Stars">
+        <p class="bold">Stars:</p >
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
+<div class="container">
+    <div>
+        <h4 class="bold">Description</h4>
+    </div>
+    <div>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros,
+            pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus.
+            Donec scelerisque sollicitudin enim eu venenatis. Duis tincidunt laoreet ex,
+            in pretium orci vestibulum eget. Class aptent taciti sociosqu ad litora torquent
+            per conubia nostra, per inceptos himenaeos. Duis pharetra luctus lacus ut
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    <div>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros,
+            pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus.
+            Donec scelerisque sollicitudin enim eu venenatis. Duis tincidunt laoreet ex,
+            in pretium orci vestibulum eget. Class aptent taciti sociosqu ad litora torquent
+            per conubia nostra, per inceptos himenaeos. Duis pharetra luctus lacus ut
+        </p>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div>
+        <p>Comments: Comments_count</p>
     </div>
+    <div class="Comment">
+        <p class="bold">Post a comment</p>
+    </div>
+    <div>
+        <textarea placeholder="Write you comment here..."></textarea>
+    </div>
+    <button class="button bold" type="button">Post</button>
+</div>
+
+<div class="container">
+
 </div>

@@ -179,6 +179,7 @@
     <Compile Include="Controllers\MovieCreaterController.cs" />
     <Compile Include="Controllers\MovieDetailsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\NewsDetailsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ShowAllController.cs" />
     <Compile Include="Controllers\SignInController.cs" />
@@ -200,6 +201,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CSS\Home.css" />
+    <Content Include="Content\CSS\NewsDetails.css" />
     <Content Include="Content\Pictures\logo.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -239,7 +242,11 @@
     <Content Include="Views\SignIn\SignIn.cshtml" />
     <Content Include="Views\VarifyAccount\VarityAccount.cshtml" />
     <Content Include="Views\Search\Search.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\CreateUser\CreateUser.cshtml" />
+=======
+    <Content Include="Views\NewsDetails\NewsDetails.cshtml" />
+>>>>>>> df59c321f06bc61b4ddb2be4a1851454c73cb0ca
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
