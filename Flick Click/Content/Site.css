@@ -102,6 +102,16 @@ a:hover {
     margin: 0px 10px 0px 10px;
 }
 
+.NewsComingSoonLink {
+    color: red;
+    border-bottom: 1px solid red;
+    float: right;
+}
+
+.NewsComingSoonLink a:hover{
+    text-decoration: none;
+}
+
 .body-content {
     background-color: #f9f9f9;
 }
