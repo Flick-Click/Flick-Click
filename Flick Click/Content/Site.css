@@ -102,13 +102,13 @@ a:hover {
     margin: 0px 10px 0px 10px;
 }
 
-.NewsComingSoonLink {
+.RedColorUnderline {
     color: red;
     border-bottom: 1px solid red;
     float: right;
 }
 
-.NewsComingSoonLink a:hover{
+.RedColorUnderline a:hover {
     text-decoration: none;
 }
 
