@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace Flick_Click.Controllers
 {
-    public class MostCommetedMovieController : Controller
+    public class MostCommentedMovieController : Controller
     {
         // GET: MostCommetedMovie
-        public ActionResult MostCommetedMovie()
+        public ActionResult MostCommentedMovie()
         {
             return View();
         }
