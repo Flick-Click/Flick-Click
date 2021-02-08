@@ -174,7 +174,7 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LatestTrailerController.cs" />
-    <Compile Include="Controllers\MostCommetedMovieController.cs" />
+    <Compile Include="Controllers\MostCommentedMovieController.cs" />
     <Compile Include="Controllers\MovieDetailsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\NewsDetailsController.cs" />
@@ -241,7 +241,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Contact\Contact.cshtml" />
     <Content Include="Views\LatestTrailer\LatestTrailer.cshtml" />
-    <Content Include="Views\MostCommetedMovie\MostCommetedMovie.cshtml" />
+    <Content Include="Views\MostCommentedMovie\MostCommentedMovie.cshtml" />
     <Content Include="Views\MovieDetails\MovieDetails.cshtml" />
     <Content Include="Views\News\News.cshtml" />
     <Content Include="Views\ShowAll\ShowAll.cshtml" />
