@@ -1,14 +1,21 @@
-﻿namespace FlickClick_ClassLibary.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FlickClick_ClassLibary.Models
 {
-    public class UserModel
+    class UserModel
     {
 
-        public string FirstName { get; set; }
+        public string FistName { get; set; }
         public string LastName { get; set; }
         public string EmailAddress { get; set; }
+        public string ConfirmEmail { get; set; }
         public string Password { get; set; }
+        public string ConfirmPassword { get; set; }
         public string TelefonNummer { get; set; }
-        public bool IsMember { get; set; } = true;
         public bool IsManager { get; set; } = false;
     }
 }
