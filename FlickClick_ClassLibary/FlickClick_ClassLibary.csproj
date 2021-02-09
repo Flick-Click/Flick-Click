@@ -76,10 +76,11 @@
     <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Models\DirectorModel.cs" />
+    <Compile Include="Models\GenreModel.cs" />
     <Compile Include="Models\IPeople.cs" />
     <Compile Include="Models\MovieModel.cs" />
     <Compile Include="Models\NewsModel.cs" />
-    <Compile Include="Models\People.cs" />
+    <Compile Include="Models\PeopleModel.cs" />
     <Compile Include="Models\RatingModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\WriterModel.cs" />
