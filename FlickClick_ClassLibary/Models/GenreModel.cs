@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace FlickClick_ClassLibary.Models
 {
-    public interface IPeople
+    public class GenreModel
     {
-        string FirstName { get; set; }
-        string LastName { get; set; }
-
+        public string Genre { get; set; }
     }
 }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace FlickClick_ClassLibary.Models
 {
-    public interface IPeople
+    public class ContactModel
     {
-        string FirstName { get; set; }
-        string LastName { get; set; }
-
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Message { get; set; }
     }
 }

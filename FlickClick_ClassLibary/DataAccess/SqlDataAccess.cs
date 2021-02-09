@@ -7,29 +7,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
+using MySqlConnector;
 
 namespace FlickClick_ClassLibary.DataAccess
 {
     public static class SqlDataAccess
     {
-        public static string GetConnectionString(string connectionName = "Flick_Click")
+        public static string GetConnectionString(string connectionName = "server=localhost;user id=root;Pwd=tim;database=flick_click;persistsecurityinfo=True; allowuservariables=True")
         {
-            return ConfigurationManager.ConnectionStrings[connectionName].ConnectionString;
+            return connectionName;
         }
-        
+
         public static List<T> LoadData<T>(string sql)
         {
-            using (IDbConnection cnn = new SqlConnection(GetConnectionString()))
+            using (IDbConnection cnn = new MySqlConnection(GetConnectionString()))
             {
                 return cnn.Query<T>(sql).ToList();
             }
         }
 
-        public static int SavaData<T>(string sql, T data)
+        public static int SaveData<T>(string sql, T data)
         {
-            using (IDbConnection cnn = new SqlConnection(GetConnectionString()))
+            using (IDbConnection cnn = new MySqlConnection(GetConnectionString()))
             {
                 return cnn.Execute(sql, data);
+            }
+        }
+
+        public static int DeleteData(string sql)
+        {
+            using (IDbConnection cnn = new MySqlConnection(GetConnectionString()))
+            {
+                return cnn.Execute(sql);
+            }
+        }
+
+        public static int UpdateData(string sql)
+        {
+            using (IDbConnection cnn = new MySqlConnection(GetConnectionString()))
+            {
+                return cnn.Execute(sql);
             }
         }
     }
