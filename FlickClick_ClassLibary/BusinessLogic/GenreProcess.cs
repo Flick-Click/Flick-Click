@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FlickClick_ClassLibary.DataAccess;
+using FlickClick_ClassLibary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +10,16 @@ namespace FlickClick_ClassLibary.BusinessLogic
 {
     public class GenreProcess
     {
+        public static int CreateGenre(string genre)
+        {
+            GenreModel data = new GenreModel
+            {
+                Genre = genre
+            };
+
+            string sql = @"INSERT INTO genres (Genre) VALUES (@Genre)";
+
+            return SqlDataAccess.SaveData(sql, data);
+        }
     }
 }

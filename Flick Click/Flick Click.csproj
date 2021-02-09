@@ -187,6 +187,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ConnentModel.cs" />
+    <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Models\DirecotorModel.cs" />
     <Compile Include="Models\IPeople.cs" />
     <Compile Include="Models\MovieModel.cs" />
