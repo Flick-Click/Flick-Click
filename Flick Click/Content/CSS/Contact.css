@@ -8,19 +8,23 @@
     width: 100%;
 }
 
-.ContactForm input {
-    width: 62%;
+.col-md-12{
+    margin-left:22%;
+}
+
+.col-md-12 input {
+    width: 60%;
     height: 30px;
     margin: 5px 0px 5px 0px;
 }
 
-.ContactForm textarea {
-    width: 62%;
-    max-width: 62% !important;
+.col-md-12 textarea {
+    width: 60%;
+    max-width: 60% !important;
     height: 125px;
     margin: 5px 0px 5px 0px;
 }
 
-.ContactForm button {
-    margin: 5px 57.7% 5px 0px;
+.col-md-offset-2{
+    
 }
