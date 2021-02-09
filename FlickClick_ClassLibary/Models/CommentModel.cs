@@ -5,10 +5,12 @@ using System.Web;
 
 namespace FlickClick_ClassLibary.Models
 {
-    public class ConnentModel
+    public class CommentModel
     {
         public int ID { get; set; }
         public string Content { get; set; }
-        public TimeSpan Created { get; set; }
+        public DateTime Created { get; set; }
+        public int Movie_ID { get; set; }
+        public int User_ID { get; set; }
     }
 }

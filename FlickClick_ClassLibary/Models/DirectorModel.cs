@@ -5,7 +5,7 @@ using System.Web;
 
 namespace FlickClick_ClassLibary.Models
 {
-    public class WriterModel
+    public class DirectorModel
     {
         public int MovieID { get; set; }
         public int PeopleID { get; set; }

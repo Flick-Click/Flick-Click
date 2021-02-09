@@ -65,12 +65,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\CommentProcess.cs" />
+    <Compile Include="BusinessLogic\ContactProcess.cs" />
+    <Compile Include="BusinessLogic\GenreProcess.cs" />
+    <Compile Include="BusinessLogic\MovieProcess.cs" />
+    <Compile Include="BusinessLogic\NewsProcess.cs" />
+    <Compile Include="BusinessLogic\PeopleProcess.cs" />
     <Compile Include="BusinessLogic\UserProcess.cs" />
     <Compile Include="DataAccess\SqlDataAccess.cs" />
-    <Compile Include="Models\ConnentModel.cs" />
-    <Compile Include="Models\DirecotorModel.cs" />
+    <Compile Include="Models\CommentModel.cs" />
+    <Compile Include="Models\ContactModel.cs" />
+    <Compile Include="Models\DirectorModel.cs" />
     <Compile Include="Models\IPeople.cs" />
     <Compile Include="Models\MovieModel.cs" />
+    <Compile Include="Models\NewsModel.cs" />
+    <Compile Include="Models\People.cs" />
     <Compile Include="Models\RatingModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\WriterModel.cs" />

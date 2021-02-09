@@ -14,7 +14,6 @@ namespace FlickClick_ClassLibary.Models
         public string EmailAddress { get; set; }
         public string Password { get; set; }
         public string TelefonNummer { get; set; }
-        public bool IsMember { get; set; } = true;
-        public bool IsManager { get; set; } = false;
+        public int Group_ID { get; set; } = 1;
     }
 }
