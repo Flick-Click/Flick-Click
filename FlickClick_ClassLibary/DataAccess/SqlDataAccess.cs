@@ -26,7 +26,7 @@ namespace FlickClick_ClassLibary.DataAccess
             }
         }
 
-        public static int SavaData<T>(string sql, T data)
+        public static int SaveData<T>(string sql, T data)
         {
             using (IDbConnection cnn = new MySqlConnection(GetConnectionString()))
             {
