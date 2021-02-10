@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Flick_Click.Models.CommentModel
+
+@{
     ViewBag.Title = "MovieDetails";
 }
 <head>
@@ -8,7 +10,7 @@
 
 <div class="grid-container">
     <div class="Title">
-        <h4 class="bold">MOVIE TITLE</h4>
+        <h1 class="bold">MOVIE TITLE</h1>
     </div>
     <div class="CommentsAmount">
         <p class="bold">Comments: Comments_Count</p>
@@ -43,8 +45,8 @@
 </div>
 
 <div class="container">
-    <div>
-        <h4 class="bold">Description</h4>
+    <div class="description">
+        <h1 class="bold">Description</h1>
     </div>
     <div>
         <p>
@@ -71,7 +73,8 @@
         <p class="bold">Post a comment</p>
     </div>
     <div>
-        <textarea placeholder="Write you comment here..."></textarea>
+        @Html.TextAreaFor(model => model.Comment, new { @class = "form-control", placeholder = "Write you comment here..." })
+        @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
     </div>
     <button class="button bold" type="button">Post</button>
 </div>

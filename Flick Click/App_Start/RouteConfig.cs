@@ -13,17 +13,52 @@ namespace Flick_Click
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+
+            //SignUp
             routes.MapRoute(
                 name: "SignUp",
-                url: "SignUp",
-                defaults: new { controller = "SignUp", action = "signUp", id = UrlParameter.Optional }
+                url: "SignUp/{id}",
+                defaults: new { controller = "SignUp", action = "SignUp", id = UrlParameter.Optional }
+            );
+            //SignIn
+            routes.MapRoute(
+                name: "SignIn",
+                url: "SignIn/{id}",
+                defaults: new { controller = "SignIn", action = "SignIn", id = UrlParameter.Optional }
+            );
+            //News
+            routes.MapRoute(
+                name: "News",
+                url: "News/{id}",
+                defaults: new { controller = "News", action = "News", id = UrlParameter.Optional }
+            );
+            //Contact
+            routes.MapRoute(
+                name: "Contact",
+                url: "Contact/{id}",
+                defaults: new { controller = "Contact", action = "Contact", id = UrlParameter.Optional }
+            );
+            //Movie
+            routes.MapRoute(
+                name: "Movie",
+                url: "Movie/{id}",
+                defaults: new { controller = "Movie", action = "Movie", id = UrlParameter.Optional }
+            );
+            //search
+            routes.MapRoute(
+                name: "Search",
+                url: "Search/{id}",
+                defaults: new { controller = "Search", action = "Search", id = UrlParameter.Optional }
             );
 
+
+            //defaults
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
         }
     }
 }

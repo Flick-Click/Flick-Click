@@ -25,6 +25,17 @@
     margin: 5px 0px 5px 0px;
 }
 
-.col-md-offset-2{
-    
+.col-md-6{
+    margin-left: 1.7%;
+}
+
+.btn{
+    width: 75px;
+    height: 17px;
+    padding: 0px;
+    font-size: 0.8em;
+}
+.btn:focus {
+    outline: none;
+    outline-offset: 0px;
 }
