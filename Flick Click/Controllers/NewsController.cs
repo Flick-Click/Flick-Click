@@ -50,5 +50,12 @@ namespace Flick_Click.Controllers
 
             return View(news);
         }
+
+        // GET: Create
+        public ActionResult Create()
+        {
+
+            return View();
+        }
     }
 }
