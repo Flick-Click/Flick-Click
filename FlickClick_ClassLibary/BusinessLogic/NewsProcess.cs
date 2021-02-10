@@ -23,11 +23,19 @@ namespace FlickClick_ClassLibary.BusinessLogic
             return SqlDataAccess.SaveData(sql, data);
         }
 
-        public static List<ContactModel> LoadNews()
+        public static List<NewsModel> LoadNews()
         {
-            string sql = @"SELECT * FROM news;";
+            string sql = @"SELECT * FROM news ORDER BY Created DESC;";
 
-            return SqlDataAccess.LoadData<ContactModel>(sql);
+            return SqlDataAccess.LoadData<NewsModel>(sql);
+        }
+
+        public static List<NewsModel> LoadSingleNews(int id)
+        {
+
+            string sql = $"SELECT * FROM news WHERE ID = {id}";
+
+            return SqlDataAccess.LoadData<NewsModel>(sql);
         }
 
         // ID is giving from frontend model.ID

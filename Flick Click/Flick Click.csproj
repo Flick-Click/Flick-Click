@@ -177,7 +177,6 @@
     <Compile Include="Controllers\MostCommentedMovieController.cs" />
     <Compile Include="Controllers\MovieDetailsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
-    <Compile Include="Controllers\NewsDetailsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ShowAllController.cs" />
     <Compile Include="Controllers\SignInController.cs" />
@@ -191,6 +190,7 @@
     <Compile Include="Models\DirecotorModel.cs" />
     <Compile Include="Models\IPeople.cs" />
     <Compile Include="Models\MovieModel.cs" />
+    <Compile Include="Models\NewsModel.cs" />
     <Compile Include="Models\RatingModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\WriterModel.cs" />
@@ -251,8 +251,8 @@
     <Content Include="Views\SignIn\SignIn.cshtml" />
     <Content Include="Views\VarifyAccount\VarityAccount.cshtml" />
     <Content Include="Views\Search\Search.cshtml" />
-    <Content Include="Views\NewsDetails\NewsDetails.cshtml" />
     <Content Include="Views\SignUp\SignUp.cshtml" />
+    <Content Include="Views\News\NewsDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

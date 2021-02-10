@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Flick_Click.Models.NewsModel>
+
+@{
+    ViewBag.Title = "NewsDetails";
+}
+<head>
+    <link href="~/Content/CSS/NewsDetails.css" rel="stylesheet" />
+</head>
+
+<div class="container">
+    @{
+            bool two = true;
+
+            foreach (var item in Model)
+            {
+            <div>
+                <h1 class="bold">@Html.DisplayFor(modelItem => item.Title)</h1>
+                <p class="date">@item.Created.ToString("dd.MM.yy")</p>
+            </div>
+            <div>
+                <p>@Html.DisplayFor(modelItem => item.Content)</p>
+            </div>
+
+            if (!two)
+            {
+                <p>@Html.ActionLink("Edit", "Edit", new { id = item.ID }) | @Html.ActionLink("Details", "Details", new { id = item.ID }) | @Html.ActionLink("Delete", "Delete", new { id = item.ID })</p>
+            }
+        }
+    }
+
+    <p class="RedColorUnderline" style="float: none">@Html.ActionLink("Back", "News", "News")</p>
+</div>

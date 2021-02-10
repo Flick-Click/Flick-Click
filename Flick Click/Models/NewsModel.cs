@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace FlickClick_ClassLibary.Models
+namespace Flick_Click.Models
 {
     public class NewsModel
     {

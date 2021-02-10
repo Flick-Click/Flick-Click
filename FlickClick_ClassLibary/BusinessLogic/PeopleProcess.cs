@@ -33,6 +33,5 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
             return SqlDataAccess.LoadData<PeopleModel>(sql);
         }
-
     }
 }
