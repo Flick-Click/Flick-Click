@@ -173,9 +173,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LatestTrailerController.cs" />
-    <Compile Include="Controllers\MostCommentedMovieController.cs" />
-    <Compile Include="Controllers\MovieDetailsController.cs" />
+    <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ShowAllController.cs" />
@@ -244,9 +242,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Contact\Contact.cshtml" />
-    <Content Include="Views\LatestTrailer\LatestTrailer.cshtml" />
-    <Content Include="Views\MostCommentedMovie\MostCommentedMovie.cshtml" />
-    <Content Include="Views\MovieDetails\MovieDetails.cshtml" />
+    <Content Include="Views\Movie\LatestTrailer.cshtml" />
+    <Content Include="Views\Movie\MostCommentedMovie.cshtml" />
+    <Content Include="Views\Movie\MovieDetails.cshtml" />
     <Content Include="Views\News\News.cshtml" />
     <Content Include="Views\ShowAll\ShowAll.cshtml" />
     <Content Include="Views\SignIn\SignIn.cshtml" />
