@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Flick_Click.Models.MovieCommentCountModel>
 
 @{
-    ViewBag.Title = "MostCommentedMovie";
+    ViewBag.Title = "ShowAll";
 }
 <head>
     <link rel="stylesheet" href="~/Content/CSS/Home.css" />
 </head>
 
-<h2>Most Commented movies</h2>
+<h2>Show All</h2>
 
 <br />
 <div class="flex-row movie-row">
@@ -16,8 +16,6 @@
         <div class="div-width">
             <img class="movie-img" src="@item.Img" />
             <br />
-            <p>@item.CommentCount</p>
-            <img class="comment-img" src="https://hmsconco.com/wp-content/uploads/2017/01/red-speech-bubble.png" />
         </div>
     }
 </div>
