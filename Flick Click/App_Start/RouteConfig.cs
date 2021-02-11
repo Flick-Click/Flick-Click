@@ -14,43 +14,27 @@ namespace Flick_Click
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
 
-            //SignUp
-            routes.MapRoute(
-                name: "SignUp",
-                url: "SignUp/{id}",
-                defaults: new { controller = "SignUp", action = "SignUp", id = UrlParameter.Optional }
-            );
-            //SignIn
-            routes.MapRoute(
-                name: "SignIn",
-                url: "SignIn/{id}",
-                defaults: new { controller = "SignIn", action = "SignIn", id = UrlParameter.Optional }
-            );
-            //News
+
             routes.MapRoute(
                 name: "News",
-                url: "News/{action}/{id}",
-                defaults: new { controller = "News", action = "News", id = UrlParameter.Optional }
+                url: "News",
+                new { controller = "News", action = "News", id = UrlParameter.Optional }
             );
-            //Contact
+            routes.MapRoute(
+                name: "ShowAll",
+                url: "ShowAll",
+                new { controller = "ShowAll", action = "ShowAll", id = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+                name: "SignUp",
+                url: "SignUp",
+                new { controller = "SignUp", action = "SignUp", id = UrlParameter.Optional }
+            );
             routes.MapRoute(
                 name: "Contact",
-                url: "Contact/{id}",
-                defaults: new { controller = "Contact", action = "Contact", id = UrlParameter.Optional }
+                url: "Contact",
+                new { controller = "Contact", action = "Contact", id = UrlParameter.Optional }
             );
-            //Movie
-            routes.MapRoute(
-                name: "Movie",
-                url: "Movie/{id}",
-                defaults: new { controller = "Movie", action = "Movie", id = UrlParameter.Optional }
-            );
-            //search
-            routes.MapRoute(
-                name: "Search",
-                url: "Search/{id}",
-                defaults: new { controller = "Search", action = "Search", id = UrlParameter.Optional }
-            );
-
 
             //defaults
             routes.MapRoute(

@@ -30,10 +30,19 @@ namespace FlickClick_ClassLibary.BusinessLogic
             return SqlDataAccess.LoadData<NewsModel>(sql);
         }
 
-        public static List<NewsModel> LoadSingleNews(int id)
+        public static List<NewsModel> LoadSingleNews(Nullable<int> id)
         {
-
             string sql = $"SELECT * FROM news WHERE ID = {id}";
+
+            if (id == null)
+            {
+                sql = $"SELECT * FROM news WHERE ID = 0";
+            }
+            else
+            {
+                sql = $"SELECT * FROM news WHERE ID = {id}";
+            }
+            
 
             return SqlDataAccess.LoadData<NewsModel>(sql);
         }

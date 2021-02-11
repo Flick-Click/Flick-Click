@@ -13,10 +13,12 @@ namespace Flick_Click.Controllers
         {
             return View();
         }
+        // GET: MostCommentedMovie
         public ActionResult MostCommentedMovie()
         {
             return View();
         }
+        // GET: LatestTrailer
         public ActionResult LatestTrailer()
         {
             return View();

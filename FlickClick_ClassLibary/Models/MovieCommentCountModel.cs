@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlickClick_ClassLibary.Models
 {
-    public class MovieModel : IMovie
+    public class MovieCommentCountModel : IMovie
     {
         public int ID { get; set; }
         public string Title { get; set; }
@@ -18,6 +18,5 @@ namespace FlickClick_ClassLibary.Models
         public string Picture_Path { get; set; }
         public int Rating { get; set; }
         public int CommentCount { get; set; }
-
     }
 }

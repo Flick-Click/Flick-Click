@@ -31,10 +31,10 @@ namespace Flick_Click.Controllers
         }
 
         // GET: NewsDetails
-        public ActionResult NewsDetails(int id)
+        public ActionResult NewsDetails(Nullable<int> id)
         {
 
-            var data = LoadSingleNews(id);
+                var data = LoadSingleNews(id);
 
             List<NewsModel> news = new List<NewsModel>();
 

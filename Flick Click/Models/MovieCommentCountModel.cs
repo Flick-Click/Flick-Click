@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Flick_Click.Models
 {
-    public class MovieModel : IMovie
+    public class MovieCommentCountModel: IMovie
     {
         public int ID { get; set; }
         public string Title { get; set; }
@@ -14,6 +14,7 @@ namespace Flick_Click.Models
         public TimeSpan Created { get; set; }
         public int Duration { get; set; }
         public string Description { get; set; }
+        public int CommentCount { get; set; }
         public int Rating { get; set; }
     }
 }
