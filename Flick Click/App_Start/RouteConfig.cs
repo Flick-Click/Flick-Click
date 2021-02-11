@@ -29,7 +29,7 @@ namespace Flick_Click
             //News
             routes.MapRoute(
                 name: "News",
-                url: "News/{id}",
+                url: "News/{action}/{id}",
                 defaults: new { controller = "News", action = "News", id = UrlParameter.Optional }
             );
             //Contact
