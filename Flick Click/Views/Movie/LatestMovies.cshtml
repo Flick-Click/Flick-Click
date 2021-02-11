@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Flick_Click.Models.MovieCommentCountModel>
+
+@{
+    ViewBag.Title = "LatestTrailer";
+}
+
+<head>
+    <link rel="stylesheet" href="~/Content/CSS/Home.css" />
+</head>
+
+<h2>Latest Trailers</h2>
+
+@{
+    bool two = true;
+
+    if (!two)
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    }
+}
+
+<div>
+    <br />
+    <div class="flex-row movie-row">
+        @foreach (var item in Model)
+        {
+            <div class="div-width">
+                <img class="movie-img" src="@item.Img" />
+                <br />
+            </div>
+        }
+    </div>
+</div>
+

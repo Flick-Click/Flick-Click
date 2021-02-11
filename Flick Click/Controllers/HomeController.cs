@@ -18,7 +18,7 @@ namespace Flick_Click.Controllers
 
         public ActionResult LoadMovies()
         {
-            var data = LoadMovie();
+            var data = LoadLatestMovies();
             List<MovieCommentCountModel> Movies = new List<MovieCommentCountModel>();
 
             for (int i = 0; i <= 5; i++)
@@ -37,7 +37,6 @@ namespace Flick_Click.Controllers
 
         public ActionResult LoadMostCommentedMovies()
         {
-
             var data = LoadMovieMostComments();
             List<MovieCommentCountModel> Movies = new List<MovieCommentCountModel>();
 

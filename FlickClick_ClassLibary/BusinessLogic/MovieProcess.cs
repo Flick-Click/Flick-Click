@@ -10,7 +10,17 @@ namespace FlickClick_ClassLibary.BusinessLogic
 {
     public class MovieProcess
     {
-        public static List<MovieCommentCountModel> LoadMovie()
+        public static List<MovieCommentCountModel> LoadMovies()
+        {
+            string sql = @"SELECT movies.ID, Title, Description, Duration, Rating, Picture_Path, Trailer, movies.`Release`, movies.Created, agerestrictions.AgeRestriction, COUNT(comments.Movie_ID) AS CommentCount FROM movies 
+                                INNER JOIN agerestrictions ON movies.Age_Rating = agerestrictions.ID
+                                INNER JOIN comments ON comments.Movie_ID = movies.ID 
+                                GROUP BY movies.ID;";
+
+            return SqlDataAccess.LoadData<MovieCommentCountModel>(sql);
+        }
+
+        public static List<MovieCommentCountModel> LoadLatestMovies()
         {
             string sql = @"SELECT movies.ID, Title, Description, Duration, Rating, Picture_Path, Trailer, movies.`Release`, movies.Created, agerestrictions.AgeRestriction, COUNT(comments.Movie_ID) AS CommentCount FROM movies 
                                 INNER JOIN agerestrictions ON movies.Age_Rating = agerestrictions.ID

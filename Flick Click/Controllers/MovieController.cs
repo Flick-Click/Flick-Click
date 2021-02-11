@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using static FlickClick_ClassLibary.BusinessLogic.MovieProcess;
+using Flick_Click.Models;
 
 namespace Flick_Click.Controllers
 {
@@ -13,15 +15,65 @@ namespace Flick_Click.Controllers
         {
             return View();
         }
+
         // GET: MostCommentedMovie
         public ActionResult MostCommentedMovie()
         {
-            return View();
+            var data = LoadMovieMostComments();
+            List<MovieCommentCountModel> Movies = new List<MovieCommentCountModel>();
+
+            foreach (var movie in data)
+            {
+                Movies.Add(new MovieCommentCountModel
+                {
+                    ID = movie.ID,
+                    Title = movie.Title,
+                    Img = movie.Picture_Path,
+                    CommentCount = movie.CommentCount
+                });
+            }
+
+            return View(Movies);
         }
+
         // GET: LatestTrailer
-        public ActionResult LatestTrailer()
+        public ActionResult LatestMovies()
         {
-            return View();
+            var data = LoadLatestMovies();
+            List<MovieCommentCountModel> Movies = new List<MovieCommentCountModel>();
+
+            foreach (var movie in data)
+            {
+                Movies.Add(new MovieCommentCountModel
+                {
+                    ID = movie.ID,
+                    Title = movie.Title,
+                    Img = movie.Picture_Path,
+                    CommentCount = movie.CommentCount
+                });
+            }
+
+            return View(Movies);
+        }
+
+        // GET: ShowAll
+        public ActionResult ShowAll()
+        {
+            var data = LoadMovies();
+            List<MovieCommentCountModel> Movies = new List<MovieCommentCountModel>();
+
+            foreach (var movie in data)
+            {
+                Movies.Add(new MovieCommentCountModel
+                {
+                    ID = movie.ID,
+                    Title = movie.Title,
+                    Img = movie.Picture_Path,
+                    CommentCount = movie.CommentCount
+                });
+            }
+
+            return View(Movies);
         }
     }
 }
