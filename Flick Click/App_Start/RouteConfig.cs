@@ -40,9 +40,19 @@ namespace Flick_Click
             );
             //Movie
             routes.MapRoute(
-                name: "Movie",
-                url: "Movie/{id}",
-                defaults: new { controller = "Movie", action = "Movie", id = UrlParameter.Optional }
+                name: "LatestTrailer",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Movie", action = "LatestTrailer", id = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+                name: "MostCommentedMovie",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Movie", action = "MostCommentedMovie", id = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+                name: "MovieDetails",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Movie", action = "MovieDetails", id = UrlParameter.Optional }
             );
             //search
             routes.MapRoute(
