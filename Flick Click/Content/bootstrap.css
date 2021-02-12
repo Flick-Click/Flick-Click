@@ -2021,6 +2021,7 @@ pre code {
   .col-md-10,
   .col-md-11,
   .col-md-12 {
+      float: left;
   }
   .col-md-12 {
     width: 100%;
