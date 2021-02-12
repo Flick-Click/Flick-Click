@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Flick_Click.Models.MovieModel>
+
+@{
+    ViewBag.Title = "SearchResult";
+}
+
+<head>
+    <link rel="stylesheet" href="~/Content/CSS/Home.css" />
+</head>
+
+<h1>SearchResult</h1>
+
+<br />
+<div class="flex-row movie-row">
+    @foreach (var item in Model)
+    {
+        <div class="div-width">
+            <img class="movie-img" src="@item.Img" />
+        </div>
+    }
+</div>

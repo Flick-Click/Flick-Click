@@ -13,7 +13,7 @@ namespace FlickClick_ClassLibary.DataAccess
 {
     public static class SqlDataAccess
     {
-        public static string GetConnectionString(string connectionName = "server=localhost;user id=root;Pwd=tim;database=flick_click;persistsecurityinfo=True; allowuservariables=True")
+        public static string GetConnectionString(string connectionName = "server=localhost;user id=root;Pwd=password;database=flick_click;persistsecurityinfo=True; allowuservariables=True")
         {
             return connectionName;
         }

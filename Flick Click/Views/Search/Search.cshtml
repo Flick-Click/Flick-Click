@@ -1,11 +1,31 @@
-﻿
+﻿@model Flick_Click.Models.SearchModel
 @{
     ViewBag.Title = "Search";
+    Layout = null;
 }
 
-<h3><b>CURRENT FILTER</b></h3>
+    @*<form style="display: inline-flex">
+        <p class="H2Spacing HFTekstColor"><b>SEARCH</b></p>
+        <asp:TextBox class="Input1" type="search" name="GSearch" id="GSearch" placeholder="Enter search here" aria-label="Search">
+            <p class="H2Spacing b1 HFTekstColor">@Html.ActionLink("Go!", "Search", "Search", new { GSearch = GSearch.value }, null)</p>
+            <Script>
+                function GetSearchInput() {
+                    var GSearch = document.getElementById("GSearch");
+                }
 
-<div>
+            </Script>
+    </form>*@
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div style="display:inline-flex;">
+            <section style="display: inline-flex">
+                <p class="H2Spacing HFTekstColor"><strong>SEARCH</strong></p>
+                @Html.EditorFor(model => model.Search, new { htmlAttributes = new { @class = "Input1", placeholder = "Enter Search Here" } })
+                @Html.ValidationMessageFor(model => model.Search, "", new { @class = "text-danger" })
 
-</div>
+                <button class="H2Spacing b1 HFTekstColor">GO!</button>
+            </section>
+        </div>
+    }
 

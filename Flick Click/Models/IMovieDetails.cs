@@ -9,7 +9,7 @@ namespace Flick_Click.Models
     interface IMovieDetails
     {
         List<RatingModel> Ratings { get; set; }
-        List<ConnentModel> MyProperty { get; set; }
+        List<ContentModel> MyProperty { get; set; }
         List<DirecotorModel> Director { get; set; }
         List<WriterModel> Writer { get; set; }
     }
