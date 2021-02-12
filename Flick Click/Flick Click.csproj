@@ -183,8 +183,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\CommentModel.cs" />
-    <Compile Include="Models\ConnentModel.cs" />
+    <Compile Include="Models\ContentModel.cs" />
     <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Models\DirecotorModel.cs" />
     <Compile Include="Models\IMovie.cs" />
@@ -258,6 +259,7 @@
     <Content Include="Views\Movie\LatestMovies.cshtml" />
     <Content Include="Views\Movie\MostCommentedMovie.cshtml" />
     <Content Include="Views\Movie\ShowAll.cshtml" />
+    <Content Include="Views\Search\SearchResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

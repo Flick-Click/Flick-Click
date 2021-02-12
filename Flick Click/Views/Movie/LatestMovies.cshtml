@@ -7,30 +7,31 @@
 <head>
     <link rel="stylesheet" href="~/Content/CSS/Home.css" />
 </head>
+<article>
+    <h1>Latest Movies</h1>
 
-<h2>Latest Trailers</h2>
+    @{
+        bool two = true;
 
-@{
-    bool two = true;
-
-    if (!two)
-    {
-        <p>
-            @Html.ActionLink("Create New", "Create")
-        </p>
-    }
-}
-
-<div>
-    <br />
-    <div class="flex-row movie-row">
-        @foreach (var item in Model)
+        if (!two)
         {
-            <div class="div-width">
-                <img class="movie-img" src="@item.Img" />
-                <br />
-            </div>
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
         }
-    </div>
-</div>
+    }
 
+    <div>
+        <br />
+        <div class="flex-row movie-row">
+            @foreach (var item in Model)
+            {
+                <div class="div-width">
+                    <img class="movie-img" src="@item.Img" />
+                    <br />
+                </div>
+            }
+        </div>
+    </div>
+
+</article>

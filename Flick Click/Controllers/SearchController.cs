@@ -10,15 +10,37 @@ namespace Flick_Click.Controllers
 {
     public class SearchController : Controller
     {
-        [HttpPost]
-        // GET: Seach
-        public ActionResult Search(string GSearch)
+
+        // GET: Search
+        public ActionResult Search()
         {
             return View();
-            var data = LoadMovies(GSearch);
-            string Search = GSearch;
+        }
 
-            foreach(var row in data)
+        [HttpPost]
+        public ActionResult Search(string GSearch)
+        {
+            return RedirectToAction("SearchResult", "Search", new { Search = GSearch});
+            
+        }
+
+        // GET: SearchResult
+        public ActionResult SearchResult(string Search)
+        {
+            var data = LoadSearchedMovies(Search);
+            List<MovieModel> Movies = new List<MovieModel>();
+
+            foreach (var movie in data)
+            {
+                Movies.Add(new MovieModel
+                {
+                    ID = movie.ID,
+                    Title = movie.Title,
+                    Img = movie.Picture_Path
+                });
+            }
+
+            return View(Movies);
         }
     }
 }

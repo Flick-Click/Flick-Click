@@ -31,16 +31,12 @@
         <div style="display: flex; flex-direction: column;">
             <dív class="H2Border" style="flex-wrap: wrap; display: inline-flex">
                 <div class="HFTekstColor" style="text-align: left; display: inline-flex">
-                    <p class="H2Spacing"><b>@Html.ActionLink("SHOW ALL", "ShowAll", "ShowAll")</b></p>
-                    <p class="H2Spacing"><b>@Html.ActionLink("LATEST TRAILERS", "LatestTrailer", "Movie")</b></p>
+                    <p class="H2Spacing"><b>@Html.ActionLink("SHOW ALL", "ShowAll", "Movie")</b></p>
+                    <p class="H2Spacing"><b>@Html.ActionLink("LATEST MOVIES", "LatestMovies", "Movie")</b></p>
                     <p class="H2Spacing"><b>@Html.ActionLink("MOST COMMENTED", "MostCommentedMovie", "Movie")</b></p>
                 </div>
                 <div style="text-align: right; display: inline-flex">
-                    <form style="display: inline-flex">
-                        <p class="H2Spacing HFTekstColor"><b>SEARCH</b></p>
-                        <input class="Input1" type="search" name="GSearch" placeholder="Enter search here" aria-label="Search">
-                        <button class="H2Spacing b1 HFTekstColor" type="submit"><b>GO!</b></button>
-                    </form>
+                    @Html.Action("Search","Search")
                 </div>
             </dív>
             <div class="H3Border" style="flex-wrap: wrap; display: inline-flex">

@@ -56,5 +56,12 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
             return SqlDataAccess.LoadData<MovieModel>(sql);
         }
+        
+        public static List<MovieModel> LoadSearchedMovies(string GSearch)
+        {
+            string sql = $"SELECT Title, Picture_Path FROM movie WHERE title LIKE %{GSearch}%;";
+
+            return SqlDataAccess.LoadData<MovieModel>(sql);
+        }
     }
 }

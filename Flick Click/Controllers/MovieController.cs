@@ -75,5 +75,6 @@ namespace Flick_Click.Controllers
 
             return View(Movies);
         }
+
     }
 }

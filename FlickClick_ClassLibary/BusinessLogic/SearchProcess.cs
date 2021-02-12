@@ -10,9 +10,9 @@ namespace FlickClick_ClassLibary.BusinessLogic
 {
     public class SearchProcess
     {
-        public static List<MovieModel> LoadMovies(string GSearch)
+        public static List<MovieModel> LoadSearchedMovies(string Search)
         {
-            string sql = $"SELECT * FROM movie WHERE title LIKE %{GSearch}%;";
+            string sql = $"SELECT ID, Title, Picture_Path FROM movie WHERE Title LIKE %{Search}%;";
 
             return SqlDataAccess.LoadData<MovieModel>(sql);
         }
