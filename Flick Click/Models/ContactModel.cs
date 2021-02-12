@@ -10,7 +10,7 @@ namespace Flick_Click.Models
     {
         [Display(Name = "Full Name")]
         [Required(ErrorMessage = "You need to write you full name")]
-        public string FullName { get; set; }
+        public string Name { get; set; }
 
         [Display(Name = "Email Address:")]
         [DataType(DataType.EmailAddress)]
@@ -18,7 +18,7 @@ namespace Flick_Click.Models
         public string EmailAddress { get; set; }
 
         [DataType(DataType.Text)]
-        [StringLength(1000, MinimumLength = 30, ErrorMessage = "Write an actual sentence")]
+        [StringLength(1000, MinimumLength = 30, ErrorMessage = "Write a minimum of 30 Characters")]
         [Required(ErrorMessage = "It is Probably a good Idea too write a messege if you want to contact us")]
         public string Messege { get; set; }
     }

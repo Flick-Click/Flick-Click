@@ -10,11 +10,11 @@ namespace FlickClick_ClassLibary.BusinessLogic
 {
     public class ContactProcess
     {
-        public static int CreateNews(string name, string email, string message)
+        public static int CreateContact(string Name, string email, string message)
         {
             ContactModel data = new ContactModel
             {
-                Name = name,
+                Name = Name,
                 Email = email,
                 Message = message
             };
