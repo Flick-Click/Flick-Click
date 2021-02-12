@@ -7,31 +7,38 @@
 <head>
     <link rel="stylesheet" href="~/Content/CSS/Home.css" />
 </head>
-<article>
-    <h1>Latest Movies</h1>
 
-    @{
-        bool two = true;
+<h2>Latest Trailers</h2>
 
-        if (!two)
-        {
-            <p>
-                @Html.ActionLink("Create New", "Create")
-            </p>
-        }
+@{
+    bool two = true;
+
+    if (!two)
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
     }
+}
 
-    <div>
-        <br />
-        <div class="flex-row movie-row">
-            @foreach (var item in Model)
-            {
-                <div class="div-width">
+<div>
+    <br />
+    <div class="flex-row movie-row">
+        @foreach (var item in Model)
+        {
+            <div class="div-width">
+                <div class="imageContainer">
                     <img class="movie-img" src="@item.Img" />
-                    <br />
+                    <div class="overlay">
+                    </div>
+                    <div class="overlay2">
+                        <div class="textred">Go to Movie</div>
+                        <div class="playbtnImg"><img style="width:50%;" src="~/Content/Pictures/play-btn.png" /></div>
+                        <div class="textwhite">@item.Title</div>
+                    </div>
                 </div>
-            }
-        </div>
+            </div>
+        }
     </div>
+</div>
 
-</article>

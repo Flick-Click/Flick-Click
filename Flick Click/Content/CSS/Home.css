@@ -20,13 +20,129 @@
     width: 95%;
 }
 
-.comment-img {
-    height: 37px;
-    padding-right: 4%;
-    float: right;
-}
-
 .div-width {
     width: 15%;
     display: inline-block;
+}
+
+
+.imageContainer {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 95%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #262626;
+}
+
+.overlay2 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 95%;
+    opacity: 0;
+    transition: .5s ease;
+}
+
+.imageContainer:hover .overlay {
+    opacity: 0.5;
+}
+
+.imageContainer:hover .overlay2 {
+    opacity: 1;
+}
+
+.textred {
+    color: red;
+    font-size: 1.5vw;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-weight: bold;
+    width: 95%;
+}
+
+.textwhite {
+    color: white;
+    font-size: 1vw;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+}
+
+.playbtnImg {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 50%
+}
+
+@media only screen and (max-width: 600px) {
+    .Countcontainer {
+        position: relative;
+        text-align: center;
+        color: white;
+        width: 100%;
+    }
+
+    .centered {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        bottom: -26px;
+        right: 9px;
+        font-size: 10px !important;
+    }
+
+    .comment-img {
+        padding-right: 4%;
+        float: right;
+        width: 26px;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    .Countcontainer {
+        position: relative;
+        text-align: center;
+        color: white;
+        width: 100%;
+    }
+
+    .centered {
+        position: absolute;
+        bottom: -35px;
+        right: 14px;
+        transform: translate(-50%, -50%);
+    }
+
+    .comment-img {
+        padding-right: 4%;
+        float: right;
+        width: 40px
+    }
 }
