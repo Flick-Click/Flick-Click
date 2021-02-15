@@ -10,12 +10,6 @@ namespace Flick_Click.Controllers
 {
     public class MovieController : Controller
     {
-        // GET: Movie
-        public ActionResult MovieDetails()
-        {
-            return View();
-        }
-
         // GET: MostCommentedMovie
         public ActionResult MostCommentedMovie()
         {
@@ -70,6 +64,34 @@ namespace Flick_Click.Controllers
                     Title = movie.Title,
                     Img = movie.Picture_Path,
                     CommentCount = movie.CommentCount
+                });
+            }
+
+            return View(Movies);
+        }
+
+        // ----------------- Movie Details Section ------------------
+
+        // GET: Movie
+        public ActionResult MovieDetails(Nullable<int> id)
+        {
+            var data = LoadMovieDetails(id);
+            List<MovieModel> Movies = new List<MovieModel>();
+
+            foreach (var movie in data)
+            {
+                Movies.Add(new MovieModel
+                {
+                    ID = movie.ID,
+                    Title = movie.Title,
+                    CommentCount = movie.CommentCount,
+                    Duration = movie.Duration,
+                    Release = movie.Release,
+                    Created = movie.Created,
+                    Img = movie.Picture_Path,
+                    Description = movie.Description,
+                    Trailer = movie.Trailer,
+                    Rating = movie.Rating
                 });
             }
 

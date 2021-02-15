@@ -1,84 +1,66 @@
-﻿@model Flick_Click.Models.MovieModel
+﻿@model IEnumerable<Flick_Click.Models.MovieModel>
 
 @{
     ViewBag.Title = "MovieDetails";
 }
+
 <head>
     <link href="~/Content/CSS/MovieDetails.css" rel="stylesheet" />
 </head>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 
-<div class="grid-container">
-    <div class="Title">
-        <h1 class="bold">MOVIE TITLE</h1>
-    </div>
-    <div class="CommentsAmount">
-        <p class="bold">Comments: Comments_Count</p>
-    </div>
-    <div class="Rating">
-        <p class="bold">Age Rating: </p>
-    </div>
-    <div class="MovieDuration">
-        <p class="bold">Duration: </p> 
-    </div>
-    <div class="Genre">
-        <p class="bold">Genre: </p> 
-    </div>
-    <div class="ReleaseDate">
-        <p class="bold">Release Date: </p>
-    </div>
-    <div class="Image">
-        <img src="" alt="Image" />
-    </div>
-    <div class="Trailer">
-        <h1>Movie Trailer</h1>
-    </div>
-    <div class="Director">
-        <p class="bold">Director: </p>
-    </div>
-    <div class="Writers">
-        <p class="bold">Writers:</p>
-    </div>
-    <div class="Stars">
-        <p class="bold">Stars:</p >
-    </div>
-</div>
 
-<div class="container">
+@foreach (var item in Model)
+{
+
+    <div class="grid-container">
+        <div class="Title">
+            <h1 class="bold">@item.Title</h1>
+        </div>
+        <div class="CommentsAmount">
+            <p class="bold">Comments: @item.CommentCount</p>
+        </div>
+        <div class="Rating">
+            <p class="bold">Age Rating: </p>
+        </div>
+        <div class="MovieDuration">
+            <p class="bold">Duration: @item.Duration</p>
+        </div>
+        <div class="Genre">
+            <p class="bold">Genre: </p>
+        </div>
+        <div class="ReleaseDate">
+            <p class="bold">Release Date: @item.Release.ToString("dd.MM.yy")</p>
+        </div>
+        <div class="Image">
+            <img src="@item.Img" alt="Image"/>
+        </div>
+        <div class="Trailer">
+            <iframe src="@item.Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="Director">
+            <p class="bold">Director: </p>
+        </div>
+        <div class="Writers">
+            <p class="bold">Writers:</p>
+        </div>
+        <div class="Stars">
+            <p class="bold">Stars: @item.Rating</p>
+        </div>
+    </div>
+
     <div class="description">
         <h1 class="bold">Description</h1>
     </div>
     <div>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros,
-            pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus.
-            Donec scelerisque sollicitudin enim eu venenatis. Duis tincidunt laoreet ex,
-            in pretium orci vestibulum eget. Class aptent taciti sociosqu ad litora torquent
-            per conubia nostra, per inceptos himenaeos. Duis pharetra luctus lacus ut
-        </p>
+        <p>@item.Description</p>
     </div>
-    <div>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros,
-            pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus.
-            Donec scelerisque sollicitudin enim eu venenatis. Duis tincidunt laoreet ex,
-            in pretium orci vestibulum eget. Class aptent taciti sociosqu ad litora torquent
-            per conubia nostra, per inceptos himenaeos. Duis pharetra luctus lacus ut
-        </p>
-    </div>
-    <div>
-        <p>Comments: Comments_count</p>
-    </div>
-    <div class="Comment">
-        <p class="bold">Post a comment</p>
-    </div>
-    <div>
-        @Html.TextAreaFor(model => model.Comment, new { @class = "form-control", placeholder = "Write you comment here..." })
-        @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
-    </div>
-    <button class="button bold" type="button">Post</button>
-</div>
 
-<div class="container">
+    @Html.ActionLink("Edit", "Edit", new { id = item.ID });
+    @Html.ActionLink("Details", "Details", new { id = item.ID });
+    @Html.ActionLink("Delete", "Delete", new { id = item.ID });
 
-</div>
+}
