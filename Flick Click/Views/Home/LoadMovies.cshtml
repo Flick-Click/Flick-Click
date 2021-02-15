@@ -20,7 +20,7 @@
     @foreach (var item in Model)
     {
         <div class="col-sm-2">
-            <a href="@Url.Action("MovieDetailsTest", "Movie", new { id = item.ID }, null)">
+            <a href="@Url.Action("MovieDetails", "Movie", new { id = item.ID }, null)">
                 <div class="imageContainer">
 
                     <img class="movie-img" src="@item.Img" />
