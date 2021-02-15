@@ -15,7 +15,7 @@
 
             </Script>
     </form>*@
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("SearchResult","Search", FormMethod.Get))
     {
         @Html.AntiForgeryToken()
         <div style="display:inline-flex;">

@@ -20,7 +20,7 @@ namespace Flick_Click.Controllers
         [HttpPost]
         public ActionResult Search(string GSearch)
         {
-            return RedirectToAction("SearchResult", "Search", new { Search = GSearch});
+            return RedirectToAction("SeachResult", "Search", new { Search = GSearch });
             
         }
 
