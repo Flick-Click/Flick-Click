@@ -8,29 +8,37 @@
     <link rel="stylesheet" href="~/Content/CSS/Home.css" />
 </head>
 
-
-<div class="flex-row" style="height: 40px;">
+<div class="row">
     <p style="float:left">Most commented</p>
     <p style="float:right">@Html.ActionLink("See All", "MostCommentedMovie", "Movie")</p>
 </div>
 <br />
-<div class="flex-row movie-row">
+
+<div class="row">
     @foreach (var item in Model)
     {
-        <div class="div-width">
-            <div class="imageContainer">
-                <img class="movie-img" src="@item.Img" />
-                <div class="overlay">
+        <div class="col-sm-2">
+            
+                <div class="imageContainer">
+
+                    <img class="movie-img" src="@item.Img" />
+                    <div class="overlay">
+                    </div>
+
+                    <div class="overlay2">
+                        <div class="textred">Go to Movie</div>
+                        <div class="playbtnImg">
+                            <a href="@Url.Action("MovieDetailsTest", "Movie", new { id = item.ID }, null)">
+                                <img style="width:50%;" src="~/Content/Pictures/play-btn.png" />
+                            </a>
+                        </div>
+                        <div class="textwhite">@item.Title</div>
+                    </div>
+
                 </div>
-                <div class="overlay2">
-                    <div class="textred">Go to Movie</div>
-                    <div class="playbtnImg"><img style="width:50%;" src="~/Content/Pictures/play-btn.png" /></div>
-                    <div class="textwhite">@item.Title</div>
-                </div>
-            </div>
+            
             <div class="Countcontainer">
-                <img class="comment-img" src="https://hmsconco.com/wp-content/uploads/2017/01/red-speech-bubble.png" />
-                <div class="centered">@item.CommentCount</div>
+                <div>@item.CommentCount</div>
             </div>
         </div>
     }
