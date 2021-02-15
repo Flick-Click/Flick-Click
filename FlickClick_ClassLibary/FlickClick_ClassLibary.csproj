@@ -80,7 +80,6 @@
     <Compile Include="Models\GenreModel.cs" />
     <Compile Include="Models\IMovie.cs" />
     <Compile Include="Models\IPeople.cs" />
-    <Compile Include="Models\MovieCommentCountModel.cs" />
     <Compile Include="Models\MovieModel.cs" />
     <Compile Include="Models\NewsModel.cs" />
     <Compile Include="Models\PeopleModel.cs" />

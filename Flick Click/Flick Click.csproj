@@ -189,9 +189,7 @@
     <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Models\DirecotorModel.cs" />
     <Compile Include="Models\IMovie.cs" />
-    <Compile Include="Models\IMovieDetails.cs" />
     <Compile Include="Models\IPeople.cs" />
-    <Compile Include="Models\MovieCommentCountModel.cs" />
     <Compile Include="Models\MovieModel.cs" />
     <Compile Include="Models\NewsModel.cs" />
     <Compile Include="Models\RatingModel.cs" />
@@ -255,12 +253,12 @@
     <Content Include="Views\SignUp\SignUp.cshtml" />
     <Content Include="Views\News\NewsDetails.cshtml" />
     <Content Include="Views\News\Create.cshtml" />
+    <Content Include="Views\Search\SearchResult.cshtml" />
     <Content Include="Views\Home\LoadMovies.cshtml" />
     <Content Include="Views\Home\LoadMostCommentedMovies.cshtml" />
-    <Content Include="Views\Movie\LatestMovies.cshtml" />
     <Content Include="Views\Movie\MostCommentedMovie.cshtml" />
+    <Content Include="Views\Movie\LatestMovies.cshtml" />
     <Content Include="Views\Movie\ShowAll.cshtml" />
-    <Content Include="Views\Search\SearchResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

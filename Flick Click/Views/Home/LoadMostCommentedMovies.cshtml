@@ -1,7 +1,6 @@
-﻿@model IEnumerable<Flick_Click.Models.MovieCommentCountModel>
+﻿@model IEnumerable<Flick_Click.Models.MovieModel>
 
 @{
-    ViewBag.Title = "LoadMostCommentedMovies";
     Layout = null;
 }
 
@@ -34,5 +33,5 @@
                 <div class="centered">@item.CommentCount</div>
             </div>
         </div>
-     }
+    }
 </div>

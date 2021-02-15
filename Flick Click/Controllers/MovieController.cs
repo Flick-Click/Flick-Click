@@ -20,11 +20,11 @@ namespace Flick_Click.Controllers
         public ActionResult MostCommentedMovie()
         {
             var data = LoadMovieMostComments();
-            List<MovieCommentCountModel> Movies = new List<MovieCommentCountModel>();
+            List<MovieModel> Movies = new List<MovieModel>();
 
             foreach (var movie in data)
             {
-                Movies.Add(new MovieCommentCountModel
+                Movies.Add(new MovieModel
                 {
                     ID = movie.ID,
                     Title = movie.Title,
@@ -40,11 +40,11 @@ namespace Flick_Click.Controllers
         public ActionResult LatestMovies()
         {
             var data = LoadLatestMovies();
-            List<MovieCommentCountModel> Movies = new List<MovieCommentCountModel>();
+            List<MovieModel> Movies = new List<MovieModel>();
 
             foreach (var movie in data)
             {
-                Movies.Add(new MovieCommentCountModel
+                Movies.Add(new MovieModel
                 {
                     ID = movie.ID,
                     Title = movie.Title,
@@ -60,11 +60,11 @@ namespace Flick_Click.Controllers
         public ActionResult ShowAll()
         {
             var data = LoadMovies();
-            List<MovieCommentCountModel> Movies = new List<MovieCommentCountModel>();
+            List<MovieModel> Movies = new List<MovieModel>();
 
             foreach (var movie in data)
             {
-                Movies.Add(new MovieCommentCountModel
+                Movies.Add(new MovieModel
                 {
                     ID = movie.ID,
                     Title = movie.Title,

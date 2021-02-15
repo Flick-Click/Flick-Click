@@ -10,11 +10,13 @@ namespace Flick_Click.Models
     {
         int ID { get; set; }
         string Title { get; set; }
-        string Img { get; set; }
-        TimeSpan Relaease { get; set; }
-        TimeSpan Created { get; set; }
-        int Duration { get; set; }
         string Description { get; set; }
+        int Duration { get; set; }
+        DateTime Release { get; set; }
+        DateTime Created { get; set; }
+        string Trailer { get; set; }
+        string Img { get; set; }
         int Rating { get; set; }
+        int CommentCount { get; set; }
     }
 }
