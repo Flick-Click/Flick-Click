@@ -98,5 +98,23 @@ namespace Flick_Click.Controllers
             return View(Movies);
         }
 
+        // GET: AgeRating
+        public ActionResult MovieAgeRating(Nullable<int> id)
+        {
+            var data = LoadAgeRating(id);
+            List<AgeRatingModel> AgeRaíting = new List<AgeRatingModel>();
+
+            foreach (var rating in data)
+            {
+                AgeRaíting.Add(new AgeRatingModel
+                {
+                    ID = rating.ID,
+                    agerating = rating.AgeRestriction
+                });
+            }
+
+            return View(AgeRaíting);
+        }
+
     }
 }

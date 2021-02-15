@@ -80,5 +80,22 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
             return SqlDataAccess.LoadData<MovieModel>(sql);
         }
+
+        public static List<AgeRatingModel> LoadAgeRating(Nullable<int> id)
+        {
+            string sql;
+
+            if (id == null)
+            {
+                sql = $"SELECT agerestrictions.AgeRestriction FROM movies INNER JOIN agerestrictions ON movies.Age_Rating = agerestrictions.ID WHERE movies.ID = 0";
+
+            }
+            else
+            {
+                sql = $"SELECT agerestrictions.AgeRestriction FROM movies INNER JOIN agerestrictions ON movies.Age_Rating = agerestrictions.ID WHERE movies.ID = {id}";
+            }
+
+            return SqlDataAccess.LoadData<AgeRatingModel>(sql);
+        }
     }
 }

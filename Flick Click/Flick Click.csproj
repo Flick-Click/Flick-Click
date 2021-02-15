@@ -183,6 +183,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AgeRatingModel.cs" />
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\ContentModel.cs" />
@@ -259,6 +260,7 @@
     <Content Include="Views\Movie\MostCommentedMovie.cshtml" />
     <Content Include="Views\Movie\LatestMovies.cshtml" />
     <Content Include="Views\Movie\ShowAll.cshtml" />
+    <Content Include="Views\Movie\MovieAgeRating.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -74,6 +74,7 @@
     <Compile Include="BusinessLogic\SearchProcess.cs" />
     <Compile Include="BusinessLogic\UserProcess.cs" />
     <Compile Include="DataAccess\SqlDataAccess.cs" />
+    <Compile Include="Models\AgeRatingModel.cs" />
     <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Models\DirectorModel.cs" />
