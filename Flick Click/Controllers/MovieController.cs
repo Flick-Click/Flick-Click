@@ -109,7 +109,7 @@ namespace Flick_Click.Controllers
                 AgeRaíting.Add(new AgeRatingModel
                 {
                     ID = rating.ID,
-                    agerating = rating.AgeRestriction
+                    Agerating = rating.AgeRestriction
                 });
             }
 
