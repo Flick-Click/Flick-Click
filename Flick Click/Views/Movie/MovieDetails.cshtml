@@ -24,7 +24,7 @@
             <p class="bold">Comments: @item.CommentCount</p>
         </div>
         <div class="Rating">
-            <p class="bold">Age Rating: </p>
+            <p class="bold">Age Rating: @Html.Action("MovieAgeRating", new { id = item.ID })</p>
         </div>
         <div class="MovieDuration">
             <p class="bold">Duration: @item.Duration</p>
