@@ -11,8 +11,8 @@
 </head>
 
 <div class="row">
-    <p style="float:left">Most commented</p>
-    <p style="float:right">@Html.ActionLink("See All", "MostCommentedMovie", "Movie")</p>
+    <p style="float:left" class="RedText">Most commented</p>
+    <p style="float:right" class="RedColorUnderline">@Html.ActionLink("See All", "MostCommentedMovie", "Movie")</p>
 </div>
 <br />
 
@@ -28,13 +28,13 @@
                 </div>
 
                 <div class="overlay2">
-                    <div class="textred">Go to Movie</div>
+                    <div class="overlay-text-top">Go to Movie</div>
                     <div class="playbtnImg">
                         <a href="@Url.Action("MovieDetails", "Movie", new { id = item.ID }, null)">
                             <img style="width:50%;" src="~/Content/Pictures/play-btn.png" />
                         </a>
                     </div>
-                    <div class="textwhite">@item.Title</div>
+                    <div class="overlay-text-bot">@item.Title</div>
                 </div>
 
             </div>
