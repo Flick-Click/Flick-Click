@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Flick_Click.Models.GenreModel>
+
+@{
+    ViewBag.Title = "MovieGenre";
+    Layout = null;
+}
+
+@{
+
+    string Genres = "";
+
+    foreach (var item in Model)
+    {
+
+        if (Genres == "")
+        {
+            Genres += item.Genre;
+        }
+        else
+        {
+            Genres += ", " + item.Genre;
+
+        }
+    }
+
+    <span class="RedText">@Genres</span>
+}
+
+

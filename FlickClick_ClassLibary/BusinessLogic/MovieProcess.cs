@@ -97,5 +97,60 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
             return SqlDataAccess.LoadData<AgeRatingModel>(sql);
         }
+
+        public static List<GenreModel> LoadGenre(Nullable<int> id)
+        {
+            string sql;
+
+            if (id == null)
+            {
+                sql = $"SELECT Genre FROM movie_genres INNER JOIN movies ON movie_genres.Movie_ID = movies.ID INNER JOIN genres ON movie_genres.Genre_ID = genres.ID WHERE movies.ID = 0";
+
+            }
+            else
+            {
+                sql = $"SELECT Genre FROM movie_genres INNER JOIN movies ON movie_genres.Movie_ID = movies.ID INNER JOIN genres ON movie_genres.Genre_ID = genres.ID WHERE movies.ID = {id}";
+            }
+
+            return SqlDataAccess.LoadData<GenreModel>(sql);
+        }
+
+
+        public static List<DirectorsModel> LoadDirector(Nullable<int> id)
+        {
+            string sql;
+
+            if (id == null)
+            {
+                sql = $" SELECT FirstName, LastName FROM movie_directors INNER JOIN movies ON movie_directors.movieID = movies.ID INNER JOIN people ON movie_directors.PeopleID = people.ID WHERE movies.ID = 0";
+
+            }
+            else
+            {
+                sql = $"SELECT FirstName, LastName FROM movie_directors INNER JOIN movies ON movie_directors.movieID = movies.ID INNER JOIN people ON movie_directors.PeopleID = people.ID WHERE movies.ID = {id}";
+            }
+
+            return SqlDataAccess.LoadData<DirectorsModel>(sql);
+        }
+
+        public static List<WritersModel> LoadWriters(Nullable<int> id)
+        {
+            string sql;
+
+            if (id == null)
+            {
+                sql = $"SELECT FirstName, LastName FROM movie_writers INNER JOIN movies ON movie_writers.movieID = movies.ID INNER JOIN people ON movie_writers.PeopleID = people.ID WHERE movies.ID = 0";
+
+            }
+            else
+            {
+                sql = $"SELECT FirstName, LastName FROM movie_writers INNER JOIN movies ON movie_writers.movieID = movies.ID INNER JOIN people ON movie_writers.PeopleID = people.ID WHERE movies.ID = {id}";
+            }
+
+            return SqlDataAccess.LoadData<WritersModel>(sql);
+        }
+
+
+
     }
 }

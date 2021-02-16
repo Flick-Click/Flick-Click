@@ -32,7 +32,7 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
         public static List<NewsModel> LoadSingleNews(Nullable<int> id)
         {
-            string sql = $"SELECT * FROM news WHERE ID = {id}";
+            string sql;
 
             if (id == null)
             {

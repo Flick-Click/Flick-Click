@@ -24,14 +24,14 @@ namespace FlickClick_ClassLibary.BusinessLogic
             return SqlDataAccess.SaveData<CommentModel>(sql, data);
         }
 
-        public List<CommentModel> LoadComments(int ID)
+        public List<CommentModel> LoadComments(int id)
         {
             string sql = @"SELECT comments.ID, Content, comments.Created, CONCAT(users.FirstName, ' ', users.LastName) AS Name FROM comments LEFT JOIN users ON comments.User_ID = users.ID WHERE Movie_ID = @1 ORDER BY comments.Created DESC;";
 
             return SqlDataAccess.LoadData<CommentModel>(sql);
         }
 
-        public int DeleteComment(int ID)
+        public int DeleteComment(int id)
         {
             string sql = @"DELETE FROM comments WHERE ID = @ID";
 
