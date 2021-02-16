@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using static FlickClick_ClassLibary.BusinessLogic.MovieProcess;
+using static FlickClick_ClassLibary.BusinessLogic.CommentProcess;
 using Flick_Click.Models;
 
 namespace Flick_Click.Controllers
@@ -167,6 +168,26 @@ namespace Flick_Click.Controllers
             }
 
             return View(Directors);
+        }
+
+        // GET: Comments
+        public ActionResult MovieComments(Nullable<int> id)
+        {
+            var data = LoadComments(id);
+            List<CommentsModel> Comments = new List<CommentsModel>();
+
+            foreach (var Comment in data)
+            {
+                Comments.Add(new CommentsModel
+                {
+                    ID = Comment.ID,
+                    Name = Comment.Name,
+                    Created = Comment.Created,
+                    Content = Comment.Content
+                });
+            }
+
+            return View(Comments);
         }
     }
 }

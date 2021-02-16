@@ -184,6 +184,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AgeRatingModel.cs" />
+    <Compile Include="Models\CommentsModel.cs" />
     <Compile Include="Models\GenreModel.cs" />
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\CommentModel.cs" />
@@ -265,6 +266,7 @@
     <Content Include="Views\Movie\MovieGenres.cshtml" />
     <Content Include="Views\Movie\MovieDirectors.cshtml" />
     <Content Include="Views\Movie\MovieWriters.cshtml" />
+    <Content Include="Views\Movie\MovieComments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

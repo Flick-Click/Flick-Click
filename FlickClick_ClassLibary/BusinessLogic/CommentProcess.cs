@@ -10,7 +10,7 @@ namespace FlickClick_ClassLibary.BusinessLogic
 {
     public class CommentProcess
     {
-        public int CreateComment(string content, int movie_ID, int user_ID)
+        public static int CreateComment(string content, int movie_ID, int user_ID)
         {
             CommentModel data = new CommentModel
             {
@@ -24,14 +24,24 @@ namespace FlickClick_ClassLibary.BusinessLogic
             return SqlDataAccess.SaveData<CommentModel>(sql, data);
         }
 
-        public List<CommentModel> LoadComments(int id)
+        public static List<CommentModel> LoadComments(Nullable<int> id)
         {
-            string sql = @"SELECT comments.ID, Content, comments.Created, CONCAT(users.FirstName, ' ', users.LastName) AS Name FROM comments LEFT JOIN users ON comments.User_ID = users.ID WHERE Movie_ID = @1 ORDER BY comments.Created DESC;";
+            string sql;
+
+            if (id == null)
+            {
+                sql = $"SELECT comments.ID, Content, comments.Created, CONCAT(users.FirstName, ' ', users.LastName) AS Name FROM comments LEFT JOIN users ON comments.User_ID = users.ID WHERE Movie_ID = 0 ORDER BY comments.Created DESC;";
+
+            }
+            else
+            {
+                sql = $"SELECT comments.ID, Content, comments.Created, CONCAT(users.FirstName, ' ', users.LastName) AS Name FROM comments LEFT JOIN users ON comments.User_ID = users.ID WHERE Movie_ID = {id} ORDER BY comments.Created DESC;";
+            }
 
             return SqlDataAccess.LoadData<CommentModel>(sql);
         }
 
-        public int DeleteComment(int id)
+        public static int DeleteComment(int id)
         {
             string sql = @"DELETE FROM comments WHERE ID = @ID";
 
