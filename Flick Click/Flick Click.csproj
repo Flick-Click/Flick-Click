@@ -184,11 +184,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AgeRatingModel.cs" />
+    <Compile Include="Models\CommentsModel.cs" />
+    <Compile Include="Models\GenreModel.cs" />
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\ContentModel.cs" />
     <Compile Include="Models\ContactModel.cs" />
-    <Compile Include="Models\DirecotorModel.cs" />
+    <Compile Include="Models\DirectorModel.cs" />
     <Compile Include="Models\IMovie.cs" />
     <Compile Include="Models\IPeople.cs" />
     <Compile Include="Models\MovieModel.cs" />
@@ -261,6 +263,10 @@
     <Content Include="Views\Movie\LatestMovies.cshtml" />
     <Content Include="Views\Movie\ShowAll.cshtml" />
     <Content Include="Views\Movie\MovieAgeRating.cshtml" />
+    <Content Include="Views\Movie\MovieGenres.cshtml" />
+    <Content Include="Views\Movie\MovieDirectors.cshtml" />
+    <Content Include="Views\Movie\MovieWriters.cshtml" />
+    <Content Include="Views\Movie\MovieComments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

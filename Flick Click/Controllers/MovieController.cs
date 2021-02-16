@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using static FlickClick_ClassLibary.BusinessLogic.MovieProcess;
+using static FlickClick_ClassLibary.BusinessLogic.CommentProcess;
 using Flick_Click.Models;
 
 namespace Flick_Click.Controllers
@@ -116,5 +117,77 @@ namespace Flick_Click.Controllers
             return View(AgeRaíting);
         }
 
+        // GET: Genre
+        public ActionResult MovieGenres(Nullable<int> id)
+        {
+            var data = LoadGenre(id);
+            List<GenreModel> Genres = new List<GenreModel>();
+
+            foreach (var Genre in data)
+            {
+                Genres.Add(new GenreModel
+                {
+                    Genre = Genre.Genre
+                });
+            }
+
+            return View(Genres);
+        }
+
+        // GET: Directors
+        public ActionResult MovieDirectors(Nullable<int> id)
+        {
+            var data = LoadDirector(id);
+            List<DirectorModel> Directors = new List<DirectorModel>();
+
+            foreach (var Director in data)
+            {
+                Directors.Add(new DirectorModel
+                {
+                    FirstName = Director.FirstName,
+                    LastName = Director.LastName
+                });
+            }
+
+            return View(Directors);
+        }
+
+        // GET: Directors
+        public ActionResult MovieWriters(Nullable<int> id)
+        {
+            var data = LoadWriters(id);
+            List<WriterModel> Directors = new List<WriterModel>();
+
+            foreach (var Writer in data)
+            {
+                Directors.Add(new WriterModel
+                {
+                    FirstName = Writer.FirstName,
+                    LastName = Writer.LastName
+                });
+            }
+
+            return View(Directors);
+        }
+
+        // GET: Comments
+        public ActionResult MovieComments(Nullable<int> id)
+        {
+            var data = LoadComments(id);
+            List<CommentsModel> Comments = new List<CommentsModel>();
+
+            foreach (var Comment in data)
+            {
+                Comments.Add(new CommentsModel
+                {
+                    ID = Comment.ID,
+                    Name = Comment.Name,
+                    Created = Comment.Created,
+                    Content = Comment.Content
+                });
+            }
+
+            return View(Comments);
+        }
     }
 }

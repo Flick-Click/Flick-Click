@@ -8,59 +8,66 @@
     <link href="~/Content/CSS/MovieDetails.css" rel="stylesheet" />
 </head>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@{
+    foreach (var item in Model)
+    {
+
+        <p>@Html.ActionLink("Edit", "Edit", new { id = item.ID }) @Html.ActionLink("Delete", "Delete", new { id = item.ID })</p>
 
 
-@foreach (var item in Model)
-{
 
-    <div class="grid-container">
-        <div class="Title">
-            <h1 class="bold">@item.Title</h1>
-        </div>
-        <div class="CommentsAmount">
-            <p class="bold">Comments: @item.CommentCount</p>
-        </div>
-        <div class="Rating">
-            <p class="bold">Age Rating: @Html.Action("MovieAgeRating", new { id = item.ID })</p>
-        </div>
-        <div class="MovieDuration">
-            <p class="bold">Duration: @item.Duration</p>
-        </div>
-        <div class="Genre">
-            <p class="bold">Genre: </p>
-        </div>
-        <div class="ReleaseDate">
-            <p class="bold">Release Date: @item.Release.ToString("dd.MM.yy")</p>
-        </div>
-        <div class="Image">
-            <img src="@item.Img" alt="Image"/>
-        </div>
-        <div class="Trailer">
-            <iframe src="@item.Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="Director">
-            <p class="bold">Director: </p>
-        </div>
-        <div class="Writers">
-            <p class="bold">Writers:</p>
-        </div>
-        <div class="Stars">
-            <p class="bold">Stars: @item.Rating</p>
-        </div>
-    </div>
+        TimeSpan t = TimeSpan.FromSeconds(item.Duration);
 
-    <div class="description">
-        <h1 class="bold">Description</h1>
-    </div>
-    <div>
-        <p>@item.Description</p>
-    </div>
+        string answer = string.Format("{0:D2}h {1:D2}m",
+            t.Hours,
+            t.Minutes);
 
-    @Html.ActionLink("Edit", "Edit", new { id = item.ID });
-    @Html.ActionLink("Details", "Details", new { id = item.ID });
-    @Html.ActionLink("Delete", "Delete", new { id = item.ID });
+        <div class="grid-container">
+            <div class="Title">
+                <h1 class="bold">@item.Title</h1>
+            </div>
+            <div class="CommentsAmount">
+                <strong>Comments: @item.CommentCount</strong>
+            </div>
+            <div class="Rating">
+                <strong>Age Rating: @Html.Action("MovieAgeRating", new { id = item.ID })</strong>
+            </div>
+            <div class="MovieDuration">
+                <strong>Duration: @answer</strong>
+            </div>
+            <div class="Genre">
+                <strong>Genre: @Html.Action("MovieGenres", new { id = item.ID })</strong>
+            </div>
+            <div class="ReleaseDate">
+                <strong>Release Date: @item.Release.ToString("dd.MM.yy")</strong>
+            </div>
+            <div class="Image">
+                <img src="@item.Img" alt="Image" />
+            </div>
+            <div class="Trailer">
+                <iframe src="@item.Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="Director">
+                <strong>Director: @Html.Action("MovieDirectors", new { id = item.ID })</strong>
+            </div>
+            <div class="Writers">
+                <strong>Writers: @Html.Action("MovieWriters", new { id = item.ID })</strong>
+            </div>
+            <div class="Stars">
+                <strong>Stars: <span class="RedText">@item.Rating</span></strong>
+            </div>
+        </div>
 
+        <div class="description">
+            <h1 class="bold">Description</h1>
+        </div>
+        <div>
+            <p>@item.Description</p>
+        </div>
+
+
+        <div>
+            @Html.Action("MovieComments", new { id = item.ID })
+        </div>
+    }
 }

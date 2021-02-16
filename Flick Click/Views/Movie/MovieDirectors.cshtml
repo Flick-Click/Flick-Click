@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Flick_Click.Models.DirectorModel>
+
+@{
+    ViewBag.Title = "MovieDirectors";
+    Layout = null;
+}
+
+@{
+
+    string directors = "";
+
+    foreach (var item in Model)
+    {
+
+        if (directors == "")
+        {
+            directors += item.FirstName + " " + item.LastName;
+        }
+        else
+        {
+            directors += ", " + item.FirstName + " " + item.LastName;
+
+        }
+    }
+
+    <span class="RedText">@directors</span>
+}
