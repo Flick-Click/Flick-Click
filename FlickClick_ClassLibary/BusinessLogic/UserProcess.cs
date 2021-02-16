@@ -42,5 +42,13 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
             return SqlDataAccess.DeleteData(sql);
         }
+
+        //Compares the Email and Password that the user input with data in the database
+        public static List<UserModel> SignInValidator(string Email, string Password)
+        {
+            string sql = @"SELECT FirstName, LastName FROM users WHERE Email=@Email AND Password=@Password";
+
+            return SqlDataAccess.LoadData<UserModel>(sql);
+        }
     }
 }

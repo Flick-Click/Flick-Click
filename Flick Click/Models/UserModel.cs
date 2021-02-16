@@ -11,7 +11,7 @@ namespace Flick_Click.Models
     {
         [Display(Name = "First Name")]
         [Required(ErrorMessage = "You need to give us your first name.")]
-        public string FistName { get; set; }
+        public string FirstName { get; set; }
 
         [Display(Name = "LastName")]
         [Required(ErrorMessage = "You need to give us your last name.")]
@@ -30,7 +30,7 @@ namespace Flick_Click.Models
         [Display(Name = "Password")]
         [DataType(DataType.Password)]
         [StringLength(100, MinimumLength = 7, ErrorMessage = "You need to provide a long enough password.")]
-        [Required(ErrorMessage = "You need to give us your first name")]
+        [Required(ErrorMessage = "You need to set a password.")]
         public string Password { get; set; }
 
         [Display(Name = "ConfirmPassword")]
