@@ -20,24 +20,30 @@
     @foreach (var item in Model)
     {
         <div class="col-sm-2">
-            <a href="@Url.Action("MovieDetails", "Movie", new { id = item.ID }, null)">
-                <div class="imageContainer">
 
-                    <img class="movie-img" src="@item.Img" />
-                    <div class="overlay">
-                    </div>
+            <div class="imageContainer">
 
-                    <div class="overlay2">
-                        <div class="textred">Go to Movie</div>
-                        <div class="playbtnImg"><img style="width:50%;" src="~/Content/Pictures/play-btn.png" /></div>
-                        <div class="textwhite">@item.Title</div>
-                    </div>
-
+                <img class="movie-img" src="@item.Img" />
+                <div class="overlay">
                 </div>
-            </a>
-            <div class="Countcontainer">
-                <div>@item.CommentCount</div>
+
+                <div class="overlay2">
+                    <div class="textred">Go to Movie</div>
+                    <div class="playbtnImg">
+                        <a href="@Url.Action("MovieDetails", "Movie", new { id = item.ID }, null)">
+                            <img style="width:50%;" src="~/Content/Pictures/play-btn.png" />
+                        </a>
+                    </div>
+                    <div class="textwhite">@item.Title</div>
+                </div>
+
             </div>
+            <div class="Countcontainerfix">
+                <div class="Countcontainer">
+                    <div>@item.CommentCount</div>
+                </div>
+            </div>
+
         </div>
     }
 </div>
