@@ -7,6 +7,7 @@
 
 <head>
     <link rel="stylesheet" href="~/Content/CSS/Home.css" />
+    <script src="https://kit.fontawesome.com/d459c7b260.js" crossorigin="anonymous"></script>
 </head>
 
 <div class="row">
@@ -20,27 +21,29 @@
     {
         <div class="col-sm-2">
             
-                <div class="imageContainer">
+            <div class="imageContainer">
 
-                    <img class="movie-img" src="@item.Img" />
-                    <div class="overlay">
-                    </div>
-
-                    <div class="overlay2">
-                        <div class="textred">Go to Movie</div>
-                        <div class="playbtnImg">
-                            <a href="@Url.Action("MovieDetails", "Movie", new { id = item.ID }, null)">
-                                <img style="width:50%;" src="~/Content/Pictures/play-btn.png" />
-                            </a>
-                        </div>
-                        <div class="textwhite">@item.Title</div>
-                    </div>
-
+                <img class="movie-img" src="@item.Img" />
+                <div class="overlay">
                 </div>
-            
-            <div class="Countcontainer">
-                <div>@item.CommentCount</div>
+
+                <div class="overlay2">
+                    <div class="textred">Go to Movie</div>
+                    <div class="playbtnImg">
+                        <a href="@Url.Action("MovieDetails", "Movie", new { id = item.ID }, null)">
+                            <img style="width:50%;" src="~/Content/Pictures/play-btn.png" />
+                        </a>
+                    </div>
+                    <div class="textwhite">@item.Title</div>
+                </div>
+
             </div>
+            <div class="Countcontainerfix">
+                <div class="Countcontainer">
+                    <div>@item.CommentCount</div>
+                </div>
+            </div>
+            
         </div>
     }
 </div>
