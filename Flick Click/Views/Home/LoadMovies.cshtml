@@ -10,8 +10,10 @@
 </head>
 
 <div class="row">
-    <p style="float:left">Latest Trailers</p>
-    <p style="float:right">@Html.ActionLink("Show All", "LatestMovies", "Movie")</p>
+    <div class="col-lg-12">
+        <p style="float:left" class="RedText">Latest Trailers</p>
+        <p style="float:right" class="RedColorUnderline">@Html.ActionLink("Show All", "LatestMovies", "Movie")</p>
+    </div>
 </div>
 <br />
 
@@ -28,13 +30,13 @@
                 </div>
 
                 <div class="overlay2">
-                    <div class="textred">Go to Movie</div>
+                    <div class="overlay-text-top">Go to Movie</div>
                     <div class="playbtnImg">
                         <a href="@Url.Action("MovieDetails", "Movie", new { id = item.ID }, null)">
                             <img style="width:50%;" src="~/Content/Pictures/play-btn.png" />
                         </a>
                     </div>
-                    <div class="textwhite">@item.Title</div>
+                    <div class="overlay-text-bot">@item.Title</div>
                 </div>
 
             </div>

@@ -43,7 +43,7 @@
 .imageContainer:hover .overlay2 {
     opacity: 1;
 }
-.textred {
+.overlay-text-top {
     color: red;
     font-size: 20px;
     position: absolute;
@@ -56,7 +56,7 @@
     font-weight: bold;
     width: 100%;
 }
-.textwhite {
+.overlay-text-bot {
     color: white;
     font-size: 15px;
     position: absolute;
@@ -145,3 +145,4 @@
     width: 100%;
     height: 60px;
 }
+
