@@ -6,7 +6,8 @@
 }
 
 <head>
-    <link rel="stylesheet" href="~/Content/CSS/Home.css" />
+    <link rel="stylesheet" href="~/Content/CSS/MovieDefault.css" />
+    <link rel="stylesheet" href="~/Content/CSS/Countcontainer.css" />
     <script src="https://kit.fontawesome.com/d459c7b260.js" crossorigin="anonymous"></script>
 </head>
 
@@ -21,8 +22,8 @@
 <div class="row">
     @foreach (var item in Model)
     {
-        <div class="col-sm-2">
-            
+        <div class="col-sm-12 col-md-4 col-lg-2">
+
             <div class="imageContainer">
 
                 <img class="movie-img" src="@item.Img" />
@@ -40,12 +41,9 @@
                 </div>
 
             </div>
-            <div class="Countcontainerfix">
-                <div class="Countcontainer">
-                    <div>@item.CommentCount</div>
-                </div>
+            <div class="Countcontainer">
+                <div>@item.CommentCount</div>
             </div>
-            
         </div>
     }
 </div>

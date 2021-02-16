@@ -6,6 +6,7 @@
 }
 
 <head>
+    <link rel="stylesheet" href="~/Content/CSS/MovieDefault.css" />
     <link rel="stylesheet" href="~/Content/CSS/Home.css" />
 </head>
 
@@ -21,7 +22,7 @@
 <div class="row">
     @foreach (var item in Model)
     {
-        <div class="col-sm-2">
+        <div class="col-sm-12 col-md-4 col-lg-2">
 
             <div class="imageContainer">
 
@@ -40,12 +41,9 @@
                 </div>
 
             </div>
-            <div class="Countcontainerfix">
-                <div class="Countcontainer">
-                    <div>@item.CommentCount</div>
-                </div>
+            <div class="Countcontainer">
+                <div>@item.CommentCount</div>
             </div>
-
         </div>
     }
 </div>

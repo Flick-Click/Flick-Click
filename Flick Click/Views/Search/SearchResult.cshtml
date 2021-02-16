@@ -5,25 +5,33 @@
 }
 
 <head>
-    <link rel="stylesheet" href="~/Content/CSS/Home.css" />
+    <link rel="stylesheet" href="~/Content/CSS/MovieDefault.css" />
 </head>
 
 <h1>Search result</h1>
 
 <br />
-<div class="flex-row movie-row">
+<div class="row">
     @foreach (var item in Model)
     {
-        <div class="div-width">
+        <div class="col-sm-12 col-md-4 col-lg-2">
+
             <div class="imageContainer">
+
                 <img class="movie-img" src="@item.Img" />
                 <div class="overlay">
                 </div>
+
                 <div class="overlay2">
-                    <div class="textred">Go to Movie</div>
-                    <div class="playbtnImg"><img style="width:50%;" src="~/Content/Pictures/play-btn.png" /></div>
-                    <div class="textwhite">@item.Title</div>
+                    <div class="overlay-text-top">Go to Movie</div>
+                    <div class="playbtnImg">
+                        <a href="@Url.Action("MovieDetails", "Movie", new { id = item.ID }, null)">
+                            <img style="width:50%;" src="~/Content/Pictures/play-btn.png" />
+                        </a>
+                    </div>
+                    <div class="overlay-text-bot">@item.Title</div>
                 </div>
+
             </div>
         </div>
     }
