@@ -150,7 +150,11 @@ namespace FlickClick_ClassLibary.BusinessLogic
             return SqlDataAccess.LoadData<WritersModel>(sql);
         }
 
+        public static int DeleteMovie(Nullable<int> id)
+        {
+            string sql = $"DELETE FROM comments WHERE ID = {id}";
 
-
+            return SqlDataAccess.DeleteData(sql);
+        }
     }
 }

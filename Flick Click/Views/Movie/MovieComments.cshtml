@@ -12,7 +12,7 @@
         <strong>@item.Name <span class="RedText">@item.Created</span></strong>
         <p>@item.Content</p>
 
-        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        @Html.ActionLink("Delete", "Movie", new { id = item.ID, MovieID = item.Movie_ID })
     </div>
 }
 <hr />

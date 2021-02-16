@@ -181,6 +181,7 @@ namespace Flick_Click.Controllers
                 Comments.Add(new CommentsModel
                 {
                     ID = Comment.ID,
+                    Movie_ID = Comment.Movie_ID,
                     Name = Comment.Name,
                     Created = Comment.Created,
                     Content = Comment.Content
@@ -188,6 +189,14 @@ namespace Flick_Click.Controllers
             }
 
             return View(Comments);
+        }
+
+        // Get: MovieDetails
+        public ActionResult Delete(Nullable<int> id, int MovieID)
+        {
+            DeleteComment(id);
+
+            return RedirectToAction("MovieDetails", new { id = MovieID });
         }
     }
 }

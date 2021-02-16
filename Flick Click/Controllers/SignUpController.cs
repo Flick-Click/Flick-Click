@@ -20,7 +20,7 @@ namespace Flick_Click.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SignUp(UserModel model)
         {
-            CreateUser(model.FistName, model.LastName, model.Password, model.EmailAddress, model.TelefonNummer);
+            CreateUser(model.FirstName, model.LastName, model.Password, model.EmailAddress, model.TelefonNummer);
             return RedirectToAction("../Home/Index");
         }
     }

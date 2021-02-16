@@ -19,8 +19,8 @@ namespace FlickClick_ClassLibary.BusinessLogic
                 FirstName = firstname,
                 LastName = lastname,
                 Password = password,
-                EmailAddress = email,
-                TelefonNummer = tlfnr
+                Email = email,
+                TlfNr = tlfnr
             };
 
             string sql = @"INSERT INTO flick_click.users(FirstName, LastName, Password, Email, TlfNr, ProfilePicture, Group_ID) VALUES(@FirstName, @LastName, @Password, @EmailAddress, @TelefonNummer, '~/Content/Pictures/img-person-placeholder.png', @Group_ID);";

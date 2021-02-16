@@ -30,20 +30,20 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
             if (id == null)
             {
-                sql = $"SELECT comments.ID, Content, comments.Created, CONCAT(users.FirstName, ' ', users.LastName) AS Name FROM comments LEFT JOIN users ON comments.User_ID = users.ID WHERE Movie_ID = 0 ORDER BY comments.Created DESC;";
+                sql = $"SELECT comments.ID, Content, comments.Created, Movie_ID, CONCAT(users.FirstName, ' ', users.LastName) AS Name FROM comments LEFT JOIN users ON comments.User_ID = users.ID WHERE Movie_ID = 0 ORDER BY comments.Created DESC;";
 
             }
             else
             {
-                sql = $"SELECT comments.ID, Content, comments.Created, CONCAT(users.FirstName, ' ', users.LastName) AS Name FROM comments LEFT JOIN users ON comments.User_ID = users.ID WHERE Movie_ID = {id} ORDER BY comments.Created DESC;";
+                sql = $"SELECT comments.ID, Content, comments.Created, Movie_ID, CONCAT(users.FirstName, ' ', users.LastName) AS Name FROM comments LEFT JOIN users ON comments.User_ID = users.ID WHERE Movie_ID = {id} ORDER BY comments.Created DESC;";
             }
 
             return SqlDataAccess.LoadData<CommentModel>(sql);
         }
 
-        public static int DeleteComment(int id)
+        public static int DeleteComment(Nullable<int> id)
         {
-            string sql = @"DELETE FROM comments WHERE ID = @ID";
+            string sql = $"DELETE FROM comments WHERE ID = {id}";
 
             return SqlDataAccess.DeleteData(sql);
         }
