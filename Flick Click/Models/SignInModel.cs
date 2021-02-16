@@ -8,6 +8,10 @@ namespace Flick_Click.Models
 {
     public class SignInModel
     {
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
         [DataType(DataType.EmailAddress)]
         [Required(ErrorMessage = "You need to give an Email Address.")]
         public string EmailAddress { get; set; }
