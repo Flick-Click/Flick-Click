@@ -1,6 +1,8 @@
-﻿body {
+﻿body{
 }
-.grid-container {
+
+/* The Containers and bold class*/
+.grid-container{
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
 }
@@ -9,7 +11,11 @@
     margin: 2px;
 }
 
+.bold{
+    font-weight: bold;
+}
 
+/* The grid Setup*/
 .Title{
     grid-column: 1/ span 2;
 }
@@ -24,12 +30,10 @@
     text-align: right;
 }
 
-.bold{
-    font-weight: bold;
-}
 .ReleaseDate{
     text-align: right;
 }
+
 .Trailer{
     grid-column: 2 / span 3;
 }
@@ -53,30 +57,37 @@
     text-align: right;
 }
 
-.Comment{
-    grid-column: 1 / span 4;
-}
 
 .container textarea{
     grid-column: 1 / span 4;
     width: 100%;
     height: 125px;
 }
-.button{
-    width: 90px;
-    height: 22px;
-    background-color: #fff;
-    margin-top: 5px;
-    border: solid black 1.5px
-}
-.description h1 {
+
+/* The Description and adding a comment*/
+
+.description h1{
     font-size: 1.5em;
 }
+
+.description p{
+    font-size: 0.86em;
+}
+
 .col-12{
     padding: 0px;
 }
+
 .btn{
     padding: 0px;
     width: 4.2em;
-    border: 1.4px solid black
+    border: 1.4px solid black;
+    background-color: #fff;
+    color: black;
+}
+
+/* Comments */
+
+.Comment p{
+    font-size: 0.86em;
 }

@@ -186,6 +186,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AgeRatingModel.cs" />
+    <Compile Include="Models\SignedInModel.cs" />
     <Compile Include="Models\CommentsModel.cs" />
     <Compile Include="Models\GenreModel.cs" />
     <Compile Include="Models\SearchModel.cs" />
@@ -376,6 +377,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\SignIn\SignedIn.cshtml" />
+    <Content Include="Views\Movie\Comment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

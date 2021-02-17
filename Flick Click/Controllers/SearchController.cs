@@ -17,13 +17,6 @@ namespace Flick_Click.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Search(string GSearch)
-        {
-            return RedirectToAction("SeachResult", "Search", new { Search = GSearch });
-            
-        }
-
         // GET: SearchResult
         public ActionResult SearchResult(string Search)
         {

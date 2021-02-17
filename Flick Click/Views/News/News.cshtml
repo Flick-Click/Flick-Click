@@ -15,19 +15,31 @@
 @{
     bool two = true;
 
-    if (!two)
+    if (two)
     {
         <p>
-            @Html.ActionLink("Create New", "Create")
+            @Html.ActionLink("Create new", "Create")
         </p>
     };
 }
 
-@foreach (var item in Model)
-{
-    <h2 class="bold">@item.Title</h2>
-    <p class="date">@item.Created.ToString("dd.MM.yy")</p>
-    <p>@item.Content.Substring(0, 500)...</p>
-    <p class="RedColorUnderline" style="float: none">@Html.ActionLink("Read more", "NewsDetails", new { id = item.ID.ToString() }, null)</p>
-    <br />
+
+@{
+    foreach (var item in Model)
+    {
+        <h2 class="bold">@item.Title</h2>
+        <p class="date">@item.Created.ToString("dd.MM.yy")</p>
+
+        if (item.Content.Length != 500)
+        {
+            <p>@item.Content</p>
+        }
+        else
+        {
+            <p>@item.Content.Substring(0, 500)...</p>
+        }
+
+        <p class="RedColorUnderline" style="float: none">@Html.ActionLink("Read more", "NewsDetails", new { id = item.ID.ToString() }, null)</p>
+        <br />
+    }
 }

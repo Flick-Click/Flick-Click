@@ -22,25 +22,29 @@ namespace Flick_Click.Controllers
         public ActionResult SignInValidation(string Email, string Password)
         {
             var data = SignInValidator(Email, Password);
-            List<SignInModel> SignIn = new List<SignInModel>();
+            List<SignedInModel> SignIn = new List<SignedInModel>();
 
 
             foreach (var users in data)
             {
-                SignIn.Add(new SignInModel
+                SignIn.Add(new SignedInModel
                 {
                     FirstName = users.FirstName,
                     LastName = users.LastName
                 });
             }
+            ViewBag.Message = SignIn;
+            return RedirectToAction("SignedIn", "SignIn");
             if (data != null)
             {
-                return RedirectToAction("_Layout", "Shared", new { name = SignIn });
+                ViewBag.Message = SignIn;
+                return RedirectToAction("SignedIn", "SignIn");
             }
             else
             {
                 return RedirectToAction("Contact", "Contact");
             }
+            
 
         }
     }

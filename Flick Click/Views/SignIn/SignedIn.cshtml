@@ -1,7 +1,18 @@
-﻿
+﻿@model Flick_Click.Models.SignInModel
 @{
     ViewBag.Title = "SignedIn";
 }
 
-<h2>SignedIn</h2>
+<div>
+    @{
+        var name = ViewBag.Message;
+    }
+    <strong>
+        @name.FirstName;
+    </strong>
+    <strong>
+        @name.LastName;
+    </strong>
+
+</div>
 
