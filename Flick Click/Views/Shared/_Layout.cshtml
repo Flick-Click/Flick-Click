@@ -9,26 +9,23 @@
 </head>
 <body style=" position: relative; min-height: 100%;">
     <div class="navbar navbar-inverse navbar-static-top HFBackground HLinkFix">
-        <div class="">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="https://localhost:44355/">
-                    <img src="~/Content/Pictures/logo.png" />
-                </a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav HPlacement">
-                    <li style="font-weight: bold;">@Html.ActionLink("HOME", "Index", "Home")</li>
-                    <li style="font-weight: bold;">@Html.ActionLink("NEWS", "News", "News")</li>
-                    <li style="font-weight: bold;">@Html.ActionLink("CONTACT", "Contact", "Contact")</li>
-                </ul>
-            </div>
+        <div class="col-12">
+            <a href="https://localhost:44355/" style="float: left">
+                <img src="~/Content/Pictures/logo.png" />
+            </a>
+            <ul class="nav HPlacement HFTekstColor">
+                <li class="nav-item">
+                    <b class="nav-link active">@Html.ActionLink("HOME", "Index", "Home")</b>
+                </li>
+                <li class="nav-item">
+                    <b class="nav-link">@Html.ActionLink("NEWS", "News", "News")</b>
+                </li>
+                <li class="nav-item">
+                    <b class="nav-link">@Html.ActionLink("CONTACT", "Contact", "Contact")</b>
+                </li>
+            </ul>
         </div>
-        <div style="display: flex; flex-direction: column;">
+        <div class="col-12" style="display: flex; flex-direction: column; padding: 0px;">
             <dív class="H2Border" style="flex-wrap: wrap; display: inline-flex">
                 <div class="HFTekstColor" style="text-align: left; display: inline-flex">
                     <p class="H2Spacing"><b>@Html.ActionLink("SHOW ALL", "ShowAll", "Movie")</b></p>
@@ -36,7 +33,7 @@
                     <p class="H2Spacing"><b>@Html.ActionLink("MOST COMMENTED", "MostCommentedMovie", "Movie")</b></p>
                 </div>
                 <div style="text-align: right; display: inline-flex">
-                    @Html.Action("Search","Search")
+                    @Html.Action("Search", "Search")
                 </div>
             </dív>
             <div class="H3Border" style="flex-wrap: wrap; display: inline-flex">
@@ -51,7 +48,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 
     <div class="container body-content">
@@ -70,7 +67,7 @@
             <div style="width: 50%; margin-left: 10px">
                 <div style="text-align: right">
                     <b style="float: left;">COMING SOON</b>
-                    <p class="FLinkFix RedColorUnderline">@Html.ActionLink("SHOW ALL", "ShowAll", "ShowAll")</p>
+                    <p class="FLinkFix RedColorUnderline">@Html.ActionLink("LATEST MOVIES", "LatestMovies", "Movie")</p>
                 </div>
                 <div>
 

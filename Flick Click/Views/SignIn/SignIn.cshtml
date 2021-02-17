@@ -1,31 +1,31 @@
-﻿@{
-    ViewBag.Title = "SighIn";
+﻿@model Flick_Click.Models.UserModel
+@{
+    ViewBag.Title = "SignIn";
+    Layout = null;
 }
-
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+@*<div style="display: inline-flex;"></div>
+    <div style="display: inline-flex;text-align: right; flex-wrap: wrap;">
+        <form style="display: inline-flex;">
+            <input class="Input1" type="Email" placeholder="Email" aria-label="Email">
+            <input class="Input1" type="Password" placeholder="password" aria-label="Password">
+        </form>
+        <button class="H2Spacing b1 HFTekstColor" type="submit">Sign In</button>
+        <button class="H2Spacing b1 HFTekstColor">@Html.ActionLink("Not a member?", "SignUp", "SignUp")</button>
+    </div>*@
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+        @Html.AntiForgeryToken()
+        <div style="display:inline-flex;">
+            <section style="display: inline-flex">
+                @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "Input1", placeholder = "Email" } })
+                @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "Input1", placeholder = "Password" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+                <button class="H2Spacing b1 HFTekstColor">Sign In</button>
+            </section>
+        </div>
+    }
 </div>
