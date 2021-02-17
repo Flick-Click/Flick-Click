@@ -25,7 +25,7 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        <div style="text-align: center;">
+        <div>
             <div>
                 <p class="ContactTitle"><b>Get in touch</b></p>
             </div>
@@ -47,7 +47,7 @@
                             @Html.TextAreaFor(model => model.Messege, new { @class = "form-control  massege-box", placeholder = "Your Message..." })
                             @Html.ValidationMessageFor(model => model.Messege, "", new { @class = "text-danger" })
                         </div>
-                        <button class="btn btn-default form-group">Send</button>
+                        <button class="btn">Send</button>
                     </div>
                     <div class="col-sm-3">
 
