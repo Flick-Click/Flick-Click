@@ -14,7 +14,7 @@
     </div>*@
 
 <div class="row">
-    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
         <div style="display:inline-flex;">
