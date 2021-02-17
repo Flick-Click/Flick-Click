@@ -18,6 +18,6 @@ namespace FlickClick_ClassLibary.Models
         public string Picture_Path { get; set; }
         public int Rating { get; set; }
         public int CommentCount { get; set; }
-
+        public int Age_Rating { get; set; }
     }
 }

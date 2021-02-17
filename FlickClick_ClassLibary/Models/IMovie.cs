@@ -16,6 +16,7 @@ namespace FlickClick_ClassLibary.Models
         DateTime Created { get; set; }
         string Trailer { get; set; }
         string Picture_Path { get; set; }
+        int Age_Rating { get; set; }
         int Rating { get; set; }
     }
 }
