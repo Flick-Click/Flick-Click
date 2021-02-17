@@ -77,6 +77,7 @@
     <Compile Include="Models\AgeRatingModel.cs" />
     <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\ContactModel.cs" />
+    <Compile Include="Models\LastInsertedIDModel.cs" />
     <Compile Include="Models\WritersModel.cs" />
     <Compile Include="Models\DirectorsModel.cs" />
     <Compile Include="Models\GenreModel.cs" />
