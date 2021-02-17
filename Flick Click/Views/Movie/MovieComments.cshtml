@@ -10,10 +10,10 @@
 {
     using (Html.BeginForm("Delete", "Movie", new { id = item.ID, MovieID = item.Movie_ID}))
     {
-        <div>
+        <div class="Comment">
             <strong>@item.Name <span class="RedText">@item.Created</span></strong>
             <p>@item.Content</p>
-            <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete record with ID = @item.ID');" />
+            <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete record with ID = @item.ID');" class="btn" />
         </div>
     }
 }
