@@ -196,12 +196,12 @@ namespace Flick_Click.Controllers
             return View();
         }
 
-        // Get: MovieDetails
+        [HttpPost]
         public ActionResult Delete(Nullable<int> id, int MovieID)
         {
             DeleteComment(id);
 
-            return RedirectToAction("MovieDetails", new { id = MovieID });
+            return RedirectToAction("MovieDetails", "Movie", new { id = MovieID });
         }
     }
 }
