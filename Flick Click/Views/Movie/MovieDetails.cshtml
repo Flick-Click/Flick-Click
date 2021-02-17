@@ -24,22 +24,22 @@
 
         <div class="grid-container">
             <div class="Title">
-                <h1 class="bold">@item.Title</h1>
+                <h1><b>@item.Title</b></h1>
             </div>
             <div class="CommentsAmount">
-                <strong>Comments: @item.CommentCount</strong>
+                <b>Comments: @item.CommentCount</b>
             </div>
             <div class="Rating">
-                <strong>Age Rating: @Html.Action("MovieAgeRating", new { id = item.ID })</strong>
+                <b>Age Rating: @Html.Action("MovieAgeRating", new { id = item.ID })</b>
             </div>
             <div class="MovieDuration">
-                <strong>Duration: @answer</strong>
+                <b>Duration: <span class="RedText">@answer</span> </b>
             </div>
             <div class="Genre">
-                <strong>Genre: @Html.Action("MovieGenres", new { id = item.ID })</strong>
+                <b>Genre: @Html.Action("MovieGenres", new { id = item.ID })</b>
             </div>
             <div class="ReleaseDate">
-                <strong>Release Date: @item.Release.ToString("dd.MM.yy")</strong>
+                <b>Release Date: <span class="RedText">@item.Release.ToString("dd.MM.yy")</span></b>
             </div>
             <div class="Image">
                 <img src="@item.Img" alt="Image" />
@@ -48,25 +48,27 @@
                 <iframe src="@item.Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="Director">
-                <strong>Director: @Html.Action("MovieDirectors", new { id = item.ID })</strong>
+                <b>Director: @Html.Action("MovieDirectors", new { id = item.ID })</b>
             </div>
             <div class="Writers">
-                <strong>Writers: @Html.Action("MovieWriters", new { id = item.ID })</strong>
+                <b>Writers: @Html.Action("MovieWriters", new { id = item.ID })</b>
             </div>
             <div class="Stars">
-                <strong>Stars: <span class="RedText">@item.Rating</span></strong>
+                <b>Stars: <span class="RedText">@item.Rating</span></b>
             </div>
         </div>
 
         <div class="description">
-            <h1 class="bold">Description</h1>
-        </div>
-        <div>
+            <h1><b>Description</b></h1>
             <p>@item.Description</p>
         </div>
 
 
         <div>
+            <div>
+                <b>Comments: @item.CommentCount</b>
+            </div>
+            @Html.Action("Comment", new { id = item.ID })
             @Html.Action("MovieComments", new { id = item.ID })
         </div>
     }

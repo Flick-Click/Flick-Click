@@ -8,24 +8,22 @@
     font-size:12px;
     margin: 2px;
 }
-.container{
-    padding: 2px;
-}
+
+
 .Title{
     grid-column: 1/ span 2;
 }
+
 .Title h1{
     margin-top: 0;
     font-size: 1.7em;
-}
-.description h1{
-    font-size: 1.5em;
 }
 
 .CommentsAmount{
     grid-column: 3 / span 2;
     text-align: right;
 }
+
 .bold{
     font-weight: bold;
 }
@@ -70,4 +68,15 @@
     background-color: #fff;
     margin-top: 5px;
     border: solid black 1.5px
+}
+.description h1 {
+    font-size: 1.5em;
+}
+.col-12{
+    padding: 0px;
+}
+.btn{
+    padding: 0px;
+    width: 4.2em;
+    border: 1.4px solid black
 }

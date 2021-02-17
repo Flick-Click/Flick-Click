@@ -8,11 +8,13 @@
 
 @foreach (var item in Model)
 {
-    <div>
-        <strong>@item.Name <span class="RedText">@item.Created</span></strong>
-        <p>@item.Content</p>
-
-        @Html.ActionLink("Delete", "Movie", new { id = item.ID, MovieID = item.Movie_ID })
-    </div>
+    using (Html.BeginForm("Delete", "Movie", new { id = item.ID}))
+    {
+<div>
+    <strong>@item.Name <span class="RedText">@item.Created</span></strong>
+    <p>@item.Content</p>
+    <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete record with ID = @item.ID');" />
+</div>
+    }
 }
 <hr />

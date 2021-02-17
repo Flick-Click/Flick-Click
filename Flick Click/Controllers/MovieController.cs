@@ -190,6 +190,11 @@ namespace Flick_Click.Controllers
 
             return View(Comments);
         }
+         // Get: Commentform
+        public ActionResult Comment(Nullable<int> id)
+        {
+            return View();
+        }
 
         // Get: MovieDetails
         public ActionResult Delete(Nullable<int> id, int MovieID)

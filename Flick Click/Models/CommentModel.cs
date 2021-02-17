@@ -8,6 +8,10 @@ namespace Flick_Click.Models
 {
     public class CommentModel
     {
+        public int UserID { get; set; } = 1;
+
+        public int MovieID { get; set; }
+        
         [Display(Name = "Comment")]
         [StringLength(1000, MinimumLength = 10, ErrorMessage = "Write an actual sentence")]
         [Required(ErrorMessage = "if you want to write a comment atleast write something")]
