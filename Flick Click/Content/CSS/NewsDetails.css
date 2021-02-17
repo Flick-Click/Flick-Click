@@ -4,8 +4,8 @@
 .container{
     padding:2px
 }
-.bold{
-    font-weight: bold;
+h1{
+    font-size: 1.8em;
 }
 .date{
     color: red;
