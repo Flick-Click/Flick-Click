@@ -34,7 +34,7 @@ namespace Flick_Click.Controllers
         public ActionResult NewsDetails(Nullable<int> id)
         {
 
-                var data = LoadSingleNews(id);
+            var data = LoadSingleNews(id);
 
             List<NewsModel> news = new List<NewsModel>();
 
@@ -51,9 +51,21 @@ namespace Flick_Click.Controllers
             return View(news);
         }
 
-        // GET: Create
+        // Get: News
         public ActionResult Create()
         {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(NewsModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                CreateNews(model.Title, model.Content);
+                return RedirectToAction("News", "News");
+            }
 
             return View();
         }
