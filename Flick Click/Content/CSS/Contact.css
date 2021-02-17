@@ -2,22 +2,18 @@
     color: darkred;
     font-size: 20px;
     width: 100%;
+    text-align:center;
 }
-
-.ContactForm {
-    width: 100%;
-}
-
-.massege-box{
-    max-width: 100%;
-}
-
-.btn{
-    width: 75px;
-    height: 17px;
+.btn {
     padding: 0px;
-    font-size: 0.8em;
+    width: 7em;
+    border: 1.5px solid #d6d6d6;
+    background-color: #fff;
+    color: black;
+    font-size: 12px;
 }
+
+
 .btn:focus {
     outline: none;
     outline-offset: 0px;
