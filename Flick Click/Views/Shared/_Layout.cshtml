@@ -39,11 +39,9 @@
             <div class="H3Border" style="flex-wrap: wrap; display: inline-flex">
                 <div style="display: inline-flex;"></div>
                 <div style="display: inline-flex;text-align: right; flex-wrap: wrap;">
-                    <form style="display: inline-flex;">
-                        <input class="Input1" type="Email" placeholder="Email" aria-label="Email">
-                        <input class="Input1" type="Password" placeholder="password" aria-label="Password">
-                    </form>
-                    <button class="H2Spacing b1 HFTekstColor" type="submit">Sign In</button>
+                    <div>
+                        <b>@Html.Action("SignIn", "SignIn")</b>
+                    </div>
                     <button class="H2Spacing b1 HFTekstColor">@Html.ActionLink("Not a member?", "SignUp", "SignUp")</button>
                 </div>
             </div>
