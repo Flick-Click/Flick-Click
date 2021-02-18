@@ -11,20 +11,17 @@ namespace FlickClick_ClassLibary.BusinessLogic
     public class PeopleProcess
     {
         // Should only be called with a list of people that does not already exist!!!
-        public static void CreatePeople(List<PeopleModel> NewPeople)
+        public static void Createpeople(string firstname, string lastname)
         {
-            foreach(var row in NewPeople)
-            {
                 PeopleModel data = new PeopleModel
                 {
-                    FirstName = row.FirstName,
-                    LastName = row.LastName
+                    FirstName = firstname,
+                    LastName = lastname
                 };
 
-                string sql = @"INSERT INTO people (FirstName, LastName) VALUES (@FistName, @LastName)";
+                string sql = @"INSERT INTO people (FirstName, LastName) VALUES (@FirstName, @LastName)";
 
                 SqlDataAccess.SaveData(sql, data);
-            }
         }
 
         public static List<PeopleModel> LoadPeople()

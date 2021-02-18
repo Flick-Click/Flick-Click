@@ -5,6 +5,10 @@ using System.Web;
 using System.Web.Mvc;
 using static FlickClick_ClassLibary.BusinessLogic.MovieProcess;
 using static FlickClick_ClassLibary.BusinessLogic.CommentProcess;
+using static FlickClick_ClassLibary.BusinessLogic.PeopleProcess;
+using static FlickClick_ClassLibary.BusinessLogic.GenreProcess;
+
+
 using Flick_Click.Models;
 
 namespace Flick_Click.Controllers
@@ -83,6 +87,51 @@ namespace Flick_Click.Controllers
             return RedirectToAction("MovieDetails", "Movie", new { id = id });
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreatePeople(DirectorModel model)
+        {
+            var data = LoadPeople();
+            bool Exists = false;
+
+            foreach (var Person in data)
+            {
+                if (Person.FirstName == model.FirstName && Person.LastName == model.LastName)
+                {
+                    Exists = true;
+                }
+            }
+
+            if (!Exists)
+            {
+                Createpeople(model.FirstName, model.LastName);
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateGenre(GenreModel model)
+        {
+            var data = Loadgenre();
+            bool Exists = false;
+
+            foreach (var genre in data)
+            {
+                if (genre.Genre == model.Genre)
+                {
+                    Exists = true;
+                }
+            }
+
+            if (!Exists)
+            {
+                Creategenre(model.Genre);
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
 
         // ----------------- Read Section ------------------
 
@@ -207,9 +256,10 @@ namespace Flick_Click.Controllers
         // Get: Commentform
         public ActionResult Comment(int id)
         {
-            CommentModel model = new CommentModel();
-
-            model.MovieID = id;
+            CommentModel model = new CommentModel
+            {
+                MovieID = id
+            };
 
             return View(model);
         }
@@ -218,13 +268,28 @@ namespace Flick_Click.Controllers
         public ActionResult EditComment(int id)
         {
             var data = LoadComment(id);
-            CommentsModel comment = new CommentsModel();
-
-                comment.ID = data[0].ID;
-                comment.Content = data[0].Content;
-                comment.Movie_ID = data[0].Movie_ID;
+            CommentsModel comment = new CommentsModel
+            {
+                ID = data[0].ID,
+                Content = data[0].Content,
+                Movie_ID = data[0].Movie_ID
+            };
 
             return View(comment);
+        }
+
+        // Get: CreatePeople
+        public ActionResult CreatePeople()
+        {
+
+            return View();
+        }
+
+        // Get: CreatePeople
+        public ActionResult CreateGenre()
+        {
+
+            return View();
         }
 
         // ----------------- Update Section ------------------

@@ -8,6 +8,7 @@ namespace FlickClick_ClassLibary.Models
 {
     public class PeopleModel : IPeople
     {
+        public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
     }

@@ -10,7 +10,7 @@ namespace FlickClick_ClassLibary.BusinessLogic
 {
     public class GenreProcess
     {
-        public static int CreateGenre(string genre)
+        public static int Creategenre(string genre)
         {
             GenreModel data = new GenreModel
             {
@@ -20,6 +20,13 @@ namespace FlickClick_ClassLibary.BusinessLogic
             string sql = @"INSERT INTO genres (Genre) VALUES (@Genre)";
 
             return SqlDataAccess.SaveData(sql, data);
+        }
+
+        public static List<GenreModel> Loadgenre()
+        {
+            string sql = @"SELECT * FROM genres";
+
+            return SqlDataAccess.LoadData<GenreModel>(sql);
         }
     }
 }

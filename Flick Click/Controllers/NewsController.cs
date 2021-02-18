@@ -82,11 +82,12 @@ namespace Flick_Click.Controllers
         public ActionResult EditNews(int id)
         {
             var data = LoadSingleNews(id);
-            NewsModel news = new NewsModel();
-
-            news.ID = id;
-            news.Title = data[0].Title;
-            news.Content = data[0].Content;
+            NewsModel news = new NewsModel
+            {
+                ID = id,
+                Title = data[0].Title,
+                Content = data[0].Content
+            };
             
             return View(news);
         }
