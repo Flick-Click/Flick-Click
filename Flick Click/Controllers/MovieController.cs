@@ -11,6 +11,8 @@ namespace Flick_Click.Controllers
 {
     public class MovieController : Controller
     {
+        // ----------------- Movie List Section ------------------
+
         // GET: MostCommentedMovie
         public ActionResult MostCommentedMovie()
         {
@@ -71,7 +73,18 @@ namespace Flick_Click.Controllers
             return View(Movies);
         }
 
-        // ----------------- Movie Details Section ------------------
+        // ----------------- Create Section ------------------
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Comment(CommentModel model, int id)
+        {
+            CreateComment(model.Comment, id, 1);
+
+            return RedirectToAction("MovieDetails", "Movie", new { id = id });
+        }
+
+
+        // ----------------- Read Section ------------------
 
         // GET: Movie
         public ActionResult MovieDetails(Nullable<int> id)
@@ -190,11 +203,41 @@ namespace Flick_Click.Controllers
 
             return View(Comments);
         }
-         // Get: Commentform
-        public ActionResult Comment(Nullable<int> id)
+
+        // Get: Commentform
+        public ActionResult Comment(int id)
         {
-            return View();
+            CommentModel model = new CommentModel();
+
+            model.MovieID = id;
+
+            return View(model);
         }
+
+        // Get: EditComment
+        public ActionResult EditComment(int id)
+        {
+            var data = LoadComment(id);
+            CommentsModel comment = new CommentsModel();
+
+                comment.ID = data[0].ID;
+                comment.Content = data[0].Content;
+                comment.Movie_ID = data[0].Movie_ID;
+
+            return View(comment);
+        }
+
+        // ----------------- Update Section ------------------
+
+        [HttpPost]
+        public ActionResult SaveEditComment(CommentsModel model)
+        {
+            UpdateComment(model.ID, model.Content);
+
+            return RedirectToAction("MovieDetails", "Movie", new { id = model.Movie_ID });
+        }
+
+        // ----------------- Delete Section ------------------
 
         [HttpPost]
         public ActionResult Delete(Nullable<int> id, int MovieID)
@@ -202,6 +245,14 @@ namespace Flick_Click.Controllers
             DeleteComment(id);
 
             return RedirectToAction("MovieDetails", "Movie", new { id = MovieID });
+        }
+
+        [HttpPost]
+        public ActionResult DeleteMovie(Nullable<int> id)
+        {
+            Deletemovie(id);
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

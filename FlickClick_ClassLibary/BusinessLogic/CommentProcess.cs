@@ -19,7 +19,7 @@ namespace FlickClick_ClassLibary.BusinessLogic
                 User_ID = user_ID
             };
 
-            string sql = @"INSERT INTO comments (Content, Movie_ID, User_ID) VALUES (@Content, @Movie_ID, User_ID)";
+            string sql = @"INSERT INTO comments (Content, Movie_ID, User_ID) VALUES (@Content, @Movie_ID, @User_ID)";
 
             return SqlDataAccess.SaveData<CommentModel>(sql, data);
         }
@@ -39,6 +39,36 @@ namespace FlickClick_ClassLibary.BusinessLogic
             }
 
             return SqlDataAccess.LoadData<CommentModel>(sql);
+        }
+
+        public static List<CommentModel> LoadComment(Nullable<int> id)
+        {
+            string sql;
+
+            if (id == null)
+            {
+                sql = $"SELECT comments.ID, Content, Movie_ID FROM comments WHERE ID = 0;";
+
+            }
+            else
+            {
+                sql = $"SELECT comments.ID, Content, Movie_ID FROM comments WHERE ID = {id}";
+            }
+
+            return SqlDataAccess.LoadData<CommentModel>(sql);
+        }
+
+        public static int UpdateComment(int id, string content)
+        {
+            CommentModel data = new CommentModel
+            {
+                ID = id,
+                Content = content
+            };
+
+            string sql = @"UPDATE comments SET Content = @Content WHERE ID = @ID;";
+
+            return SqlDataAccess.SaveData<CommentModel>(sql, data);
         }
 
         public static int DeleteComment(Nullable<int> id)

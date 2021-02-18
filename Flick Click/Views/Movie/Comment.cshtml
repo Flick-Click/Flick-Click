@@ -7,9 +7,8 @@
 
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/jqueryval")
-    
-    
-@using (Html.BeginForm()) 
+
+@using (Html.BeginForm("Comment", "Movie", new { id = Model.MovieID }, FormMethod.Post))
 {
     @Html.AntiForgeryToken()
         
@@ -18,7 +17,7 @@
             <div class="col-12">
                 @Html.TextAreaFor(model => model.Comment, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
-                <input type="submit" value="Post" class="btn bold" />
+                <input type="submit" value="Comment" class="btn bold" />
             </div>
         </div>
     </div>

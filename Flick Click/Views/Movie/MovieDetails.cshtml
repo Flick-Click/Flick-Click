@@ -12,7 +12,12 @@
     foreach (var item in Model)
     {
 
-        <p>@Html.ActionLink("Edit", "Edit", new { id = item.ID }) @Html.ActionLink("Delete", "Delete", new { id = item.ID })</p>
+        using (Html.BeginForm("DeleteMovie", "Movie", new { id = item.ID }, FormMethod.Post))
+        {
+            <input type="submit" value="DeleteMovie" onclick="return confirm('Are you sure you want to delete this movie?');" />
+        }
+
+        <p>@Html.ActionLink("Edit", "Edit", new { id = item.ID })</p>
 
 
 

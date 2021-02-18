@@ -21,15 +21,31 @@ namespace Flick_Click.Controllers
             var data = LoadLatestMovies();
             List<MovieModel> Movies = new List<MovieModel>();
 
-            for (int i = 0; i <= 5; i++)
+            if (data.Count > 5)
             {
-                Movies.Add(new MovieModel
+                for (int i = 0; i <= 5; i++)
                 {
-                    ID = data[i].ID,
-                    Title = data[i].Title,
-                    Img = data[i].Picture_Path,
-                    CommentCount = data[i].CommentCount
-                });
+                    Movies.Add(new MovieModel
+                    {
+                        ID = data[i].ID,
+                        Title = data[i].Title,
+                        Img = data[i].Picture_Path,
+                        CommentCount = data[i].CommentCount
+                    });
+                }
+            }
+            else
+            {
+                for (int i = 0; i <= data.Count - 1; i++)
+                {
+                    Movies.Add(new MovieModel
+                    {
+                        ID = data[i].ID,
+                        Title = data[i].Title,
+                        Img = data[i].Picture_Path,
+                        CommentCount = data[i].CommentCount
+                    });
+                }
             }
 
             return View(Movies);
@@ -40,15 +56,32 @@ namespace Flick_Click.Controllers
             var data = LoadMovieMostComments();
             List<MovieModel> Movies = new List<MovieModel>();
 
-            for (int i = 0; i <= 5; i++)
+
+            if (data.Count > 5)
             {
-                Movies.Add(new MovieModel
+                for (int i = 0; i <= 5; i++)
                 {
-                    ID = data[i].ID,
-                    Title = data[i].Title,
-                    Img = data[i].Picture_Path,
-                    CommentCount = data[i].CommentCount
-                });
+                    Movies.Add(new MovieModel
+                    {
+                        ID = data[i].ID,
+                        Title = data[i].Title,
+                        Img = data[i].Picture_Path,
+                        CommentCount = data[i].CommentCount
+                    });
+                }
+            }
+            else
+            {
+                for (int i = 0; i <= data.Count - 1; i++)
+                {
+                    Movies.Add(new MovieModel
+                    {
+                        ID = data[i].ID,
+                        Title = data[i].Title,
+                        Img = data[i].Picture_Path,
+                        CommentCount = data[i].CommentCount
+                    });
+                }
             }
 
             return View(Movies);
