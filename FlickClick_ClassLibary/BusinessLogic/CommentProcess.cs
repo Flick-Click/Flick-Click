@@ -19,7 +19,7 @@ namespace FlickClick_ClassLibary.BusinessLogic
                 User_ID = user_ID
             };
 
-            string sql = @"INSERT INTO comments (Content, Movie_ID, User_ID) VALUES (@Content, @Movie_ID, User_ID)";
+            string sql = @"INSERT INTO comments (Content, Movie_ID, User_ID) VALUES (@Content, @Movie_ID, @User_ID)";
 
             return SqlDataAccess.SaveData<CommentModel>(sql, data);
         }

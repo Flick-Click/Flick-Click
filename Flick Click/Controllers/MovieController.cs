@@ -13,7 +13,6 @@ namespace Flick_Click.Controllers
     {
         // ----------------- Movie List Section ------------------
 
-
         // GET: MostCommentedMovie
         public ActionResult MostCommentedMovie()
         {
@@ -75,10 +74,14 @@ namespace Flick_Click.Controllers
         }
 
         // ----------------- Create Section ------------------
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Comment(CommentModel model, int id)
+        {
+            CreateComment(model.Comment, id, 1);
 
-
-
-
+            return RedirectToAction("MovieDetails", "Movie", new { id = id });
+        }
 
 
         // ----------------- Read Section ------------------
@@ -202,9 +205,13 @@ namespace Flick_Click.Controllers
         }
 
         // Get: Commentform
-        public ActionResult Comment(Nullable<int> id)
+        public ActionResult Comment(int id)
         {
-            return View();
+            CommentModel model = new CommentModel();
+
+            model.MovieID = id;
+
+            return View(model);
         }
 
         // ----------------- Delete Section ------------------
