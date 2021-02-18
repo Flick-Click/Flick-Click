@@ -36,21 +36,35 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
             if (id == null)
             {
-                sql = $"SELECT * FROM news WHERE ID = 0";
+                sql = $"SELECT ID, Title, Content, Created FROM news WHERE ID = 0";
             }
             else
             {
-                sql = $"SELECT * FROM news WHERE ID = {id}";
+                sql = $"SELECT ID, Title, Content, Created FROM news WHERE ID = {id}";
             }
-            
+
 
             return SqlDataAccess.LoadData<NewsModel>(sql);
         }
 
-        // ID is giving from frontend model.ID
-        public static int DeleteNews(int id)
+        public static int UpdateNews(int id, string title, string content)
         {
-            string sql = $"DELETE FROM news WHERE ID = {id}";
+            NewsModel data = new NewsModel
+            {
+                ID = id,
+                Title = title,
+                Content = content
+            };
+
+            string sql = @"UPDATE news SET Title = @Title, Content = @Content WHERE ID = @ID;";
+
+            return SqlDataAccess.SaveData<NewsModel>(sql, data);
+        }
+
+        // ID is giving from frontend model.ID
+        public static int Deletenews(Nullable<int> id)
+        {
+            string sql = $"DELETE FROM news WHERE ID = {id};";
 
             return SqlDataAccess.DeleteData(sql);
         }
