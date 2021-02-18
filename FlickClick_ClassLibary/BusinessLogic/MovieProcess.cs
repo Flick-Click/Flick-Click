@@ -41,7 +41,7 @@ namespace FlickClick_ClassLibary.BusinessLogic
         {
             string sql = @"SELECT movies.ID, Title, Description, Duration, Rating, Picture_Path, Trailer, movies.`Release`, movies.Created, agerestrictions.AgeRestriction, COUNT(comments.Movie_ID) AS CommentCount FROM movies 
                                 INNER JOIN agerestrictions ON movies.Age_Rating = agerestrictions.ID
-                                INNER JOIN comments ON comments.Movie_ID = movies.ID 
+                                LEFT JOIN comments ON comments.Movie_ID = movies.ID 
                                 GROUP BY movies.ID;";
 
             return SqlDataAccess.LoadData<MovieModel>(sql);
@@ -51,7 +51,7 @@ namespace FlickClick_ClassLibary.BusinessLogic
         {
             string sql = @"SELECT movies.ID, Title, Description, Duration, Rating, Picture_Path, Trailer, movies.`Release`, movies.Created, agerestrictions.AgeRestriction, COUNT(comments.Movie_ID) AS CommentCount FROM movies 
                                 INNER JOIN agerestrictions ON movies.Age_Rating = agerestrictions.ID
-                                INNER JOIN comments ON comments.Movie_ID = movies.ID 
+                                LEFT JOIN comments ON comments.Movie_ID = movies.ID 
                                 GROUP BY movies.ID ORDER BY Created DESC;";
 
             return SqlDataAccess.LoadData<MovieModel>(sql);
@@ -61,7 +61,7 @@ namespace FlickClick_ClassLibary.BusinessLogic
         {
             string sql = @"SELECT movies.ID, Title, Description, Duration, Rating, Picture_Path, Trailer, movies.`Release`, movies.Created, agerestrictions.AgeRestriction, COUNT(comments.Movie_ID) AS CommentCount FROM movies 
                                 INNER JOIN agerestrictions ON movies.Age_Rating = agerestrictions.ID
-                                INNER JOIN comments ON comments.Movie_ID = movies.ID 
+                                LEFT JOIN comments ON comments.Movie_ID = movies.ID 
                                 GROUP BY movies.ID ORDER BY CommentCount DESC;";
 
             return SqlDataAccess.LoadData<MovieModel>(sql);
