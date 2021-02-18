@@ -11,6 +11,9 @@ namespace Flick_Click.Controllers
 {
     public class MovieController : Controller
     {
+        // ----------------- Movie List Section ------------------
+
+
         // GET: MostCommentedMovie
         public ActionResult MostCommentedMovie()
         {
@@ -71,7 +74,14 @@ namespace Flick_Click.Controllers
             return View(Movies);
         }
 
-        // ----------------- Movie Details Section ------------------
+        // ----------------- Create Section ------------------
+
+
+
+
+
+
+        // ----------------- Read Section ------------------
 
         // GET: Movie
         public ActionResult MovieDetails(Nullable<int> id)
@@ -190,11 +200,14 @@ namespace Flick_Click.Controllers
 
             return View(Comments);
         }
-         // Get: Commentform
+
+        // Get: Commentform
         public ActionResult Comment(Nullable<int> id)
         {
             return View();
         }
+
+        // ----------------- Delete Section ------------------
 
         [HttpPost]
         public ActionResult Delete(Nullable<int> id, int MovieID)
@@ -202,6 +215,14 @@ namespace Flick_Click.Controllers
             DeleteComment(id);
 
             return RedirectToAction("MovieDetails", "Movie", new { id = MovieID });
+        }
+
+        [HttpPost]
+        public ActionResult DeleteMovie(Nullable<int> id)
+        {
+            Deletemovie(id);
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

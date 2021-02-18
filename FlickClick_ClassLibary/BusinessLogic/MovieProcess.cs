@@ -31,6 +31,12 @@ namespace FlickClick_ClassLibary.BusinessLogic
             return SqlDataAccess.LoadData<LastInsertedIDModel>("SELECT LAST_INSERT_ID() AS LastInsertedID;");
         }
 
+        public static int Deletemovie(Nullable<int> id)
+        {
+            string sql = $"DELETE FROM movies WHERE ID = {id};";
+            return SqlDataAccess.DeleteData(sql);
+        }
+
         public static List<MovieModel> LoadMovies()
         {
             string sql = @"SELECT movies.ID, Title, Description, Duration, Rating, Picture_Path, Trailer, movies.`Release`, movies.Created, agerestrictions.AgeRestriction, COUNT(comments.Movie_ID) AS CommentCount FROM movies 
@@ -169,13 +175,6 @@ namespace FlickClick_ClassLibary.BusinessLogic
             }
 
             return SqlDataAccess.LoadData<WritersModel>(sql);
-        }
-
-        public static int DeleteMovie(Nullable<int> id)
-        {
-            string sql = $"DELETE FROM comments WHERE ID = {id}";
-
-            return SqlDataAccess.DeleteData(sql);
         }
     }
 }
