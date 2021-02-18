@@ -214,12 +214,16 @@
     <Content Include="Content\CSS\Home.css" />
     <Content Include="Content\CSS\MovieDefault.css" />
     <Content Include="Content\CSS\NewsDetails.css" />
+    <Content Include="Content\Pictures\FastAndFurious9.jpg" />
+    <Content Include="Content\Pictures\GhostbustersAfterlife.jpg" />
     <Content Include="Content\Pictures\JumanjiTheNextLevel.jpg" />
     <Content Include="Content\Pictures\JumanjiWelcometotheJungle.jpg" />
+    <Content Include="Content\Pictures\JungleCruise.jpg" />
     <Content Include="Content\Pictures\logo.png" />
     <Content Include="Content\Pictures\MazeRunner2014.jpg" />
     <Content Include="Content\Pictures\maze_runner_2_plakat1.jpg" />
     <Content Include="Content\Pictures\maze_runner_dødskuren.jpg" />
+    <Content Include="Content\Pictures\NoTimeToDie.jpeg" />
     <Content Include="Content\Pictures\play-btn.png" />
     <Content Include="Content\Pictures\Spider-ManIntotheSpider-Verse.jpg" />
     <Content Include="Content\Pictures\TernetNinja.jpg" />
