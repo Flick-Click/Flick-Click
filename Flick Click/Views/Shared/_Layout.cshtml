@@ -7,50 +7,51 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body >
-    <div class="navbar navbar-inverse navbar-static-top navbar-Background navbar-LinkFix">
-        <div class="col-12">
-            <a href="https://localhost:44355/" style="float: left">
-                <img src="~/Content/Pictures/logo.png" />
-            </a>
-            <ul class="nav HPlacement HFTekstColor">
-                <li class="nav-item">
-                    <b class="nav-link active">@Html.ActionLink("HOME", "Index", "Home")</b>
-                </li>
-                <li class="nav-item">
-                    <b class="nav-link">@Html.ActionLink("NEWS", "News", "News")</b>
-                </li>
-                <li class="nav-item">
-                    <b class="nav-link">@Html.ActionLink("CONTACT", "Contact", "Contact")</b>
-                </li>
-            </ul>
-        </div>
-        <div class="col-12" style="display: flex; flex-direction: column; padding: 0px;">
-            <dív class="H2Border" style="flex-wrap: wrap; display: inline-flex">
-                <div class="HFTekstColor" style="text-align: left; display: inline-flex">
-                    <p class="H2Spacing"><b>@Html.ActionLink("SHOW ALL", "ShowAll", "Movie")</b></p>
-                    <p class="H2Spacing"><b>@Html.ActionLink("LATEST MOVIES", "LatestMovies", "Movie")</b></p>
-                    <p class="H2Spacing"><b>@Html.ActionLink("MOST COMMENTED", "MostCommentedMovie", "Movie")</b></p>
-                </div>
-                <div style="text-align: right; display: inline-flex">
-                    @Html.Action("Search", "Search")
-                </div>
-            </dív>
-            <div class="H3Border" style="flex-wrap: wrap; display: inline-flex">
-                <div style="display: inline-flex;"></div>
-                <div style="display: inline-flex;text-align: right; flex-wrap: wrap;">
-                    <div>
-                        <b>@Html.Action("SignIn", "SignIn")</b>
+<body>
+    <div class="view-container">
+        <div class="navbar navbar-inverse navbar-static-top navbar-Background navbar-LinkFix">
+            <div class="col-12">
+                <a href="https://localhost:44355/" style="float: left">
+                    <img src="~/Content/Pictures/logo.png" />
+                </a>
+                <ul class="nav HPlacement HFTekstColor">
+                    <li class="nav-item">
+                        <b class="nav-link active">@Html.ActionLink("HOME", "Index", "Home")</b>
+                    </li>
+                    <li class="nav-item">
+                        <b class="nav-link">@Html.ActionLink("NEWS", "News", "News")</b>
+                    </li>
+                    <li class="nav-item">
+                        <b class="nav-link">@Html.ActionLink("CONTACT", "Contact", "Contact")</b>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12" style="display: flex; flex-direction: column; padding: 0px;">
+                <dív class="H2Border" style="flex-wrap: wrap; display: inline-flex">
+                    <div class="HFTekstColor" style="text-align: left; display: inline-flex">
+                        <p class="H2Spacing"><b>@Html.ActionLink("SHOW ALL", "ShowAll", "Movie")</b></p>
+                        <p class="H2Spacing"><b>@Html.ActionLink("LATEST MOVIES", "LatestMovies", "Movie")</b></p>
+                        <p class="H2Spacing"><b>@Html.ActionLink("MOST COMMENTED", "MostCommentedMovie", "Movie")</b></p>
                     </div>
-                    <button class="H2Spacing b1 HFTekstColor">@Html.ActionLink("Not a member?", "SignUp", "SignUp")</button>
+                    <div style="text-align: right; display: inline-flex">
+                        @Html.Action("Search", "Search")
+                    </div>
+                </dív>
+                <div class="H3Border" style="flex-wrap: wrap; display: inline-flex">
+                    <div style="display: inline-flex;"></div>
+                    <div style="display: inline-flex;text-align: right; flex-wrap: wrap;">
+                        <div>
+                            <b>@Html.Action("SignIn", "SignIn")</b>
+                        </div>
+                        <button class="H2Spacing b1 HFTekstColor">@Html.ActionLink("Not a member?", "SignUp", "SignUp")</button>
+                    </div>
                 </div>
             </div>
+
         </div>
 
-    </div>
 
-    <div class="container body-content">
-        <div id="main">
+        <div class="container main-body-content ">
             @RenderBody()
             <hr />
             <div style="display: flex; margin-left: 0px;" class="col-md-12">
@@ -73,10 +74,10 @@
                     </div>
                 </div>
             </div>
-        </div>       
-    </div>
+        </div>
 
-    <div class="text-center fotter-backgrund" id="footer" >
+    </div>
+    <div class="text-center fotter-backgrund" id="footer">
         <footer class="HFTekstColor FooterPadding ">
             <p class="FLinkFix"><b>@Html.ActionLink("HOME", "Index", "Home")</b> | <b>@Html.ActionLink("NEWS", "News", "News")</b> | <b>@Html.ActionLink("CONTACT", "Contact", "Contact")</b></p>
             <p> social media icons here</p>

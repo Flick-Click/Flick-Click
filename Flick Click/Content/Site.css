@@ -2,16 +2,9 @@
     height: 100%;
 }
 
-
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 200px;
+.view-container {
     min-height: 100%;
-    background-color: #f9f9f9;
 }
-
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -128,12 +121,17 @@ a:hover {
 }
 /*<-- main -->*/
 
-#main{
+/* Set padding to keep content from hitting the edges */
+.main-body-content {
+    padding-left: 15px;
+    padding-right: 15px;
     padding-bottom: 130px;
+    overflow:auto;
+    background-color: #f9f9f9;
 }
 
 /*<-- fotter --> */
-#footer{
+#footer {
     height: 130px;
     position: relative;
     margin-top: -130px;
