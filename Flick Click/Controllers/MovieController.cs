@@ -214,6 +214,29 @@ namespace Flick_Click.Controllers
             return View(model);
         }
 
+        // Get: EditComment
+        public ActionResult EditComment(int id)
+        {
+            var data = LoadComment(id);
+            CommentsModel comment = new CommentsModel();
+
+                comment.ID = data[0].ID;
+                comment.Content = data[0].Content;
+                comment.Movie_ID = data[0].Movie_ID;
+
+            return View(comment);
+        }
+
+        // ----------------- Update Section ------------------
+
+        [HttpPost]
+        public ActionResult SaveEditComment(CommentsModel model)
+        {
+            UpdateComment(model.ID, model.Content);
+
+            return RedirectToAction("MovieDetails", "Movie", new { id = model.Movie_ID });
+        }
+
         // ----------------- Delete Section ------------------
 
         [HttpPost]
