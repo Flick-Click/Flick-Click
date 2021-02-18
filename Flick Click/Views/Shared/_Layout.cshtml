@@ -9,12 +9,71 @@
 </head>
 <body>
     <div class="view-container">
-        <div class="navbar navbar-inverse navbar-static-top navbar-Background navbar-LinkFix">
-            <div class="col-12">
+        <div class="navbar navbar-inverse navbar-static-top navbar-Background navbar-LinkFix text-color-white">
+            <div class="row">
+                <div class="col-12 reset-padding" >
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 reset-padding" >
+                            <a href="https://localhost:44355/" style="float: left">
+                                <img src="~/Content/Pictures/logo.png" />
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-sm-12 reset-padding " >
+                            <ul class="nav float-md-right">
+                                <li class="nav-item">
+                                    <b class="nav-link active">@Html.ActionLink("HOME", "Index", "Home")</b>
+                                </li>
+                                <li class="nav-item">
+                                    <b class="nav-link">@Html.ActionLink("NEWS", "News", "News")</b>
+                                </li>
+                                <li class="nav-item">
+                                    <b class="nav-link">@Html.ActionLink("CONTACT", "Contact", "Contact")</b>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 reset-padding border-dashed-white navbar-midel" >
+                        <dív class="row">
+                            <div class="col-md-6 col-sm-12 reset-padding" >
+                                <ul class="nav">
+                                    <li class="nav-link">
+                                        <b>@Html.ActionLink("SHOW ALL", "ShowAll", "Movie")</b>
+                                    </li>
+                                    <li class="nav-link">
+                                        <b>@Html.ActionLink("LATEST MOVIES", "LatestMovies", "Movie")</b>
+                                    </li>
+                                    <li class="nav-link">
+                                        <b>@Html.ActionLink("MOST COMMENTED", "MostCommentedMovie", "Movie")</b>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 col-sm-12 reset-padding text-md-right" >
+                                @Html.Action("Search", "Search")
+                            </div>
+                        </dív>
+                    </div>
+                    <div class="col-12 reset-padding">
+                        <div class="row">
+                            <div class="col-12 reset-padding bottom-padding">
+                                <ul class="nav float-md-right">
+                                    <li class="nav-item ">
+                                        <b>@Html.Action("SignIn", "SignIn")</b>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button class="H2Spacing b1 tekstColor-white">@Html.ActionLink("Not a member?", "SignUp", "SignUp")</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </div>
+
+            @*<div class="col-12">
                 <a href="https://localhost:44355/" style="float: left">
                     <img src="~/Content/Pictures/logo.png" />
                 </a>
-                <ul class="nav HPlacement HFTekstColor">
+                <ul class="nav HPlacement">
                     <li class="nav-item">
                         <b class="nav-link active">@Html.ActionLink("HOME", "Index", "Home")</b>
                     </li>
@@ -26,9 +85,9 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-12" style="display: flex; flex-direction: column; padding: 0px;">
+            <div class="col-md-12" style="display: flex; flex-direction: column; padding: 0px;">
                 <dív class="H2Border" style="flex-wrap: wrap; display: inline-flex">
-                    <div class="HFTekstColor" style="text-align: left; display: inline-flex">
+                    <div style="text-align: left; display: inline-flex">
                         <p class="H2Spacing"><b>@Html.ActionLink("SHOW ALL", "ShowAll", "Movie")</b></p>
                         <p class="H2Spacing"><b>@Html.ActionLink("LATEST MOVIES", "LatestMovies", "Movie")</b></p>
                         <p class="H2Spacing"><b>@Html.ActionLink("MOST COMMENTED", "MostCommentedMovie", "Movie")</b></p>
@@ -43,32 +102,27 @@
                         <div>
                             <b>@Html.Action("SignIn", "SignIn")</b>
                         </div>
-                        <button class="H2Spacing b1 HFTekstColor">@Html.ActionLink("Not a member?", "SignUp", "SignUp")</button>
+                        <button class="H2Spacing b1 tekstColor-white">@Html.ActionLink("Not a member?", "SignUp", "SignUp")</button>
                     </div>
                 </div>
-            </div>
+            </div>*@
 
         </div>
 
-
-        <div class="container main-body-content ">
+        <div class="container main-body-content">
             @RenderBody()
             <hr />
-            <div style="display: flex; margin-left: 0px;" class="col-md-12">
-                <div style="width: 50%; margin-right: 10px">
-                    <div style="text-align: right">
-                        <b style="float: left;">NEWS</b>
-                        <P class="FLinkFix RedColorUnderline">@Html.ActionLink("SHOW ALL", "News", "News")</P>
-                    </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <b>NEWS</b>
+                    <P class="redColorUnderline">@Html.ActionLink("SHOW ALL", "News", "News")</P>
                     <div>
 
                     </div>
                 </div>
-                <div style="width: 50%; margin-left: 10px">
-                    <div style="text-align: right">
-                        <b style="float: left;">COMING SOON</b>
-                        <p class="FLinkFix RedColorUnderline">@Html.ActionLink("LATEST MOVIES", "LatestMovies", "Movie")</p>
-                    </div>
+                <div class="col-md-6 col-sm-12">
+                    <b>COMING SOON</b>
+                    <p class="redColorUnderline">@Html.ActionLink("LATEST MOVIES", "LatestMovies", "Movie")</p>
                     <div>
 
                     </div>
@@ -78,10 +132,10 @@
 
     </div>
     <div class="text-center fotter-backgrund" id="footer">
-        <footer class="HFTekstColor FooterPadding ">
-            <p class="FLinkFix"><b>@Html.ActionLink("HOME", "Index", "Home")</b> | <b>@Html.ActionLink("NEWS", "News", "News")</b> | <b>@Html.ActionLink("CONTACT", "Contact", "Contact")</b></p>
-            <p> social media icons here</p>
-            <p style="margin-bottom: 0px">&copy; @DateTime.Now.Year Flick Click ApS</p>
+        <footer class="tekst-color-white FooterPadding ">
+            <p class="fotter-Link"><b>@Html.ActionLink("HOME", "Index", "Home")</b> | <b>@Html.ActionLink("NEWS", "News", "News")</b> | <b>@Html.ActionLink("CONTACT", "Contact", "Contact")</b></p>
+            <p class="text-color-white"> social media icons here</p>
+            <p class="text-color-white">&copy; @DateTime.Now.Year Flick Click ApS</p>
         </footer>
     </div>
     @Scripts.Render("~/bundles/jquery")

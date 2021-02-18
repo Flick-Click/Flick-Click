@@ -19,48 +19,51 @@ textarea {
     max-width: 1125px;
 }
 
-
-.FLinkFix a {
-    text-decoration: underline;
-    color: inherit;
-}
-
-a:hover {
-    color: inherit;
-    text-decoration: none;
-}
-
 .b1 {
     border: none;
     background: none;
     cursor: pointer;
 }
-
-.Input1 {
-    width: 75%;
-    margin: 0px 10px 0px 10px;
+.row{
+    width:100%;
+    margin: 0;
+}
+.reset-padding{
+    padding:0;
 }
 
-.RedColorUnderline {
+.bottom-padding{
+    padding-bottom: 5px;
+}
+
+/*<-- text -->*/
+
+.text-color-red {
+    color: red;
+}
+
+.text-color-white {
+    color: white;
+}
+
+/*<-- links -->*/
+
+.redColorUnderline {
     color: red;
     text-decoration: underline;
     float: right;
 }
 
-.RedColorUnderline a {
+.redColorUnderline a {
     color: red;
 }
 
-
-
-.RedText{
-    color: red;
-}
-
-/*<-- links -->*/
-
-.RedColorUnderline a:hover {
+.redColorUnderline a:hover {
     text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 /*<-- navbar -->*/
@@ -68,29 +71,18 @@ a:hover {
 .navbar-Background {
     background-color: #333333;
     border-color: #333333;
-    padding: 15px 5px 0px 5px
+    padding: 15px 5px 0px 5px;
 }
 
 .navbar-LinkFix a {
-    color: inherit;
-}
-
-.HFTekstColor {
     color: white;
 }
-
-.HPlacement {
-    float: right !important;
+.navbar-midel{
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 
-@media only screen and (max-width: 767px) {
-
-    .HPlacement {
-        float: left !important;
-    }
-}
-
-.H2Border {
+.border-dashed-white {
     margin: 10px 0px 5px 0px;
     border: dashed;
     border-top-width: 1.5px;
@@ -99,25 +91,6 @@ a:hover {
     border-right: 0px;
     border-color: white;
     justify-content: space-between
-}
-
-.H3Border {
-    margin: 0px 0px 5px 0px;
-    justify-content: space-between;
-}
-
-.H2Spacing {
-    margin: 5px 0px 5px 0px;
-    padding: 0px 10px 0px 10px;
-}
-
-
-.H2Positioning {
-    border-style: dashed;
-    border-color: white;
-    border-right: 0px;
-    border-left: 0px;
-    margin-top: 26px;
 }
 /*<-- main -->*/
 
@@ -145,4 +118,9 @@ a:hover {
 
 .FooterPadding {
     padding: 15px 0px 0px 0px;
+}
+
+.fotter-Link a {
+    text-decoration: underline;
+    color: white;
 }

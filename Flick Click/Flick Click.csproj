@@ -380,6 +380,8 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\SignIn\SignedIn.cshtml" />
     <Content Include="Views\Movie\Comment.cshtml" />
+    <Content Include="Views\Movie\EditComment.cshtml" />
+    <Content Include="Views\News\EditNews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

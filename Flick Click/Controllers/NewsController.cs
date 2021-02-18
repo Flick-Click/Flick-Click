@@ -10,6 +10,9 @@ namespace Flick_Click.Controllers
 {
     public class NewsController : Controller
     {
+
+        // ----------------- List Section ------------------
+
         // GET: News
         public ActionResult News()
         {
@@ -30,6 +33,23 @@ namespace Flick_Click.Controllers
             return View(news);
         }
 
+        // ----------------- Create Section ------------------
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(NewsModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                CreateNews(model.Title, model.Content);
+                return RedirectToAction("News", "News");
+            }
+
+            return View();
+        }
+
+        // ----------------- Read Section ------------------
+
         // GET: NewsDetails
         public ActionResult NewsDetails(Nullable<int> id)
         {
@@ -42,6 +62,7 @@ namespace Flick_Click.Controllers
             {
                 news.Add(new NewsModel
                 {
+                    ID = row.ID,
                     Title = row.Title,
                     Content = row.Content,
                     Created = row.Created
@@ -57,17 +78,37 @@ namespace Flick_Click.Controllers
             return View();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(NewsModel model)
+        // Get: EditNews
+        public ActionResult EditNews(int id)
         {
-            if (ModelState.IsValid)
-            {
-                CreateNews(model.Title, model.Content);
-                return RedirectToAction("News", "News");
-            }
+            var data = LoadSingleNews(id);
+            NewsModel news = new NewsModel();
 
-            return View();
+            news.ID = id;
+            news.Title = data[0].Title;
+            news.Content = data[0].Content;
+            
+            return View(news);
         }
+
+        // ----------------- Update Section ------------------
+        [HttpPost]
+        public ActionResult SaveEditNews(NewsModel model)
+        {
+            UpdateNews(model.ID, model.Title, model.Content);
+
+            return RedirectToAction("NewsDetails", "News", new { id = model.ID });
+        }
+
+        // ----------------- Delete Section ------------------
+        [HttpPost]
+        public ActionResult DeleteNews(Nullable<int> id)
+        {
+            Deletenews(id);
+
+            return RedirectToAction("News", "News");
+        }
+        
+
     }
 }

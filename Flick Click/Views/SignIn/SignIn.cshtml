@@ -13,19 +13,18 @@
         <button class="H2Spacing b1 HFTekstColor">@Html.ActionLink("Not a member?", "SignUp", "SignUp")</button>
     </div>*@
 
-<div class="row">
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        <div style="display:inline-flex;">
-            <section style="display: inline-flex">
-                @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "Input1", placeholder = "Email" } })
-                @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
-                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "Input1", placeholder = "Password" } })
-                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
 
-                <button class="H2Spacing b1 HFTekstColor">Sign In</button>
-            </section>
-        </div>
-    }
-</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div style="display:inline-flex;">
+        <section style="display: inline-flex">
+            @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "", placeholder = "Email" } })
+            @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "", placeholder = "Password" } })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+            <button class="H2Spacing b1 text-color-white">Sign In</button>
+        </section>
+    </div>
+}
