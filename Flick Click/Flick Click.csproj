@@ -214,7 +214,9 @@
     <Content Include="Content\CSS\Home.css" />
     <Content Include="Content\CSS\MovieDefault.css" />
     <Content Include="Content\CSS\NewsDetails.css" />
+    <Content Include="Content\Pictures\BlackWidow.jpg" />
     <Content Include="Content\Pictures\FastAndFurious9.jpg" />
+    <Content Include="Content\Pictures\FreeGuy.jpg" />
     <Content Include="Content\Pictures\GhostbustersAfterlife.jpg" />
     <Content Include="Content\Pictures\JumanjiTheNextLevel.jpg" />
     <Content Include="Content\Pictures\JumanjiWelcometotheJungle.jpg" />
@@ -228,6 +230,7 @@
     <Content Include="Content\Pictures\Spider-ManIntotheSpider-Verse.jpg" />
     <Content Include="Content\Pictures\TernetNinja.jpg" />
     <Content Include="Content\Pictures\Tim2.png" />
+    <Content Include="Content\Pictures\VenomLetThereBeCarnage.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
