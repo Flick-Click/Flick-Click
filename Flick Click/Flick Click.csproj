@@ -214,6 +214,7 @@
     <Content Include="Content\CSS\Home.css" />
     <Content Include="Content\CSS\MovieDefault.css" />
     <Content Include="Content\CSS\NewsDetails.css" />
+    <Content Include="Content\CSS\Search.css" />
     <Content Include="Content\Pictures\FastAndFurious9.jpg" />
     <Content Include="Content\Pictures\GhostbustersAfterlife.jpg" />
     <Content Include="Content\Pictures\JumanjiTheNextLevel.jpg" />
