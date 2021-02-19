@@ -1,3 +1,10 @@
-﻿.space {
+﻿.search-botten {
     margin: 0.5rem 0.5rem;
+    padding: 0px;
+}
+.searchbox {
+    margin: 0.5rem 0rem;
+}
+.search-text {
+    padding: 0.5rem 0.5rem;
 }

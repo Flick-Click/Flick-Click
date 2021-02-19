@@ -22,10 +22,10 @@
     {
         @Html.AntiForgeryToken()
         <section>
-            <strong class="text-color-white space">SEARCH</strong>
-            @Html.EditorFor(model => model.Search, new { htmlAttributes = new { @class = "", placeholder = "Enter Search Here" } })
+            <strong class="text-color-white search-text">SEARCH</strong>
+            @Html.EditorFor(model => model.Search, new { htmlAttributes = new { @class = "searchbox", placeholder = "Enter Search Here" } })
             @Html.ValidationMessageFor(model => model.Search, "", new { @class = "text-danger" })
-            <button class=" b1 text-color-white space">GO!</button>
+            <button class="search-botten b1 text-color-white">GO!</button>
         </section>
     }
 
