@@ -13,6 +13,7 @@ namespace Flick_Click.Models
         public int MovieID { get; set; }
         
         [Display(Name = "Comment")]
+        [DataType(DataType.Text)]
         [StringLength(1000, MinimumLength = 10, ErrorMessage = "Write an actual sentence")]
         [Required(ErrorMessage = "if you want to write a comment atleast write something")]
         public string Comment { get; set; }
