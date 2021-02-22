@@ -178,7 +178,6 @@
     <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
-    <Compile Include="Controllers\ShowAllController.cs" />
     <Compile Include="Controllers\SignInController.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Global.asax.cs">
