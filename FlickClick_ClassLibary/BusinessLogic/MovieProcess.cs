@@ -8,27 +8,24 @@ using System.Threading.Tasks;
 
 namespace FlickClick_ClassLibary.BusinessLogic
 {
-    public class MovieProcess
+    public class MovieProcess   
     {
-        public static List<LastInsertedIDModel> CreateMovie(string Title, string Description, int Duration, string PictureName, string Trailer, DateTime release, int Rating, int Age_Rating)
+        public static int Createmovie(string title, string description, int duration, string pictureName, string trailer, DateTime release, int rating, int age_rating)
         {
             MovieModel data = new MovieModel
             {
-                Title = Title,
-                Description = Description,
-                Duration = Duration,
-                Picture_Path = PictureName,
-                Trailer = Trailer,
+                Title = title,
+                Description = description,
+                Duration = duration,
+                Picture_Path = pictureName,
+                Trailer = trailer,
                 Release = release,
-                Rating = Rating,
-                Age_Rating = Age_Rating
+                Rating = rating,
+                Age_Rating = age_rating
             };
 
-            string sql = @"INSERT INTO movies (Title, Description, Duration, Rating, Picture_Path, Trailer, movies.`Release`, Age_Rating) VALUES ('@Title', '@Description', @Duration, @Rating, '~/Content/Pictures/@PictureName', '@Trailer', '@Release', @Age_Rating);";
-            SqlDataAccess.SaveData(sql, data);
-
-
-            return SqlDataAccess.LoadData<LastInsertedIDModel>("SELECT LAST_INSERT_ID() AS LastInsertedID;");
+            string sql = @"INSERT INTO movies (Title, Description, Duration, Rating, Picture_Path, Trailer, movies.`Release`, Age_Rating) VALUES (@Title, @Description, @Duration, @Rating, @Picture_Path, @Trailer, @Release, @Age_Rating);";
+            return SqlDataAccess.SaveData(sql, data);
         }
 
         public static int Deletemovie(Nullable<int> id)

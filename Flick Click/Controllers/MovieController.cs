@@ -10,6 +10,7 @@ using static FlickClick_ClassLibary.BusinessLogic.GenreProcess;
 
 
 using Flick_Click.Models;
+using System.IO;
 
 namespace Flick_Click.Controllers
 {
@@ -84,7 +85,7 @@ namespace Flick_Click.Controllers
         {
             CreateComment(model.Comment, id, 1);
 
-            return RedirectToAction("MovieDetails", "Movie", new { id = id });
+            return RedirectToAction("MovieDetails", "Movie", new { id });
         }
 
         [HttpPost]
@@ -131,6 +132,57 @@ namespace Flick_Click.Controllers
             }
 
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateMovie(CreateMovieModel model)
+        {
+            var data = LoadMovies();
+            bool Exists = false;
+
+            foreach (var Movie in data)
+            {
+                if (Movie.Title == model.Title)
+                {
+                    Exists = true;
+                }
+            }
+
+            if (!Exists)
+            {
+                //try
+                //{
+                //    if (model.ImageFile.ContentLength > 0)
+                //    {
+                //        string _FileName = Path.GetFileName(model.ImageFile.FileName);
+                //        string _path = Path.Combine(Server.MapPath("~/Content/Pictures/"), _FileName);
+                //        model.ImageFile.SaveAs(_path);
+                //        model.Img = "~/Content/Pictures/" + _FileName;
+                //    }
+                //    ViewBag.Message = "File Uploaded Successfully!!";
+                //}
+                //catch
+                //{
+                //    ViewBag.Message = "File upload failed!!";
+                //}
+
+                // Get file name
+                string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
+                // Get file extension like jpg, gif etc.
+                string extension = Path.GetExtension(model.ImageFile.FileName);
+                // Set date on file name so no duplicates.
+                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                // Set path
+                model.Img = "/Content/Pictures/" + fileName;
+                fileName = Path.Combine(Server.MapPath("/Content/Pictures/"), fileName);
+                // Save image
+                model.ImageFile.SaveAs(fileName);
+
+                Createmovie(model.Title, model.Description, model.Duration, model.Img, model.Trailer, model.Release, model.Rating, 1);
+            }
+
+            return View();
         }
 
         // ----------------- Read Section ------------------
@@ -285,13 +337,19 @@ namespace Flick_Click.Controllers
             return View();
         }
 
-        // Get: CreatePeople
+        // Get: CreateGenre
         public ActionResult CreateGenre()
         {
 
             return View();
         }
 
+        // Get: CreateMovie
+        public ActionResult CreateMovie()
+        {
+
+            return View();
+        }
         // ----------------- Update Section ------------------
 
         [HttpPost]
