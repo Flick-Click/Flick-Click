@@ -12,19 +12,20 @@
         <button class="H2Spacing b1 HFTekstColor" type="submit">Sign In</button>
         <button class="H2Spacing b1 HFTekstColor">@Html.ActionLink("Not a member?", "SignUp", "SignUp")</button>
     </div>*@
+<head>
+    <link rel="stylesheet" href="~/Content/CSS/SignIn.css"/>
+</head>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <div style="display:inline-flex;">
-        <section style="display: inline-flex">
-            @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "", placeholder = "Email" } })
-            @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
-            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "", placeholder = "Password" } })
-            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+    <section>
+        @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "signinhbox", placeholder = "Email" } })
+        @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "signinhbox", placeholder = "Password" } })
+        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
 
-            <button class="H2Spacing b1 text-color-white">Sign In</button>
-        </section>
-    </div>
+        <button class="signin-botten b1 text-color-white">Sign In</button>
+    </section>
 }

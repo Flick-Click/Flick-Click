@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="view-container">
-        <div class="navbar navbar-inverse navbar-static-top navbar-Background navbar-LinkFix text-color-white">
+        <div class="navbar navbar-inverse navbar-static-top navbar-Background navbar-Link-color-white text-color-white">
             <div class="row">
                 <div class="col-12 reset-padding" >
                     <div class="row">
@@ -18,16 +18,16 @@
                                 <img src="~/Content/Pictures/logo.png" />
                             </a>
                         </div>
-                        <div class="col-md-6 col-sm-12 reset-padding " >
-                            <ul class="nav float-md-right">
-                                <li class="nav-item">
-                                    <b class="nav-link active">@Html.ActionLink("HOME", "Index", "Home")</b>
+                        <div class="col-md-6 col-sm-12 reset-padding align-items-center" >
+                            <ul class="nav float-md-right fill-the-height">
+                                <li class="nav-link active align-content-center">
+                                    <b >@Html.ActionLink("HOME", "Index", "Home")</b>
                                 </li>
-                                <li class="nav-item">
-                                    <b class="nav-link">@Html.ActionLink("NEWS", "News", "News")</b>
+                                <li class="nav-link">
+                                    <b >@Html.ActionLink("NEWS", "News", "News")</b>
                                 </li>
-                                <li class="nav-item">
-                                    <b class="nav-link">@Html.ActionLink("CONTACT", "Contact", "Contact")</b>
+                                <li class="nav-link">
+                                    <b>@Html.ActionLink("CONTACT", "Contact", "Contact")</b>
                                 </li>
                             </ul>
                         </div>
@@ -48,7 +48,7 @@
                                 </ul>
                             </div>
                             <div class="col-md-6 col-sm-12 reset-padding text-md-right" >
-                                @Html.Action("Search", "Search")
+                                    @Html.Action("Search", "Search")
                             </div>
                         </dív>
                     </div>
@@ -60,7 +60,7 @@
                                         <b>@Html.Action("SignIn", "SignIn")</b>
                                     </li>
                                     <li class="nav-item">
-                                        <button class="H2Spacing b1 tekstColor-white">@Html.ActionLink("Not a member?", "SignUp", "SignUp")</button>
+                                        <button class="fill-the-height b1 tekstColor-white">@Html.ActionLink("Not a member?", "SignUp", "SignUp")</button>
                                     </li>
                                 </ul>
                             </div>

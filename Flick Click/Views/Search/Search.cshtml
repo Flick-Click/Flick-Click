@@ -3,6 +3,9 @@
     ViewBag.Title = "Search";
     Layout = null;
 }
+<head>
+    <link rel="stylesheet" href="~/Content/CSS/Search.css"/>
+</head>
 
     @*<form style="display: inline-flex">
         <p class="H2Spacing HFTekstColor"><b>SEARCH</b></p>
@@ -18,14 +21,11 @@
     @using (Html.BeginForm("SearchResult","Search", FormMethod.Get))
     {
         @Html.AntiForgeryToken()
-        <div style="display:inline-flex;">
-            <section style="display: inline-flex">
-                <p class="H2Spacing HFTekstColor"><strong>SEARCH</strong></p>
-                @Html.EditorFor(model => model.Search, new { htmlAttributes = new { @class = "Input1", placeholder = "Enter Search Here" } })
-                @Html.ValidationMessageFor(model => model.Search, "", new { @class = "text-danger" })
-
-                <button class="H2Spacing b1 HFTekstColor">GO!</button>
-            </section>
-        </div>
+        <section>
+            <strong class="text-color-white search-text">SEARCH</strong>
+            @Html.EditorFor(model => model.Search, new { htmlAttributes = new { @class = "searchbox", placeholder = "Enter Search Here" } })
+            @Html.ValidationMessageFor(model => model.Search, "", new { @class = "text-danger" })
+            <button class="search-botten b1 text-color-white">GO!</button>
+        </section>
     }
 

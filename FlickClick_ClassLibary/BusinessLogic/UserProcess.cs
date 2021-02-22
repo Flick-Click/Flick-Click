@@ -23,7 +23,7 @@ namespace FlickClick_ClassLibary.BusinessLogic
                 TlfNr = tlfnr
             };
 
-            string sql = @"INSERT INTO flick_click.users(FirstName, LastName, Password, Email, TlfNr, ProfilePicture, Group_ID) VALUES(@FirstName, @LastName, @Password, @EmailAddress, @TelefonNummer, '~/Content/Pictures/img-person-placeholder.png', @Group_ID);";
+            string sql = @"INSERT INTO flick_click.users(FirstName, LastName, Password, Email, TlfNr, ProfilePicture, Group_ID) VALUES(@FirstName, @LastName, @Password, @Email, @TlfNr, '~/Content/Pictures/img-person-placeholder.png', @Group_ID);";
 
             return SqlDataAccess.SaveData(sql, data);
         }

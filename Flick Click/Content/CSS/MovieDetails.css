@@ -80,14 +80,14 @@
 
 .btn{
     padding: 0px;
-    width: 4.2em;
+    width: 5.5em;
     border: 1.4px solid black;
     background-color: #fff;
     color: black;
+    font-size: 14px
 }
 
 /* Comments */
-
-.Comment p{
+.Comment p {
     font-size: 0.86em;
 }
