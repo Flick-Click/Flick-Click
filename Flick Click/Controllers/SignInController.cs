@@ -32,6 +32,7 @@ namespace Flick_Click.Controllers
             }
             else
             {
+                // Set session
                 for (int i = 0; i < 1; i++)
                 {
                     Session["userID"] = data[i].ID;

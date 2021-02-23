@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -29,6 +29,19 @@
                                 <li class="nav-link">
                                     <b>@Html.ActionLink("CONTACT", "Contact", "Contact")</b>
                                 </li>
+                                @{
+                                    if (Session["Group_ID"] != null)
+                                    {
+                                        var Group = Session["Group_ID"].ToString();
+
+                                        if (Group == "2")
+                                        {
+                                            <li class="nav-link">
+                                                <b>@Html.ActionLink("ADMINISTRATION", "Index", "Administration")</b>
+                                            </li>
+                                        }
+                                    }
+                                }
                             </ul>
                         </div>
                     </div>
@@ -70,7 +83,13 @@
                                         else
                                         {
                                             <p>Welcome @Session["firstName"].ToString() @Session["lastName"].ToString()</p>
-                                            @Html.ActionLink("Logout", "Logout", "SignIn");
+
+                                            using (Html.BeginForm("Logout", "SignIn", FormMethod.Post))
+                                            {
+                                                @Html.AntiForgeryToken()
+
+                                                <input type="submit" value="Logout" class="btn" />
+                                            }
                                         }
                                     }
                                 </ul>
