@@ -28,7 +28,7 @@ namespace Flick_Click.Controllers
             if (data != null && !data.Any())
             {
                 model.LoginErrorMessage = "Wrong username or password";
-                return View("SignIn", model);
+                return RedirectToAction("Index", "Home");
             }
             else
             {

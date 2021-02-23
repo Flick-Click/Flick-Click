@@ -30,12 +30,12 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
             if (id == null)
             {
-                sql = $"SELECT comments.ID, Content, comments.Created, Movie_ID, CONCAT(users.FirstName, ' ', users.LastName) AS Name FROM comments LEFT JOIN users ON comments.User_ID = users.ID WHERE Movie_ID = 0 ORDER BY comments.Created DESC;";
+                sql = $"SELECT comments.ID, Content, comments.Created, Movie_ID, CONCAT(users.FirstName, ' ', users.LastName) AS Name, User_ID FROM comments LEFT JOIN users ON comments.User_ID = users.ID WHERE Movie_ID = 0 ORDER BY comments.Created DESC;";
 
             }
             else
             {
-                sql = $"SELECT comments.ID, Content, comments.Created, Movie_ID, CONCAT(users.FirstName, ' ', users.LastName) AS Name FROM comments LEFT JOIN users ON comments.User_ID = users.ID WHERE Movie_ID = {id} ORDER BY comments.Created DESC;";
+                sql = $"SELECT comments.ID, Content, comments.Created, Movie_ID, CONCAT(users.FirstName, ' ', users.LastName) AS Name, User_ID FROM comments LEFT JOIN users ON comments.User_ID = users.ID WHERE Movie_ID = {id} ORDER BY comments.Created DESC;";
             }
 
             return SqlDataAccess.LoadData<CommentModel>(sql);

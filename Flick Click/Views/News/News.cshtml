@@ -11,18 +11,17 @@
 
 <h1>News</h1>
 @{
-    var group = Session["Group_ID"].ToString();
-    if (group != null && group == "2")
+    if (Session["Group_ID"] != null)
     {
-        <span>
-            @Html.ActionLink("Create new", "Create")
-        </span>
+        if (Session["Group_ID"].ToString() == "2")
+        {
+            <span>
+                @Html.ActionLink("Create new", "Create")
+            </span>
+        }
     }
 }
 <hr />
-
-
-
 
 @{
     foreach (var item in Model)

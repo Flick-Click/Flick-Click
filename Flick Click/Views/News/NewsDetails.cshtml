@@ -15,20 +15,22 @@
         {
         <div>
             @{
-                var group = Session["Group_ID"].ToString();
-                if (group != null && group == "2")
+                if (Session["Group_ID"] != null)
                 {
+                    if (Session["Group_ID"].ToString() == "2")
+                    {
 
-                    <div class="d-inline-flex">
-                        @using (Html.BeginForm("EditNews", "News", new { id = item.ID }, FormMethod.Get))
-                        {
-                            <input type="submit" value="Edit" onclick="return confirm('Are you sure you want to edit this News Article?');" />
-                        }
-                        @using (Html.BeginForm("DeleteNews", "News", new { id = item.ID }, FormMethod.Post))
-                        {
-                            <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this News Article?');" />
-                        }
-                    </div>
+                        <div class="d-inline-flex">
+                            @using (Html.BeginForm("EditNews", "News", new { id = item.ID }, FormMethod.Get))
+                            {
+                                <input type="submit" value="Edit" onclick="return confirm('Are you sure you want to edit this News Article?');" />
+                            }
+                            @using (Html.BeginForm("DeleteNews", "News", new { id = item.ID }, FormMethod.Post))
+                            {
+                                <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this News Article?');" />
+                            }
+                        </div>
+                    }
                 }
             }
             <h1><b>@Html.DisplayFor(modelItem => item.Title)</b></h1>

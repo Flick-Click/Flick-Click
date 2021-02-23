@@ -83,7 +83,7 @@ namespace Flick_Click.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Comment(CommentModel model, int id)
         {
-            CreateComment(model.Comment, id, 1);
+            CreateComment(model.Comment, id, model.UserID);
 
             return RedirectToAction("MovieDetails", "Movie", new { id });
         }
@@ -151,22 +151,6 @@ namespace Flick_Click.Controllers
 
             if (!Exists)
             {
-                //try
-                //{
-                //    if (model.ImageFile.ContentLength > 0)
-                //    {
-                //        string _FileName = Path.GetFileName(model.ImageFile.FileName);
-                //        string _path = Path.Combine(Server.MapPath("~/Content/Pictures/"), _FileName);
-                //        model.ImageFile.SaveAs(_path);
-                //        model.Img = "~/Content/Pictures/" + _FileName;
-                //    }
-                //    ViewBag.Message = "File Uploaded Successfully!!";
-                //}
-                //catch
-                //{
-                //    ViewBag.Message = "File upload failed!!";
-                //}
-
                 // Get file name
                 string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
                 // Get file extension like jpg, gif etc.
@@ -298,7 +282,8 @@ namespace Flick_Click.Controllers
                     Movie_ID = Comment.Movie_ID,
                     Name = Comment.Name,
                     Created = Comment.Created,
-                    Content = Comment.Content
+                    Content = Comment.Content,
+                    User_ID = Comment.User_ID
                 });
             }
 

@@ -11,15 +11,18 @@
 @{
     foreach (var item in Model)
     {
-
-        using (Html.BeginForm("DeleteMovie", "Movie", new { id = item.ID }, FormMethod.Post))
+        if (Session["Group_ID"] != null)
         {
-            <input type="submit" value="DeleteMovie" onclick="return confirm('Are you sure you want to delete this movie?');" />
+            if (Session["Group_ID"].ToString() == "2")
+            {
+                using (Html.BeginForm("DeleteMovie", "Movie", new { id = item.ID }, FormMethod.Post))
+                {
+                    <input type="submit" value="DeleteMovie" onclick="return confirm('Are you sure you want to delete this movie?');" />
+                }
+
+                <p>@Html.ActionLink("Edit", "Edit", new { id = item.ID })</p>
+            }
         }
-
-        <p>@Html.ActionLink("Edit", "Edit", new { id = item.ID })</p>
-
-
 
         TimeSpan t = TimeSpan.FromSeconds(item.Duration);
 
@@ -68,12 +71,20 @@
             <p>@item.Description</p>
         </div>
 
-
         <div>
             <div>
                 <b>Comments: @item.CommentCount</b>
             </div>
-            @Html.Action("Comment", new { id = item.ID })
+            @{
+                if (Session["userID"] != null)
+                {
+                    @Html.Action("Comment", new { id = item.ID });
+                }
+                else
+                {
+                    <p>You need to be logged in to post a comment</p>
+                }
+            }
             @Html.Action("MovieComments", new { id = item.ID })
         </div>
     }
