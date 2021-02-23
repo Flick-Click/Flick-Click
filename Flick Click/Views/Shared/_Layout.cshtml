@@ -56,12 +56,23 @@
                         <div class="row">
                             <div class="col-12 reset-padding bottom-padding">
                                 <ul class="nav float-md-right">
-                                    <li class="nav-item ">
-                                        <b>@Html.Action("SignIn", "SignIn")</b>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button class="fill-the-height b1 tekstColor-white">@Html.ActionLink("Not a member?", "SignUp", "SignUp")</button>
-                                    </li>
+                                    @{
+                                        if (Session["userID"] == null)
+                                        {
+                                            <li class="nav-item ">
+                                                <b>@Html.ActionLink("Sign In", "SignIn", "SignIn")</b>
+
+                                            </li>
+                                            <li class="nav-item">
+                                                <button class="fill-the-height b1 tekstColor-white">@Html.ActionLink("Not a member?", "SignUp", "SignUp")</button>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <p>Welcome @Session["firstName"].ToString() @Session["lastName"].ToString()</p>
+                                            @Html.ActionLink("Logout", "Logout", "SignIn");
+                                        }
+                                    }
                                 </ul>
                             </div>
                         </div>   

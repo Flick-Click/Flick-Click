@@ -19,33 +19,37 @@ namespace Flick_Click.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SignInValidation(string Email, string Password)
+        public ActionResult SignInValidation(UserModel model)
         {
-            var data = SignInValidator(Email, Password);
+            var data = SignInValidator(model.EmailAddress, model.Password);
             List<SignedInModel> SignIn = new List<SignedInModel>();
 
-
-            foreach (var users in data)
+            // Handles wrong username and password
+            if (data != null && !data.Any())
             {
-                SignIn.Add(new SignedInModel
-                {
-                    FirstName = users.FirstName,
-                    LastName = users.LastName
-                });
-            }
-            ViewBag.Message = SignIn;
-            return RedirectToAction("SignedIn", "SignIn");
-            if (data != null)
-            {
-                ViewBag.Message = SignIn;
-                return RedirectToAction("SignedIn", "SignIn");
+                model.LoginErrorMessage = "Wrong username or password";
+                return View("SignIn", model);
             }
             else
             {
-                return RedirectToAction("Contact", "Contact");
+                for (int i = 0; i < 1; i++)
+                {
+                    Session["userID"] = data[i].ID;
+                    Session["firstName"] = data[i].FirstName;
+                    Session["lastName"] = data[i].LastName;
+                    Session["Group_ID"] = data[i].Group_ID;
+                }
+                return RedirectToAction("Index", "Home");
             }
-            
+        }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            Session.Abandon();
+            return View("Index", "Home");
         }
     }
 }
