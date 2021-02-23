@@ -35,6 +35,13 @@ namespace FlickClick_ClassLibary.BusinessLogic
             return SqlDataAccess.LoadData<UserModel>(sql);
         }
 
+        public static List<UserModel> LoadAllUsers()
+        {
+            string sql = @"SELECT users.ID, FirstName, LastName, Email, TlfNr, groups.`Group` FROM users INNER JOIN groups ON users.Group_ID = groups.ID ;";
+
+            return SqlDataAccess.LoadData<UserModel>(sql);
+        }
+
         // ID is giving from frontend model.ID
         public static int DeleteUser(int ID)
         {

@@ -9,6 +9,8 @@ namespace Flick_Click.Models
 {
     public class UserModel
     {
+        public int ID { get; set; }
+
         [Display(Name = "First Name")]
         [Required(ErrorMessage = "You need to give us your first name.")]
         public string FirstName { get; set; }
@@ -43,5 +45,7 @@ namespace Flick_Click.Models
         [DataType(DataType.PhoneNumber)]
         [StringLength(15, MinimumLength = 7, ErrorMessage = "You need to provide a long enough TelefonNummer.")]
         public string TelefonNummer { get; set; }
+        
+        public string Group { get; set; }
     }
 }

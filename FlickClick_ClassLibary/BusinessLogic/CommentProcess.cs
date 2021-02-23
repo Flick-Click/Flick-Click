@@ -41,6 +41,19 @@ namespace FlickClick_ClassLibary.BusinessLogic
             return SqlDataAccess.LoadData<CommentModel>(sql);
         }
 
+        public static List<CommentModel> LoadAllComments()
+        {
+
+
+            string sql = $"SELECT comments.ID, Content, comments.Created, Movie_ID, " +
+                $"CONCAT(users.FirstName, ' ', users.LastName) " +
+                $"AS Name, User_ID " +
+                $"FROM comments " +
+                $"LEFT JOIN users ON comments.User_ID = users.ID ORDER BY comments.Created DESC;";
+
+            return SqlDataAccess.LoadData<CommentModel>(sql);
+        }
+
         public static List<CommentModel> LoadComment(Nullable<int> id)
         {
             string sql;

@@ -15,5 +15,6 @@ namespace FlickClick_ClassLibary.Models
         public string Password { get; set; }
         public string TlfNr { get; set; }
         public int Group_ID { get; set; } = 1;
+        public string Group { get; set; }
     }
 }

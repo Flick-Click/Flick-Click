@@ -212,6 +212,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CSS\Administration.css" />
     <Content Include="Content\CSS\Countcontainer.css" />
     <Content Include="Content\CSS\Home.css" />
     <Content Include="Content\CSS\MovieDefault.css" />
@@ -393,6 +394,10 @@
     <Content Include="Views\Movie\CreateGenre.cshtml" />
     <Content Include="Views\Movie\CreateMovie.cshtml" />
     <Content Include="Views\Administration\Index.cshtml" />
+    <Content Include="Views\Administration\AllMovies.cshtml" />
+    <Content Include="Views\Administration\AllNews.cshtml" />
+    <Content Include="Views\Administration\AllComments.cshtml" />
+    <Content Include="Views\Administration\Allusers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
