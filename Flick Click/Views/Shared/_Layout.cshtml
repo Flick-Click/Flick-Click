@@ -82,14 +82,12 @@
                                         }
                                         else
                                         {
-                                            <p>Welcome @Session["firstName"].ToString() @Session["lastName"].ToString()</p>
-
-                                            using (Html.BeginForm("Logout", "SignIn", FormMethod.Post))
-                                            {
-                                                @Html.AntiForgeryToken()
-
-                                                <input type="submit" value="Logout" class="btn" />
-                                            }
+                                            <li class="nav-item ">
+                                                <p class="text-color-white search-text" style="margin-bottom: 0px;">Welcome @Session["firstName"].ToString() @Session["lastName"].ToString()</p>
+                                            </li>
+                                            <li class="nav-item">
+                                                <button class="fill-the-height b1 tekstColor-white">@Html.ActionLink("Logout", "Logout", "SignIn")</button>
+                                            </li>
                                         }
                                     }
                                 </ul>

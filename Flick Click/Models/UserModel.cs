@@ -43,7 +43,5 @@ namespace Flick_Click.Models
         [DataType(DataType.PhoneNumber)]
         [StringLength(15, MinimumLength = 7, ErrorMessage = "You need to provide a long enough TelefonNummer.")]
         public string TelefonNummer { get; set; }
-        public string LoginErrorMessage { get; set; }
-
     }
 }

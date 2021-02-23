@@ -27,7 +27,6 @@ namespace Flick_Click.Controllers
             // Handles wrong username and password
             if (data != null && !data.Any())
             {
-                model.LoginErrorMessage = "Wrong username or password";
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -44,13 +43,11 @@ namespace Flick_Click.Controllers
             }
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Logout()
         {
             Session.Clear();
             Session.Abandon();
-            return View("Index", "Home");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
