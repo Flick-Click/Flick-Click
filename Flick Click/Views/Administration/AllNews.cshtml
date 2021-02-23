@@ -7,10 +7,10 @@
 
         if (Session["Group_ID"].ToString() == "2")
         {
-            <h2>AllNews</h2>
+            <h1>All News</h1>
 
             <p>
-                @Html.ActionLink("Create New", "Create")
+                @Html.ActionLink("Create New", "Create", "News")
             </p>
             <table class="table">
                 <tr>
@@ -39,9 +39,9 @@
                             @Html.DisplayFor(modelItem => item.Created)
                         </td>
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                            @Html.ActionLink("Edit", "EditNews", "News", new { id = item.ID }, FormMethod.Get) |
+                            @Html.ActionLink("Details", "NewsDetails", "News", new { id = item.ID.ToString() }, null) |
+                            @Html.ActionLink("Delete", "DeleteNews", "News", new { id = item.ID }, FormMethod.Post)
                         </td>
                     </tr>
                 }

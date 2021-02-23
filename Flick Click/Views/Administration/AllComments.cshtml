@@ -9,11 +9,8 @@
 
         if (Session["Group_ID"].ToString() == "2")
         {
-            <h2>AllComments</h2>
+            <h1>All Comments</h1>
 
-            <p>
-                @Html.ActionLink("Create New", "Create")
-            </p>
             <table class="table">
                 <tr>
                     <th>
@@ -53,9 +50,8 @@
                             @Html.DisplayFor(modelItem => item.Name)
                         </td>
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                            @Html.ActionLink("Edit", "EditComment", "Movie", new { id = item.ID }, FormMethod.Get) |
+                            @Html.ActionLink("Delete", "Delete", "Movie", new { id = item.ID, MovieID = item.Movie_ID }, FormMethod.Post)
                         </td>
                     </tr>
                 }
