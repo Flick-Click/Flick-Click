@@ -48,6 +48,7 @@ namespace Flick_Click.Models
         public string TelefonNummer { get; set; }
 
         public string Group { get; set; }
+        public int Group_ID { get; set; }
 
         public string Img { get; set; }
 

@@ -103,6 +103,34 @@ namespace Flick_Click.Controllers
             return View(Comments);
         }
 
+        // GET: User
+        public ActionResult EditUserAdmin(Nullable<int> id)
+        {
+            var data = LoadUser(id);
+            UserModel User = new UserModel();
+
+            foreach (var row in data)
+            {
+
+                User.ID = row.ID;
+                User.FirstName = row.FirstName;
+                User.LastName = row.LastName;
+                User.Group_ID = row.Group_ID;
+            }
+
+            return View(User);
+        }
+
+        // ----------------- Update Section ------------------
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditUserAdmin(UserModel model)
+        {
+            var data = UpdateUserAdmin(model.ID, model.FirstName, model.LastName, model.Group_ID);
+
+            return RedirectToAction("../Administration/Allusers");
+        }
+
         // ----------------- Delete Section ------------------
 
         public ActionResult DeleteMovie(int id)
