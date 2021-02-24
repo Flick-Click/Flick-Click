@@ -29,9 +29,50 @@ namespace FlickClick_ClassLibary.BusinessLogic
             return SqlDataAccess.SaveData(sql, data);
         }
 
-        public static List<UserModel> LoadUser()
+        public static int UpdateUserAdmin(int id, string firstname, string lastname, int group)
         {
-            string sql = @"SELECT ID, FirstName, LastName, Email, TlfNr, Group_ID FROM users;";
+            UserModel data = new UserModel
+            {
+                ID = id,
+                FirstName = firstname,
+                LastName = lastname,
+                Group_ID = group
+            };
+
+            string sql = @"UPDATE users SET FirstName = @FirstName, LastName = @LastName, Group_ID = @Group_ID WHERE ID = @ID;";
+
+            return SqlDataAccess.SaveData<UserModel>(sql, data);
+        }
+
+        public static int UpdateUser(int id, string firstname, string lastname, string email, string telephone, string img, int group)
+        {
+            UserModel data = new UserModel
+            {
+                ID = id,
+                FirstName = firstname,
+                LastName = lastname,
+                Email = email,
+                TlfNr = telephone,
+                ProfilePicture = img,
+                Group_ID = group
+            };
+
+            string sql = @"UPDATE users SET FirstName = @FirstName, LastName = @LastName, Email = @Email, TlfNr = @TlfNr, ProfilePicture = @ProfilePicture, Group_ID = @Group_ID WHERE ID = @ID;";
+
+            return SqlDataAccess.SaveData<UserModel>(sql, data);
+        }
+
+        public static List<UserModel> LoadUser(Nullable<int> ID)
+        {
+            string sql;
+            if (ID == null)
+            {
+                sql = $"SELECT ID, FirstName, LastName, Email, TlfNr, ProfilePicture, Group_ID FROM users WHERE ID = 0;";
+            }
+            else
+            {
+                sql = $"SELECT ID, FirstName, LastName, Email, TlfNr, ProfilePicture, Group_ID FROM users WHERE ID = {ID};";
+            }
 
             return SqlDataAccess.LoadData<UserModel>(sql);
         }

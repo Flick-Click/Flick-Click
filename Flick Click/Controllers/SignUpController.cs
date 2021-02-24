@@ -57,7 +57,6 @@ namespace Flick_Click.Controllers
                 CreateUser(model.FirstName, model.LastName, model.Password, model.EmailAddress, model.TelefonNummer, model.Img);
                 return RedirectToAction("../Home/Index");
             }
-
             return View();
         }
     }
