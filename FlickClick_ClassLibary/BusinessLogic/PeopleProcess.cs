@@ -26,7 +26,7 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
         public static List<PeopleModel> LoadPeople()
         {
-            string sql = @"SELECT * FROM people";
+            string sql = @"SELECT ID,CONCAT(FirstName,' ',LastName) AS Firstname FROM people";
 
             return SqlDataAccess.LoadData<PeopleModel>(sql);
         }

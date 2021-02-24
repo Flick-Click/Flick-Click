@@ -19,9 +19,10 @@ namespace Flick_Click.Models
         public string Img { get; set; }
         public int Rating { get; set; }
         public int CommentCount { get; set; }
-        public List<GenreModel> Genre { get; set; }
+        public List<GenresModel> Genre { get; set; }
         public List<DirectorModel> Directors { get; set; }
         public List<DirectorModel> Writers { get; set; }
+        public List<DirectorModel> People { get; set; }
         public List<AgeRatingModel> Age_rating { get; set; }
         public HttpPostedFileBase ImageFile { get; set; }
     }

@@ -51,7 +51,7 @@
                         </td>
                         <td>
                             @Html.ActionLink("Edit", "EditComment", "Movie", new { id = item.ID }, FormMethod.Get) |
-                            @Html.ActionLink("Delete", "Delete", "Movie", new { id = item.ID, MovieID = item.Movie_ID }, FormMethod.Post)
+                            @Html.ActionLink("Delete", "Deletecomment", new { id = item.ID })
                         </td>
                     </tr>
                 }

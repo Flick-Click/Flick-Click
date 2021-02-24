@@ -43,9 +43,9 @@ namespace FlickClick_ClassLibary.BusinessLogic
         }
 
         // ID is giving from frontend model.ID
-        public static int DeleteUser(int ID)
+        public static int Deleteuser(int ID)
         {
-            string sql = @"DELETE FROM users WHERE ID = @ID";
+            string sql = $"DELETE FROM users WHERE ID = {ID}";
 
             return SqlDataAccess.DeleteData(sql);
         }
