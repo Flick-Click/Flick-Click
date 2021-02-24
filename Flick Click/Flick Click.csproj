@@ -405,6 +405,7 @@
     <Content Include="Views\SignUp\EditUserAdmin.cshtml" />
     <Content Include="Views\Administration\EditUserAdmin.cshtml" />
     <Content Include="Views\SignIn\ViewUser.cshtml" />
+    <Content Include="Views\SignIn\EditUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
