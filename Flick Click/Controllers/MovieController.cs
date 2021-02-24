@@ -136,7 +136,7 @@ namespace Flick_Click.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateMovie(CreateMovieModel model)
+        public ActionResult CreateMovie(CreateMovieModel model, FormCollection form)
         {
             var data = LoadMovies();
             bool Exists = false;
@@ -162,11 +162,20 @@ namespace Flick_Click.Controllers
                 fileName = Path.Combine(Server.MapPath("/Content/Pictures/"), fileName);
                 // Save image
                 model.ImageFile.SaveAs(fileName);
-                
-                Createmovie(model.Title, model.Description, model.Duration, model.Img, model.Trailer, model.Release, model.Rating, 1);
+                int ageRating;
+                int.TryParse(form["Age_rating"],out ageRating);
+
+                string[] genres = form["Genre"].Split(',');
+                string[] writers = form["Writers"].Split(',');
+                string[] Directores = form["Directors"].Split(',');
+
+                int MovieID = Createmovie(model.Title, model.Description, model.Duration, model.Img, model.Trailer, model.Release, model.Rating, ageRating);
+                CreateMovieGenre(MovieID, genres);
+                CreateMovieWriter(MovieID, writers);
+                CreateMovieDirector(MovieID, Directores);
             }
 
-            return View();
+            return RedirectToAction("Index","Home");
         }
 
         // ----------------- Read Section ------------------

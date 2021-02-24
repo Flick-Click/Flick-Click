@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -19,8 +20,14 @@ namespace Flick_Click.Models
         public string Img { get; set; }
         public int Rating { get; set; }
         public int CommentCount { get; set; }
+
+        [Required(ErrorMessage = "Select minimum one Genre before creating a movie")]
         public List<GenresModel> Genre { get; set; }
+
+        [Required(ErrorMessage = "Select minimum one Director before creating a movie")]
         public List<DirectorModel> Directors { get; set; }
+
+        [Required(ErrorMessage = "Select minimum one Writer before creating a movie")]
         public List<DirectorModel> Writers { get; set; }
         public List<DirectorModel> People { get; set; }
         public List<AgeRatingModel> Age_rating { get; set; }

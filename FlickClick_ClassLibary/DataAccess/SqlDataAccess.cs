@@ -13,7 +13,7 @@ namespace FlickClick_ClassLibary.DataAccess
 {
     public static class SqlDataAccess
     {
-        public static string GetConnectionString(string connectionName = "server=localhost;user id=root;Pwd=tim;database=flick_click;persistsecurityinfo=True; allowuservariables=True")
+        public static string GetConnectionString(string connectionName = "server=localhost;user id=root;Pwd=William;database=flick_click;persistsecurityinfo=True; allowuservariables=True")
         {
             return connectionName;
         }
@@ -31,6 +31,14 @@ namespace FlickClick_ClassLibary.DataAccess
             using (IDbConnection cnn = new MySqlConnection(GetConnectionString()))
             {
                 return cnn.Execute(sql, data);
+            }
+        }
+
+        public static object SaveDataThatReturnsId<T>(string sql, T data)
+        {
+            using (IDbConnection cnn = new MySqlConnection(GetConnectionString()))
+            {
+                return cnn.ExecuteScalar(sql, data);
             }
         }
 

@@ -83,6 +83,7 @@
         @Html.LabelFor(model => model.Age_rating, htmlAttributes: new { @class = "Control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownListFor(model => model.Age_rating, ViewBag.ageRating as SelectList, " Select the age rating ")
+            @Html.ValidationMessageFor(model => model.Age_rating, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -94,6 +95,7 @@
         @Html.LabelFor(model => model.Genre, htmlAttributes: new { @class = "Control-label col-md-2" })
         <div class="col-md-10">
             @Html.ListBoxFor(model => model.Genre, ViewBag.genre as MultiSelectList, " Select Genre ")
+            @Html.ValidationMessageFor(model => model.Genre, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -101,13 +103,15 @@
         @Html.LabelFor(model => model.Directors, htmlAttributes: new { @class = "Control-label col-md-2" })
         <div class="col-md-10">
             @Html.ListBoxFor(model => model.Directors, ViewBag.people as MultiSelectList, " Select Directors")
+            @Html.ValidationMessageFor(model => model.Directors, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.Writers, htmlAttributes: new { @class = "Control-label col-md-2" })
         <div class="col-md-10">
-            @Html.ListBoxFor(model => model.Directors, ViewBag.people as MultiSelectList, " Select Writers")
+            @Html.ListBoxFor(model => model.Writers, ViewBag.people as MultiSelectList, " Select Writers")
+            @Html.ValidationMessageFor(model => model.Writers, "", new { @class = "text-danger" })
         </div>
     </div>
 
