@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Flick_Click.Models.ContactModel>
+
+@{
+    ViewBag.Title = "AllContacts";
+}
+
+@{
+    if (Session["Group_ID"] != null)
+    {
+
+        if (Session["Group_ID"].ToString() == "2")
+        {
+            <h2>Contacts</h2>
+
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EmailAddress)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Messege)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EmailAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Messege)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Delete", "Deletecontact", new { id = item.ID })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        }
+    }
+}
+

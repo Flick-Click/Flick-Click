@@ -8,6 +8,8 @@ namespace Flick_Click.Models
 {
     public class ContactModel
     {
+        public int ID { get; set; }
+
         [Display(Name = "Full Name")]
         [Required(ErrorMessage = "You need to write you full name")]
         public string Name { get; set; }

@@ -219,6 +219,7 @@
     <Content Include="Content\CSS\MovieDefault.css" />
     <Content Include="Content\CSS\NewsDetails.css" />
     <Content Include="Content\CSS\SignIn.css" />
+    <Content Include="Content\CSS\ViewUser.css" />
     <Content Include="Content\Pictures\BlackWidow.jpg" />
     <Content Include="Content\CSS\Search.css" />
     <Content Include="Content\Pictures\FastAndFurious9.jpg" />
@@ -407,6 +408,7 @@
     <Content Include="Views\SignIn\ViewUser.cshtml" />
     <Content Include="Views\SignIn\EditUser.cshtml" />
     <Content Include="Views\SignIn\UserComments.cshtml" />
+    <Content Include="Views\Administration\AllContacts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
