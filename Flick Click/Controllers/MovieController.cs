@@ -346,9 +346,8 @@ namespace Flick_Click.Controllers
         }
 
         // ----------------- Delete Section ------------------
-
         [HttpPost]
-        public ActionResult Delete(Nullable<int> id, int MovieID)
+        public ActionResult DeletecommentMovie(Nullable<int> id, int MovieID)
         {
             DeleteComment(id);
 

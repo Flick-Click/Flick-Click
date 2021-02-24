@@ -13,6 +13,9 @@ namespace Flick_Click.Controllers
 {
     public class AdministrationController : Controller
     {
+
+        // ----------------- Read Section ------------------
+
         // GET: Administration
         public ActionResult Index()
         {
@@ -98,6 +101,35 @@ namespace Flick_Click.Controllers
             }
 
             return View(Comments);
+        }
+
+        // ----------------- Delete Section ------------------
+
+        public ActionResult DeleteMovie(int id)
+        {
+            Deletemovie(id);
+
+            return RedirectToAction("../Administration/AllMovies");
+        }
+
+        public ActionResult DeleteNews(int id)
+        {
+            Deletenews(id);
+
+            return RedirectToAction("../Administration/AllNews");
+        }
+
+        public ActionResult Deletecomment(int id)
+        {
+            DeleteComment(id);
+
+            return RedirectToAction("../Administration/AllComments");
+        }
+
+        public ActionResult DeleteUser(int id)
+        {
+            Deleteuser(id);
+            return RedirectToAction("../Administration/Allusers");
         }
     }
 }
