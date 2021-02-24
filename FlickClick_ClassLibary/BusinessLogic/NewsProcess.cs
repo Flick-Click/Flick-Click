@@ -30,6 +30,13 @@ namespace FlickClick_ClassLibary.BusinessLogic
             return SqlDataAccess.LoadData<NewsModel>(sql);
         }
 
+        public static List<NewsModel> LoadNyNews()
+        {
+            string sql = @"SELECT ID, Title, Content, Created FROM news ORDER BY Created DESC;";
+
+            return SqlDataAccess.LoadData<NewsModel>(sql);
+        }
+
         public static List<NewsModel> LoadSingleNews(Nullable<int> id)
         {
             string sql;
