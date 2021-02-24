@@ -113,7 +113,7 @@ namespace Flick_Click.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateGenre(GenreModel model)
+        public ActionResult CreateGenre(GenresModel model)
         {
             var data = Loadgenre();
             bool Exists = false;
@@ -162,7 +162,7 @@ namespace Flick_Click.Controllers
                 fileName = Path.Combine(Server.MapPath("/Content/Pictures/"), fileName);
                 // Save image
                 model.ImageFile.SaveAs(fileName);
-
+                
                 Createmovie(model.Title, model.Description, model.Duration, model.Img, model.Trailer, model.Release, model.Rating, 1);
             }
 
@@ -219,11 +219,11 @@ namespace Flick_Click.Controllers
         public ActionResult MovieGenres(Nullable<int> id)
         {
             var data = LoadGenre(id);
-            List<GenreModel> Genres = new List<GenreModel>();
+            List<GenresModel> Genres = new List<GenresModel>();
 
             foreach (var Genre in data)
             {
-                Genres.Add(new GenreModel
+                Genres.Add(new GenresModel
                 {
                     Genre = Genre.Genre
                 });
@@ -332,7 +332,14 @@ namespace Flick_Click.Controllers
         // Get: CreateMovie
         public ActionResult CreateMovie()
         {
+            var ageRating = LoadAgeRating();
+            ViewBag.ageRating = new SelectList(ageRating, "ID", "AgeRestriction");
 
+            var genre = Loadgenre();
+            ViewBag.genre =  new MultiSelectList(genre, "ID", "Genre");
+
+            var people = LoadPeople();
+            ViewBag.people = new MultiSelectList(people, "ID", "FirstName");
             return View();
         }
         // ----------------- Update Section ------------------
