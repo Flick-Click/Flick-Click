@@ -126,7 +126,7 @@ namespace Flick_Click.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditUserAdmin(UserModel model)
         {
-            var data = UpdateUserAdmin(model.ID, model.FirstName, model.LastName, model.Group_ID);
+            UpdateUserAdmin(model.ID, model.FirstName, model.LastName, model.Group_ID);
 
             return RedirectToAction("../Administration/Allusers");
         }

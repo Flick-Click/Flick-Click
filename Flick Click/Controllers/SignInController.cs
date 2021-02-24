@@ -22,7 +22,6 @@ namespace Flick_Click.Controllers
         public ActionResult SignInValidation(UserModel model)
         {
             var data = SignInValidator(model.EmailAddress, model.Password);
-            List<SignedInModel> SignIn = new List<SignedInModel>();
 
             // Handles wrong username and password
             if (data != null && !data.Any())
@@ -48,6 +47,26 @@ namespace Flick_Click.Controllers
             Session.Clear();
             Session.Abandon();
             return RedirectToAction("Index", "Home");
+        }
+
+        // GET: SignIn
+        public ActionResult ViewUser(int id)
+        {
+            var data = LoadUser(id);
+            UserModel user = new UserModel();
+
+            foreach (var row in data)
+            {
+                user.ID = row.ID;
+                user.FirstName = row.FirstName;
+                user.LastName = row.LastName;
+                user.EmailAddress = row.Email;
+                user.Group = row.Group;
+                user.Img = row.ProfilePicture;
+                user.Created = row.Created;
+            }
+
+            return View(user);
         }
     }
 }

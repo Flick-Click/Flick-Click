@@ -17,5 +17,6 @@ namespace FlickClick_ClassLibary.Models
         public string TlfNr { get; set; }
         public int Group_ID { get; set; } = 1;
         public string Group { get; set; }
+        public DateTime Created { get; set; }
     }
 }

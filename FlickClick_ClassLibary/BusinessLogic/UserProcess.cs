@@ -67,11 +67,11 @@ namespace FlickClick_ClassLibary.BusinessLogic
             string sql;
             if (ID == null)
             {
-                sql = $"SELECT ID, FirstName, LastName, Email, TlfNr, ProfilePicture, Group_ID FROM users WHERE ID = 0;";
+                sql = $"SELECT users.ID, FirstName, LastName, Email, TlfNr, ProfilePicture, Group_ID, groups.`Group` FROM users INNER JOIN groups ON users.Group_ID = groups.ID WHERE users.ID = 0;";
             }
             else
             {
-                sql = $"SELECT ID, FirstName, LastName, Email, TlfNr, ProfilePicture, Group_ID FROM users WHERE ID = {ID};";
+                sql = $"SELECT users.ID, FirstName, LastName, Email, TlfNr, ProfilePicture, Group_ID, groups.`Group` FROM users INNER JOIN groups ON users.Group_ID = groups.ID WHERE users.ID = {ID};";
             }
 
             return SqlDataAccess.LoadData<UserModel>(sql);
@@ -86,7 +86,7 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
         public static List<UserModel> LoadAllUsers()
         {
-            string sql = @"SELECT users.ID, FirstName, LastName, Email, TlfNr, groups.`Group` FROM users INNER JOIN groups ON users.Group_ID = groups.ID ;";
+            string sql = @"SELECT users.ID, FirstName, LastName, Email, TlfNr, groups.`Group` FROM users INNER JOIN groups ON users.Group_ID = groups.ID;";
 
             return SqlDataAccess.LoadData<UserModel>(sql);
         }
