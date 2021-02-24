@@ -13,10 +13,10 @@
         if (Session["Group_ID"].ToString() == "2")
         {
 
-            <h2>Allusers</h2>
+            <h1>All Users</h1>
 
             <p>
-                @Html.ActionLink("Create New", "Create")
+                @Html.ActionLink("Create New", "SignUp", "SignUp")
             </p>
             <table class="table">
                 <tr>
@@ -58,8 +58,7 @@
                         </td>
                         <td>
                             @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                            @Html.ActionLink("Delete", "DeleteUser", new { id = item.ID })
                         </td>
                     </tr>
                 }
