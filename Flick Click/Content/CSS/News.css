@@ -23,32 +23,3 @@
     font-size: 12px;
 }
 
-.textLimited3 { 
-    /*Makes it use the webkit*/
-    display: -webkit-box;
-
-    /*Cuts it at the requested line*/
-    -webkit-line-clamp: 3;
-
-    /*Let's it know it should use it on the vertical side*/
-    -webkit-box-orient: vertical;
-
-    /*Hides the text that fills too much*/
-    overflow: hidden;
-
-    /*Adds ... at the cutoff*/
-    text-overflow: ellipsis;
-}
-
-.textLimited2 {
-    /*Makes it use the webkit*/
-    display: -webkit-box;
-    /*Cuts it at the requested line*/
-    -webkit-line-clamp: 2;
-    /*Let's it know it should use it on the vertical side*/
-    -webkit-box-orient: vertical;
-    /*Hides the text that fills too much*/
-    overflow: hidden;
-    /*Adds ... at the cutoff*/
-    text-overflow: ellipsis;
-}

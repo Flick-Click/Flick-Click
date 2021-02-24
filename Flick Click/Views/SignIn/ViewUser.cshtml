@@ -4,7 +4,12 @@
     ViewBag.Title = "ViewUser";
 }
 
-<h1>User Information</h1>
+<head>
+    <link rel="stylesheet" href="~/Content/CSS/ViewUser.css" />
+    <link rel="stylesheet" href="~/Content/Site.css" />
+</head>
+
+<h1 class="paddingHeader">User Information</h1>
 <hr />
 
 <div>
@@ -68,6 +73,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Edit", "EditUser", new { id = Model.ID }) |
     @Html.ActionLink("Back to homepage", "Index", "Home")
 </p>

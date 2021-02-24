@@ -218,6 +218,7 @@
     <Content Include="Content\CSS\MovieDefault.css" />
     <Content Include="Content\CSS\NewsDetails.css" />
     <Content Include="Content\CSS\SignIn.css" />
+    <Content Include="Content\CSS\ViewUser.css" />
     <Content Include="Content\Pictures\BlackWidow.jpg" />
     <Content Include="Content\CSS\Search.css" />
     <Content Include="Content\Pictures\FastAndFurious9.jpg" />
