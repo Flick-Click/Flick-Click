@@ -71,6 +71,7 @@ namespace FlickClick_ClassLibary.BusinessLogic
             return SqlDataAccess.LoadData<CommentModel>(sql);
         }
 
+
         public static int UpdateComment(int id, string content)
         {
             CommentModel data = new CommentModel

@@ -8,6 +8,7 @@ using static FlickClick_ClassLibary.BusinessLogic.MovieProcess;
 using static FlickClick_ClassLibary.BusinessLogic.NewsProcess;
 using static FlickClick_ClassLibary.BusinessLogic.CommentProcess;
 using static FlickClick_ClassLibary.BusinessLogic.UserProcess;
+using static FlickClick_ClassLibary.BusinessLogic.ContactProcess;
 
 namespace Flick_Click.Controllers
 {
@@ -19,106 +20,180 @@ namespace Flick_Click.Controllers
         // GET: Administration
         public ActionResult Index()
         {
-            return View();
+            if (Session["Group_ID"] != null)
+            {
+                if (Session["Group_ID"].ToString() == "2")
+                {
+                    return View();
+                }
+            }
+
+            return RedirectToAction("index", "home");
         }
 
         // GET: AllMovies
         public ActionResult AllMovies()
         {
-            var data = LoadMovies();
-            List<MovieModel> Movies = new List<MovieModel>();
-
-            foreach (var movie in data)
+            if (Session["Group_ID"] != null)
             {
-                Movies.Add(new MovieModel
+                if (Session["Group_ID"].ToString() == "2")
                 {
-                    ID = movie.ID,
-                    Title = movie.Title
-                });
+                    var data = LoadMovies();
+                    List<MovieModel> Movies = new List<MovieModel>();
+
+                    foreach (var movie in data)
+                    {
+                        Movies.Add(new MovieModel
+                        {
+                            ID = movie.ID,
+                            Title = movie.Title
+                        });
+                    }
+
+                    return View(Movies);
+                }
             }
 
-            return View(Movies);
+            return RedirectToAction("index", "home"); 
         }
 
         // GET: News
         public ActionResult AllNews()
         {
-            var data = LoadNews();
-            List<NewsModel> news = new List<NewsModel>();
-
-            foreach (var row in data)
+            if (Session["Group_ID"] != null)
             {
-                news.Add(new NewsModel
+                if (Session["Group_ID"].ToString() == "2")
                 {
-                    ID = row.ID,
-                    Title = row.Title,
-                    Created = row.Created
-                });
+                    var data = LoadNews();
+                    List<NewsModel> news = new List<NewsModel>();
+
+                    foreach (var row in data)
+                    {
+                        news.Add(new NewsModel
+                        {
+                            ID = row.ID,
+                            Title = row.Title,
+                            Created = row.Created
+                        });
+                    }
+
+                    return View(news);
+                }
             }
 
-            return View(news);
+            return RedirectToAction("index", "home");
         }
 
         // GET: News
         public ActionResult AllComments()
         {
-            var data = LoadAllComments();
-            List<CommentsModel> Comments = new List<CommentsModel>();
-
-            foreach (var row in data)
+            if (Session["Group_ID"] != null)
             {
-                Comments.Add(new CommentsModel
+                if (Session["Group_ID"].ToString() == "2")
                 {
-                    ID = row.ID,
-                    Name = row.Name,
-                    Movie_ID = row.Movie_ID,
-                    Content = row.Content,
-                    Created = row.Created
-                });
-            }
+                    var data = LoadAllComments();
+                    List<CommentsModel> Comments = new List<CommentsModel>();
 
-            return View(Comments);
+                    foreach (var row in data)
+                    {
+                        Comments.Add(new CommentsModel
+                        {
+                            ID = row.ID,
+                            Name = row.Name,
+                            Movie_ID = row.Movie_ID,
+                            Content = row.Content,
+                            Created = row.Created
+                        });
+                    }
+
+                    return View(Comments);
+                }
+            }
+            return RedirectToAction("index", "home");
         }
 
         // GET: News
         public ActionResult Allusers()
         {
-            var data = LoadAllUsers();
-            List<UserModel> Comments = new List<UserModel>();
-
-            foreach (var row in data)
+            if (Session["Group_ID"] != null)
             {
-                Comments.Add(new UserModel
+                if (Session["Group_ID"].ToString() == "2")
                 {
-                    ID = row.ID,
-                    FirstName = row.FirstName,
-                    LastName = row.LastName,
-                    EmailAddress = row.Email,
-                    TelefonNummer = row.TlfNr,
-                    Group = row.Group
+                    var data = LoadAllUsers();
+                    List<UserModel> Comments = new List<UserModel>();
 
-                });
+                    foreach (var row in data)
+                    {
+                        Comments.Add(new UserModel
+                        {
+                            ID = row.ID,
+                            FirstName = row.FirstName,
+                            LastName = row.LastName,
+                            EmailAddress = row.Email,
+                            TelefonNummer = row.TlfNr,
+                            Group = row.Group
+
+                        });
+                    }
+
+                    return View(Comments);
+                }
             }
 
-            return View(Comments);
+            return RedirectToAction("index", "home");
         }
 
         // GET: User
         public ActionResult EditUserAdmin(Nullable<int> id)
         {
-            var data = LoadUser(id);
-            UserModel User = new UserModel();
-
-            foreach (var row in data)
+            if (Session["Group_ID"] != null)
             {
+                if (Session["Group_ID"].ToString() == "2")
+                {
+                    var data = LoadUser(id);
+                    UserModel User = new UserModel();
 
-                User.ID = row.ID;
-                User.FirstName = row.FirstName;
-                User.LastName = row.LastName;
-                User.Group_ID = row.Group_ID;
+                    foreach (var row in data)
+                    {
+
+                        User.ID = row.ID;
+                        User.FirstName = row.FirstName;
+                        User.LastName = row.LastName;
+                        User.Group_ID = row.Group_ID;
+                    }
+
+                    return View(User);
+                }
             }
 
-            return View(User);
+            return RedirectToAction("index", "home");
+        }
+
+        public ActionResult AllContacts()
+        {
+            if (Session["Group_ID"] != null)
+            {
+                if (Session["Group_ID"].ToString() == "2")
+                {
+                    var data = LoadContacts();
+                    List<ContactModel> Contacts = new List<ContactModel>();
+
+                    foreach (var row in data)
+                    {
+                        Contacts.Add(new ContactModel
+                        {
+                            ID = row.ID,
+                            Name = row.Name,
+                            EmailAddress = row.Email,
+                            Messege = row.Message
+                        });
+                    }
+
+                    return View(Contacts);
+                }
+            }
+
+            return RedirectToAction("index", "home");
         }
 
         // ----------------- Update Section ------------------
@@ -126,38 +201,93 @@ namespace Flick_Click.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditUserAdmin(UserModel model)
         {
-            UpdateUserAdmin(model.ID, model.FirstName, model.LastName, model.Group_ID);
+            if (Session["Group_ID"] != null)
+            {
+                if (Session["Group_ID"].ToString() == "2")
+                {
+                    UpdateUserAdmin(model.ID, model.FirstName, model.LastName, model.Group_ID);
 
-            return RedirectToAction("../Administration/Allusers");
+                    return RedirectToAction("../Administration/Allusers");
+                }
+            }
+
+            return RedirectToAction("index", "home");
         }
 
         // ----------------- Delete Section ------------------
 
+        public ActionResult Deletecontact(int id)
+        {
+            if (Session["Group_ID"] != null)
+            {
+                if (Session["Group_ID"].ToString() == "2")
+                {
+                    DeleteContact(id);
+
+                    return RedirectToAction("../Administration/AllContacts");
+                }
+            }
+
+            return RedirectToAction("index", "home");
+        }
+
         public ActionResult DeleteMovie(int id)
         {
-            Deletemovie(id);
+            if (Session["Group_ID"] != null)
+            {
+                if (Session["Group_ID"].ToString() == "2")
+                {
+                    Deletemovie(id);
 
-            return RedirectToAction("../Administration/AllMovies");
+                    return RedirectToAction("../Administration/AllMovies");
+                }
+            }
+
+            return RedirectToAction("index", "home");
         }
 
         public ActionResult DeleteNews(int id)
         {
-            Deletenews(id);
+            if (Session["Group_ID"] != null)
+            {
+                if (Session["Group_ID"].ToString() == "2")
+                {
+                    Deletenews(id);
 
-            return RedirectToAction("../Administration/AllNews");
+                    return RedirectToAction("../Administration/AllNews");
+                }
+            }
+
+            return RedirectToAction("index", "home");
         }
 
         public ActionResult Deletecomment(int id)
         {
-            DeleteComment(id);
+            if (Session["Group_ID"] != null)
+            {
+                if (Session["Group_ID"].ToString() == "2")
+                {
+                    DeleteComment(id);
 
-            return RedirectToAction("../Administration/AllComments");
+                    return RedirectToAction("../Administration/AllComments");
+                }
+            }
+
+            return RedirectToAction("index", "home");
         }
 
         public ActionResult DeleteUser(int id)
         {
-            Deleteuser(id);
-            return RedirectToAction("../Administration/Allusers");
+            if (Session["Group_ID"] != null)
+            {
+                if (Session["Group_ID"].ToString() == "2")
+                {
+                    Deleteuser(id);
+                    return RedirectToAction("../Administration/Allusers");
+                }
+            }
+
+            return RedirectToAction("index", "home");
         }
     }
 }
