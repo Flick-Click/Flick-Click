@@ -33,6 +33,43 @@ namespace Flick_Click.Controllers
             return View(news);
         }
 
+        //// GET: News
+        //public ActionResult NyNews()
+        //{
+        //    var data = LoadNews();
+        //    List<NewsModel> news = new List<NewsModel>();
+
+        //    if (data.Count >= 3)
+        //    {
+        //        for (int i = 0; i <= 2; i++)
+        //        {
+        //            news.Add(new NewsModel
+        //            {
+
+        //                ID = data[i].ID,
+        //                Title = data[i].Title,
+        //                Content = data[i].Content,
+        //                Created = data[i].Created
+        //            });
+        //        }
+        //    }
+        //    else
+        //    {
+        //        for (int i = 0; i <= data.Count - 1; i++)
+        //        {
+        //            news.Add(new NewsModel
+        //            {
+        //                ID = data[i].ID,
+        //                Title = data[i].Title,
+        //                Content = data[i].Content,
+        //                Created = data[i].Created
+        //            });
+        //        }
+        //    }
+
+        //    return View(news);
+        //}
+
         // ----------------- Create Section ------------------
 
         [HttpPost]
