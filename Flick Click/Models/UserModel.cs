@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Flick_Click.Models
 {
@@ -45,7 +46,11 @@ namespace Flick_Click.Models
         [DataType(DataType.PhoneNumber)]
         [StringLength(15, MinimumLength = 7, ErrorMessage = "You need to provide a long enough TelefonNummer.")]
         public string TelefonNummer { get; set; }
-        
+
         public string Group { get; set; }
+
+        public string Img { get; set; }
+
+        public HttpPostedFileBase ImageFile { get; set; }
     }
 }

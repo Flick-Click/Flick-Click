@@ -11,7 +11,7 @@ namespace FlickClick_ClassLibary.BusinessLogic
     public static class UserProcess
     {
 
-        public static int CreateUser(string firstname, string lastname, string password, string email, string tlfnr)
+        public static int CreateUser(string firstname, string lastname, string password, string email, string tlfnr, string img)
         {
 
             UserModel data = new UserModel
@@ -20,17 +20,25 @@ namespace FlickClick_ClassLibary.BusinessLogic
                 LastName = lastname,
                 Password = password,
                 Email = email,
-                TlfNr = tlfnr
+                TlfNr = tlfnr,
+                ProfilePicture = img
             };
 
-            string sql = @"INSERT INTO flick_click.users(FirstName, LastName, Password, Email, TlfNr, ProfilePicture, Group_ID) VALUES(@FirstName, @LastName, @Password, @Email, @TlfNr, '~/Content/Pictures/img-person-placeholder.png', @Group_ID);";
+            string sql = @"INSERT INTO flick_click.users(FirstName, LastName, Password, Email, TlfNr, ProfilePicture, Group_ID) VALUES(@FirstName, @LastName, @Password, @Email, @TlfNr, @ProfilePicture, @Group_ID);";
 
             return SqlDataAccess.SaveData(sql, data);
         }
 
-        public static List<UserModel> LoadUsers()
+        public static List<UserModel> LoadUser()
         {
-            string sql = @"SELECT ID, FirstName, LastName, Email, TlfNr, Group_ID;";
+            string sql = @"SELECT ID, FirstName, LastName, Email, TlfNr, Group_ID FROM users;";
+
+            return SqlDataAccess.LoadData<UserModel>(sql);
+        }
+
+        public static List<UserModel> LoadUsersEmail()
+        {
+            string sql = @"SELECT Email FROM users;";
 
             return SqlDataAccess.LoadData<UserModel>(sql);
         }
