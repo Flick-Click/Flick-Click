@@ -28,6 +28,14 @@ namespace FlickClick_ClassLibary.BusinessLogic
             return SqlDataAccess.SaveData(sql, data);
         }
 
+        public static int CreateGenre(int MovieID, List<GenreModel> genres)
+        {
+            foreach (var genre in genres)
+            {
+            }
+            return 1;
+        }
+
         public static int Deletemovie(Nullable<int> id)
         {
             string sql = $"DELETE FROM movies WHERE ID = {id};";
@@ -104,7 +112,12 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
             return SqlDataAccess.LoadData<MovieModel>(sql);
         }
+        public static List<AgeRatingModel> LoadAgeRating()
+        {
+            string sql = @"SELECT * FROM agerestrictions";
 
+            return SqlDataAccess.LoadData<AgeRatingModel>(sql);
+        }
         public static List<AgeRatingModel> LoadAgeRating(Nullable<int> id)
         {
             string sql;

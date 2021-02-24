@@ -188,7 +188,7 @@
     <Compile Include="Models\IMovieCreate.cs" />
     <Compile Include="Models\SignedInModel.cs" />
     <Compile Include="Models\CommentsModel.cs" />
-    <Compile Include="Models\GenreModel.cs" />
+    <Compile Include="Models\GenresModel.cs" />
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\ContentModel.cs" />
