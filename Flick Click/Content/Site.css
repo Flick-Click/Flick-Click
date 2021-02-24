@@ -50,7 +50,6 @@ textarea {
 }
 
 /*<-- links -->*/
-
 .redColorUnderline {
     color: red;
     text-decoration: underline;
@@ -65,8 +64,14 @@ textarea {
     text-decoration: underline;
 }
 
+a {
+    color: red;
+    text-decoration: underline;
+}
+
 a:hover {
-    text-decoration: none;
+    color: darkred;
+    text-decoration: underline;
 }
 
 /*<-- navbar -->*/
@@ -79,8 +84,14 @@ a:hover {
 
 .navbar-Link-color-white a {
     color: white;
+    text-decoration: none;
 }
-.navbar-midel{
+
+.navbar-Link-color-white a:hover {
+    color: red;
+}
+
+.navbar-midel {
     padding-bottom: 5px;
     padding-top: 5px;
 }
@@ -123,7 +134,12 @@ a:hover {
     padding: 15px 0px 0px 0px;
 }
 
-.fotter-Link a {
-    text-decoration: underline;
+.fotter-Link {
     color: white;
+    text-decoration: none;
+}
+
+.fotter-Link:hover {
+    color: red;
+    text-decoration: none;
 }

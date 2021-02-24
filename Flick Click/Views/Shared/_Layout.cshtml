@@ -145,7 +145,7 @@
                     <b>NEWS</b>
                     <P class="redColorUnderline">@Html.ActionLink("SHOW ALL", "News", "News")</P>
                     <div>
-
+                        @*@Html.Action("NyNews", "News")*@
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
@@ -161,7 +161,7 @@
     </div>
     <div class="text-center fotter-backgrund" id="footer">
         <footer class="tekst-color-white FooterPadding ">
-            <p class="fotter-Link"><b>@Html.ActionLink("HOME", "Index", "Home")</b> | <b>@Html.ActionLink("NEWS", "News", "News")</b> | <b>@Html.ActionLink("CONTACT", "Contact", "Contact")</b></p>
+            <p><b>@Html.ActionLink("HOME", "Index", "Home", null, new { @class = "fotter-Link" })</b> | <b>@Html.ActionLink("NEWS", "News", "News", null, new { @class = "fotter-Link" })</b> | <b>@Html.ActionLink("CONTACT", "Contact", "Contact", null, new { @class = "fotter-Link" })</b></p>
             <p class="text-color-white"> social media icons here</p>
             <p class="text-color-white">&copy; @DateTime.Now.Year Flick Click ApS</p>
         </footer>

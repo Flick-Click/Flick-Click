@@ -399,6 +399,7 @@
     <Content Include="Views\Administration\AllNews.cshtml" />
     <Content Include="Views\Administration\AllComments.cshtml" />
     <Content Include="Views\Administration\Allusers.cshtml" />
+    <Content Include="Views\News\NyNews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
