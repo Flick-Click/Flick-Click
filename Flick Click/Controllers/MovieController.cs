@@ -58,6 +58,43 @@ namespace Flick_Click.Controllers
             return View(Movies);
         }
 
+        public ActionResult ComingSoonMovies()
+        {
+            var data = LoadComingSoonMovies();
+            List<MovieModel> Movies = new List<MovieModel>();
+
+            if (data.Count >= 2)
+            {
+                for (int i = 0; i <= 1; i++)
+                {
+                    Movies.Add(new MovieModel
+                    {
+                        ID = data[i].ID,
+                        Title = data[i].Title,
+                        Release = data[i].Release,
+                        Img = data[i].Picture_Path,
+                        Description = data[i].Description
+                    });
+                }
+            }
+            else
+            {
+                for (int i = 0; i <= data.Count - 1; i++)
+                {
+                    Movies.Add(new MovieModel
+                    {
+                        ID = data[i].ID,
+                        Title = data[i].Title,
+                        Release = data[i].Release,
+                        Img = data[i].Picture_Path,
+                        Description = data[i].Description
+                    });
+                }
+            }
+
+            return PartialView(Movies);
+        }
+
         // GET: ShowAll
         public ActionResult ShowAll()
         {
