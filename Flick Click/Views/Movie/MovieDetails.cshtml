@@ -6,6 +6,7 @@
 
 <head>
     <link href="~/Content/CSS/MovieDetails.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 
 @{
@@ -35,19 +36,19 @@
                 <h1><b>@item.Title</b></h1>
             </div>
             <div class="CommentsAmount">
-                <b>Comments: @item.CommentCount</b>
+                <b>Comments: <span class="text-color-red">@item.CommentCount</span></b>
             </div>
             <div class="Rating">
-                <b>Age Rating: @Html.Action("MovieAgeRating", new { id = item.ID })</b>
+                <b>Age Rating: <span class="text-color-red">@Html.Action("MovieAgeRating", new { id = item.ID })</span></b>
             </div>
             <div class="MovieDuration">
-                <b>Duration: <span class="RedText">@answer</span> </b>
+                <b>Duration: <span class="text-color-red">@answer</span> </b>
             </div>
             <div class="Genre">
-                <b>Genre: @Html.Action("MovieGenres", new { id = item.ID })</b>
+                <b>Genre: <span class="text-color-red" >@Html.Action("MovieGenres", new { id = item.ID})</span></b>
             </div>
             <div class="ReleaseDate">
-                <b>Release Date: <span class="RedText">@item.Release.ToString("dd.MM.yy")</span></b>
+                <b>Release Date: <span class="text-color-red">@item.Release.ToString("dd.MM.yy")</span></b>
             </div>
             <div class="Image">
                 <img src="@item.Img" alt="Image" />
@@ -56,13 +57,13 @@
                 <iframe src="@item.Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="Director">
-                <b>Director: @Html.Action("MovieDirectors", new { id = item.ID })</b>
+                <b>Director: <span class="text-color-red">@Html.Action("MovieDirectors", new { id = item.ID })</span></b>
             </div>
             <div class="Writers">
-                <b>Writers: @Html.Action("MovieWriters", new { id = item.ID })</b>
+                <b>Writers: <span class="text-color-red">@Html.Action("MovieWriters", new { id = item.ID })</span></b>
             </div>
             <div class="Stars">
-                <b>Stars: <span class="RedText">@item.Rating</span></b>
+                <b>Stars: <span class="text-color-red">@item.Rating</span></b>
             </div>
         </div>
 
@@ -73,7 +74,7 @@
 
         <div>
             <div>
-                <b>Comments: @item.CommentCount</b>
+                <b>Comments: <span class="text-color-red">@item.CommentCount</span></b>
             </div>
             @{
                 if (Session["userID"] != null)

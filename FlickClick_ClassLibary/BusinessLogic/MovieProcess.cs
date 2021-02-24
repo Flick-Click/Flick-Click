@@ -25,13 +25,57 @@ namespace FlickClick_ClassLibary.BusinessLogic
             };
 
             string sql = @"INSERT INTO movies (Title, Description, Duration, Rating, Picture_Path, Trailer, movies.`Release`, Age_Rating) VALUES (@Title, @Description, @Duration, @Rating, @Picture_Path, @Trailer, @Release, @Age_Rating);";
-            return SqlDataAccess.SaveData(sql, data);
+
+            sql += @"SELECT last_insert_id()";
+            return Convert.ToInt32(SqlDataAccess.SaveDataThatReturnsId(sql, data));
+            
         }
 
-        public static int CreateGenre(int MovieID, List<GenreModel> genres)
+        public static int CreateMovieGenre(int movie_ID, string[] genres)
         {
+            
             foreach (var genre in genres)
             {
+
+                GenreModel data = new GenreModel
+                {
+                    Movie_ID = movie_ID,
+                    Genre_ID = Convert.ToInt32(genre)
+               };
+                string sql = @"INSERT INTO movie_genres (Movie_ID,Genre_ID) VALUES (@Movie_ID, @Genre_ID)";
+                SqlDataAccess.SaveData(sql,data);
+            }
+            return 1;
+        }
+        public static int CreateMovieWriter(int movie_ID, string[] writers)
+        {
+
+            foreach (var writer in writers)
+            {
+
+                WritersModel data = new WritersModel
+                {
+                    movieID = movie_ID,
+                    PeopleID = Convert.ToInt32(writer)
+                };
+                string sql = @"INSERT INTO movie_writers (movieID, PeopleID) VALUES (@movieID, @PeopleID)";
+                SqlDataAccess.SaveData(sql, data);
+            }
+            return 1;
+        }
+        public static int CreateMovieDirector(int movie_ID, string[] directors)
+        {
+
+            foreach (var director in directors)
+            {
+
+                DirectorsModel data = new DirectorsModel
+                {
+                    movieID = movie_ID,
+                    PeopleID = Convert.ToInt32(director)
+                };
+                string sql = @"INSERT INTO movie_directors (movieID, PeopleID) VALUES (@movieID, @PeopleID)";
+                SqlDataAccess.SaveData(sql, data);
             }
             return 1;
         }

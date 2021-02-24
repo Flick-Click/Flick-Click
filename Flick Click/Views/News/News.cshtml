@@ -26,7 +26,7 @@
 @{
     foreach (var item in Model)
     {
-        <h2 class="bold">@item.Title</h2>
+        <h4 class="bold">@item.Title</h4>
         <p class="date">@item.Created.ToString("dd.MM.yy")</p>
 
         if (item.Content.Length != 500)
