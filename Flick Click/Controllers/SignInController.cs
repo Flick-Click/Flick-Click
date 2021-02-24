@@ -112,5 +112,23 @@ namespace Flick_Click.Controllers
             UpdateUser(model.ID, model.FirstName, model.LastName, model.EmailAddress, model.TelefonNummer, model.Img);
             return RedirectToAction($"../SignIn/ViewUser/{model.ID}");
         }
+
+        public ActionResult UserComments(Nullable<int> id)
+        {
+            var data = LoadUsersComments(id);
+            List<UserCommetModel> commets = new List<UserCommetModel>();
+
+            foreach (var row in data)
+            {
+                commets.Add(new UserCommetModel
+                {
+                   Title = row.Title,
+                   Created = row.Created,
+                   Content = row.Content
+                });
+
+            }
+            return View(commets);
+        }
     }
 }
