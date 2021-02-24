@@ -235,6 +235,7 @@
     <Content Include="Content\Pictures\Spider-ManIntotheSpider-Verse.jpg" />
     <Content Include="Content\Pictures\TernetNinja.jpg" />
     <Content Include="Content\Pictures\Tim2.png" />
+    <Content Include="Content\Pictures\UserDefault.png" />
     <Content Include="Content\Pictures\VenomLetThereBeCarnage.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

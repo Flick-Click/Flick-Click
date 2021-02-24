@@ -139,7 +139,7 @@ a:hover {
     text-decoration: none;
 }
 
-.fotter-Link :hover {
+.fotter-Link:hover {
     color: red;
     text-decoration: none;
 }
