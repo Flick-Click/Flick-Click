@@ -26,16 +26,16 @@
 @{
     foreach (var item in Model)
     {
-        <h2 class="bold">@item.Title</h2>
+        <h4 class="bold">@item.Title</h4>
         <p class="date">@item.Created.ToString("dd.MM.yy")</p>
 
         if (item.Content.Length != 500)
         {
-            <p>@item.Content</p>
+            <p class="textLimited3">@item.Content...</p>
         }
         else
         {
-            <p>@item.Content.Substring(0, 500)...</p>
+            <p class="textLimited3">@item.Content.Substring(0, 500)...</p>
         }
 
         <p class="RedColorUnderline" style="float: none">@Html.ActionLink("Read more", "NewsDetails", new { id = item.ID.ToString() }, null)</p>

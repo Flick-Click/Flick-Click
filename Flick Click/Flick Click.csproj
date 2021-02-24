@@ -201,6 +201,7 @@
     <Compile Include="Models\NewsModel.cs" />
     <Compile Include="Models\RatingModel.cs" />
     <Compile Include="Models\SignInModel.cs" />
+    <Compile Include="Models\UserCommetModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\WriterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -218,6 +219,7 @@
     <Content Include="Content\CSS\MovieDefault.css" />
     <Content Include="Content\CSS\NewsDetails.css" />
     <Content Include="Content\CSS\SignIn.css" />
+    <Content Include="Content\CSS\ViewUser.css" />
     <Content Include="Content\Pictures\BlackWidow.jpg" />
     <Content Include="Content\CSS\Search.css" />
     <Content Include="Content\Pictures\FastAndFurious9.jpg" />
@@ -235,6 +237,7 @@
     <Content Include="Content\Pictures\Spider-ManIntotheSpider-Verse.jpg" />
     <Content Include="Content\Pictures\TernetNinja.jpg" />
     <Content Include="Content\Pictures\Tim2.png" />
+    <Content Include="Content\Pictures\UserDefault.png" />
     <Content Include="Content\Pictures\VenomLetThereBeCarnage.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -398,6 +401,14 @@
     <Content Include="Views\Administration\AllNews.cshtml" />
     <Content Include="Views\Administration\AllComments.cshtml" />
     <Content Include="Views\Administration\Allusers.cshtml" />
+    <Content Include="Views\News\NyNews.cshtml" />
+    <Content Include="Views\Movie\ComingSoonMovies.cshtml" />
+    <Content Include="Views\SignUp\EditUserAdmin.cshtml" />
+    <Content Include="Views\Administration\EditUserAdmin.cshtml" />
+    <Content Include="Views\SignIn\ViewUser.cshtml" />
+    <Content Include="Views\SignIn\EditUser.cshtml" />
+    <Content Include="Views\SignIn\UserComments.cshtml" />
+    <Content Include="Views\Administration\AllContacts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

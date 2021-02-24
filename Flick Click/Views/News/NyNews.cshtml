@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Flick_Click.Models.NewsModel>
+
+@{
+    ViewBag.Title = "NyNews";
+    Layout = null;
+}
+
+<head>
+    <link rel="stylesheet" href="~/Content/Site.css" />
+</head>
+
+
+
+@{
+    foreach (var item in Model)
+    {
+        <strong class="text-color-red">@item.Title</strong>
+        <p class="date">@item.Created.ToString("dd.MM.yy")</p>
+
+        if (item.Content.Length != 250)
+        {
+            <p class="textLimited2">@item.Content</p>
+        }
+        else
+        {
+            <p class="textLimited2">@item.Content.Substring(0, 250)...</p>
+        }
+
+        <p class="RedColorUnderline" style="float: none">@Html.ActionLink("Read more", "NewsDetails", new { id = item.ID.ToString() }, null)</p>
+        <br />
+    }
+}

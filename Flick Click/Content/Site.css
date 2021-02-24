@@ -49,8 +49,11 @@ textarea {
     color: white;
 }
 
-/*<-- links -->*/
+.text-color-grey {
+    color: grey;
+}
 
+/*<-- links -->*/
 .redColorUnderline {
     color: red;
     text-decoration: underline;
@@ -65,8 +68,14 @@ textarea {
     text-decoration: underline;
 }
 
+a {
+    color: red;
+    text-decoration: underline;
+}
+
 a:hover {
-    text-decoration: none;
+    color: darkred;
+    text-decoration: underline;
 }
 
 /*<-- navbar -->*/
@@ -79,8 +88,14 @@ a:hover {
 
 .navbar-Link-color-white a {
     color: white;
+    text-decoration: none;
 }
-.navbar-midel{
+
+.navbar-Link-color-white a:hover {
+    color: red;
+}
+
+.navbar-midel {
     padding-bottom: 5px;
     padding-top: 5px;
 }
@@ -123,7 +138,47 @@ a:hover {
     padding: 15px 0px 0px 0px;
 }
 
-.fotter-Link a {
+.fotter-Link {
+    color: grey;
     text-decoration: underline;
-    color: white;
+}
+
+.fotter-Link:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+
+/*<-- Limited text -->*/
+
+.textLimited2 {
+    /*Makes it use the webkit*/
+    display: -webkit-box;
+    /*Cuts it at the requested line*/
+    -webkit-line-clamp: 2;
+    /*Let's it know it should use it on the vertical side*/
+    -webkit-box-orient: vertical;
+    /*Hides the text that fills too much*/
+    overflow: hidden;
+    /*Adds ... at the cutoff*/
+    text-overflow: ellipsis;
+}
+
+.textLimited3 {
+    /*Makes it use the webkit*/
+    display: -webkit-box;
+    /*Cuts it at the requested line*/
+    -webkit-line-clamp: 3;
+    /*Let's it know it should use it on the vertical side*/
+    -webkit-box-orient: vertical;
+    /*Hides the text that fills too much*/
+    overflow: hidden;
+    /*Adds ... at the cutoff*/
+    text-overflow: ellipsis;
+}
+
+
+/*Icons in footer*/
+.icon-placement img {
+    height: 20px;
 }

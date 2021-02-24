@@ -31,10 +31,9 @@ namespace FlickClick_ClassLibary.BusinessLogic
             return SqlDataAccess.LoadData<ContactModel>(sql);
         }
 
-        // ID is giving from frontend model.ID
         public static int DeleteContact(int ID)
         {
-            string sql = @"DELETE FROM Contacts WHERE ID = @ID";
+            string sql = $"DELETE FROM Contacts WHERE ID = {ID}";
 
             return SqlDataAccess.DeleteData(sql);
         }

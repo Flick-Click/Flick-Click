@@ -16,17 +16,20 @@
             </head>
 
             <div class="row">
-                <div class="col-md-3 col-sm-12">
-                    @Html.ActionLink("All Movies", "AllMovies", "Administration")
+                <div class="col-md-3 col-sm-12 linkStyling">
+                    <a>@Html.ActionLink("All Movies", "AllMovies", "Administration")</a>
                 </div>
-                <div class="col-md-3 col-sm-12">
+                <div class="col-md-3 col-sm-12 linkStyling">
                     @Html.ActionLink("All News", "AllNews", "Administration")
                 </div>
-                <div class="col-md-3 col-sm-12">
+                <div class="col-md-3 col-sm-12 linkStyling">
                     @Html.ActionLink("All Comments", "AllComments", "Administration")
                 </div>
-                <div class="col-md-3 col-sm-12">
-                    @Html.ActionLink("All users", "Allusers", "Administration")
+                <div class="col-md-3 col-sm-12 linkStyling">
+                    @Html.ActionLink("All Users", "Allusers", "Administration")
+                </div>
+                <div class="col-md-3 col-sm-12 linkStyling">
+                    @Html.ActionLink("All Contacts", "AllContacts", "Administration")
                 </div>
             </div>
         }

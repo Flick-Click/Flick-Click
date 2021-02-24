@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+.RedText {
+    color: red;
+}
+
 .movie-img {
     width: 100%;
 }

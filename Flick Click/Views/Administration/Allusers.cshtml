@@ -16,7 +16,7 @@
             <h1>All Users</h1>
 
             <p>
-                @Html.ActionLink("Create New", "Create")
+                @Html.ActionLink("Create New", "SignUp", "SignUp")
             </p>
             <table class="table">
                 <tr>
@@ -57,8 +57,8 @@
                             @Html.DisplayFor(modelItem => item.Group)
                         </td>
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                            @Html.ActionLink("Edit", "EditUserAdmin", "Administration", new { id = item.ID }, null) |
+                            @Html.ActionLink("Delete", "DeleteUser", new { id = item.ID })
                         </td>
                     </tr>
                 }

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Flick_Click.Models.MovieModel>
+
+@{
+    ViewBag.Title = "ComingSoonMovies";
+}
+
+<head>
+    <link rel="stylesheet" href="~/Content/CSS/Movies.css" />
+    <link rel="stylesheet" href="~/Content/Site.css" />
+</head>
+
+@foreach (var item in Model)
+{
+
+    <div>
+        <div class="placingTop">
+            <span>@item.Release.ToString("dd.MM.yy")</span><br />
+            <strong class="MovieTitel">@item.Title</strong>
+        </div>
+        
+        <div class="row">
+            <div>
+                <img class="movie-img" src="@item.Img" />
+            </div>
+            
+            <div class="col">
+                <p class="textLimited3">@item.Description</p>
+                <p class="RedColorUnderline" style="float: none">@Html.ActionLink("Read more", "NewsDetails", new { id = item.ID.ToString() }, null)</p>
+            </div>
+        </div>
+        
+    </div><br />
+    
+
+}
+
