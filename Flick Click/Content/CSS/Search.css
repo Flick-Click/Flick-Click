@@ -1,10 +1,16 @@
-﻿.search-botten {
+﻿.search-button {
     margin: 0.5rem 0.5rem;
     padding: 0px;
 }
+
+.search-button:hover {
+    color: red;
+}
+
 .searchbox {
     margin: 0.5rem 0rem;
 }
+
 .search-text {
     padding: 0.5rem 0.5rem;
 }
