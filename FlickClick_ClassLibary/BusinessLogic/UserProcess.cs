@@ -96,5 +96,30 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
             return SqlDataAccess.LoadData<UserModel>(sql);
         }
+
+        public static List<UserCommentModel> LoadUsersComments(Nullable<int> id)
+        {
+            string sql;
+
+            if (id == null)
+            {
+                sql = $"SELECT comments.Content, comments.Created, movies.Title FROM comments " +
+                    $"LEFT JOIN users ON comments.User_ID = users.ID " +
+                    $"LEFT JOIN movies ON comments.Movie_ID = movies.ID " +
+                    $"WHERE Users.ID = 0  " +
+                    $"ORDER BY comments.Created DESC;";
+
+            }
+            else
+            {
+                sql = $"SELECT comments.Content, comments.Created, movies.Title FROM comments " +
+                    $"LEFT JOIN users ON comments.User_ID = users.ID " +
+                    $"LEFT JOIN movies ON comments.Movie_ID = movies.ID " +
+                    $"WHERE Users.ID = {id}  " +
+                    $"ORDER BY comments.Created DESC;";
+            }
+
+            return SqlDataAccess.LoadData<UserCommentModel>(sql);
+        }
     }
 }
