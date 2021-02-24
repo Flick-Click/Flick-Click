@@ -401,6 +401,9 @@
     <Content Include="Views\Administration\Allusers.cshtml" />
     <Content Include="Views\News\NyNews.cshtml" />
     <Content Include="Views\Movie\ComingSoonMovies.cshtml" />
+    <Content Include="Views\SignUp\EditUserAdmin.cshtml" />
+    <Content Include="Views\Administration\EditUserAdmin.cshtml" />
+    <Content Include="Views\SignIn\ViewUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

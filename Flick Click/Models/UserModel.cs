@@ -49,8 +49,12 @@ namespace Flick_Click.Models
 
         public string Group { get; set; }
 
+        public int Group_ID { get; set; }
+
         public string Img { get; set; }
 
         public HttpPostedFileBase ImageFile { get; set; }
+
+        public DateTime Created { get; set; }
     }
 }

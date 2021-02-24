@@ -20,7 +20,7 @@ namespace Flick_Click.Controllers
         {
             var data = LoadLatestMovies();
             List<MovieModel> Movies = new List<MovieModel>();
-            
+
             if (data.Count > 5)
             {
                 for (int i = 0; i <= 5; i++)
