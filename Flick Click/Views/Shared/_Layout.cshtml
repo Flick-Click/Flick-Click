@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -11,30 +11,43 @@
     <div class="view-container">
         <div class="navbar navbar-inverse navbar-static-top navbar-Background navbar-Link-color-white text-color-white">
             <div class="row">
-                <div class="col-12 reset-padding" >
+                <div class="col-12 reset-padding">
                     <div class="row">
-                        <div class="col-md-6 col-sm-12 reset-padding" >
+                        <div class="col-md-6 col-sm-12 reset-padding">
                             <a href="https://localhost:44355/" style="float: left">
                                 <img src="~/Content/Pictures/logo.png" />
                             </a>
                         </div>
-                        <div class="col-md-6 col-sm-12 reset-padding align-items-center" >
+                        <div class="col-md-6 col-sm-12 reset-padding align-items-center">
                             <ul class="nav float-md-right fill-the-height">
                                 <li class="nav-link active align-content-center">
-                                    <b >@Html.ActionLink("HOME", "Index", "Home")</b>
+                                    <b>@Html.ActionLink("HOME", "Index", "Home")</b>
                                 </li>
                                 <li class="nav-link">
-                                    <b >@Html.ActionLink("NEWS", "News", "News")</b>
+                                    <b>@Html.ActionLink("NEWS", "News", "News")</b>
                                 </li>
                                 <li class="nav-link">
                                     <b>@Html.ActionLink("CONTACT", "Contact", "Contact")</b>
                                 </li>
+                                @{
+                                    if (Session["Group_ID"] != null)
+                                    {
+                                        var Group = Session["Group_ID"].ToString();
+
+                                        if (Group == "2")
+                                        {
+                                            <li class="nav-link">
+                                                <b>@Html.ActionLink("ADMINISTRATION", "Index", "Administration")</b>
+                                            </li>
+                                        }
+                                    }
+                                }
                             </ul>
                         </div>
                     </div>
-                    <div class="col-12 reset-padding border-dashed-white navbar-midel" >
+                    <div class="col-12 reset-padding border-dashed-white navbar-midel">
                         <dív class="row">
-                            <div class="col-md-6 col-sm-12 reset-padding" >
+                            <div class="col-md-6 col-sm-12 reset-padding">
                                 <ul class="nav">
                                     <li class="nav-link">
                                         <b>@Html.ActionLink("SHOW ALL", "ShowAll", "Movie")</b>
@@ -47,8 +60,8 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="col-md-6 col-sm-12 reset-padding text-md-right" >
-                                    @Html.Action("Search", "Search")
+                            <div class="col-md-6 col-sm-12 reset-padding text-md-right">
+                                @Html.Action("Search", "Search")
                             </div>
                         </dív>
                     </div>
@@ -56,56 +69,71 @@
                         <div class="row">
                             <div class="col-12 reset-padding bottom-padding">
                                 <ul class="nav float-md-right">
-                                    <li class="nav-item ">
-                                        <b>@Html.Action("SignIn", "SignIn")</b>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button class="fill-the-height b1 tekstColor-white">@Html.ActionLink("Not a member?", "SignUp", "SignUp")</button>
-                                    </li>
+                                    @{
+                                        if (Session["userID"] == null)
+                                        {
+                                            <li class="nav-item ">
+                                                <b>@Html.Action("SignIn", "SignIn")</b>
+
+                                            </li>
+                                            <li class="nav-item">
+                                                <button class="fill-the-height b1 tekstColor-white">@Html.ActionLink("Not a member?", "SignUp", "SignUp")</button>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li class="nav-item ">
+                                                <p class="text-color-white search-text" style="margin-bottom: 0px;">Welcome @Session["firstName"].ToString() @Session["lastName"].ToString()</p>
+                                            </li>
+                                            <li class="nav-item">
+                                                <button class="fill-the-height b1 tekstColor-white">@Html.ActionLink("Logout", "Logout", "SignIn")</button>
+                                            </li>
+                                        }
+                                    }
                                 </ul>
                             </div>
-                        </div>   
+                        </div>
                     </div>
                 </div>
             </div>
 
             @*<div class="col-12">
-                <a href="https://localhost:44355/" style="float: left">
-                    <img src="~/Content/Pictures/logo.png" />
-                </a>
-                <ul class="nav HPlacement">
-                    <li class="nav-item">
-                        <b class="nav-link active">@Html.ActionLink("HOME", "Index", "Home")</b>
-                    </li>
-                    <li class="nav-item">
-                        <b class="nav-link">@Html.ActionLink("NEWS", "News", "News")</b>
-                    </li>
-                    <li class="nav-item">
-                        <b class="nav-link">@Html.ActionLink("CONTACT", "Contact", "Contact")</b>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-12" style="display: flex; flex-direction: column; padding: 0px;">
-                <dív class="H2Border" style="flex-wrap: wrap; display: inline-flex">
-                    <div style="text-align: left; display: inline-flex">
-                        <p class="H2Spacing"><b>@Html.ActionLink("SHOW ALL", "ShowAll", "Movie")</b></p>
-                        <p class="H2Spacing"><b>@Html.ActionLink("LATEST MOVIES", "LatestMovies", "Movie")</b></p>
-                        <p class="H2Spacing"><b>@Html.ActionLink("MOST COMMENTED", "MostCommentedMovie", "Movie")</b></p>
-                    </div>
-                    <div style="text-align: right; display: inline-flex">
-                        @Html.Action("Search", "Search")
-                    </div>
-                </dív>
-                <div class="H3Border" style="flex-wrap: wrap; display: inline-flex">
-                    <div style="display: inline-flex;"></div>
-                    <div style="display: inline-flex;text-align: right; flex-wrap: wrap;">
-                        <div>
-                            <b>@Html.Action("SignIn", "SignIn")</b>
-                        </div>
-                        <button class="H2Spacing b1 tekstColor-white">@Html.ActionLink("Not a member?", "SignUp", "SignUp")</button>
-                    </div>
+                    <a href="https://localhost:44355/" style="float: left">
+                        <img src="~/Content/Pictures/logo.png" />
+                    </a>
+                    <ul class="nav HPlacement">
+                        <li class="nav-item">
+                            <b class="nav-link active">@Html.ActionLink("HOME", "Index", "Home")</b>
+                        </li>
+                        <li class="nav-item">
+                            <b class="nav-link">@Html.ActionLink("NEWS", "News", "News")</b>
+                        </li>
+                        <li class="nav-item">
+                            <b class="nav-link">@Html.ActionLink("CONTACT", "Contact", "Contact")</b>
+                        </li>
+                    </ul>
                 </div>
-            </div>*@
+                <div class="col-md-12" style="display: flex; flex-direction: column; padding: 0px;">
+                    <dív class="H2Border" style="flex-wrap: wrap; display: inline-flex">
+                        <div style="text-align: left; display: inline-flex">
+                            <p class="H2Spacing"><b>@Html.ActionLink("SHOW ALL", "ShowAll", "Movie")</b></p>
+                            <p class="H2Spacing"><b>@Html.ActionLink("LATEST MOVIES", "LatestMovies", "Movie")</b></p>
+                            <p class="H2Spacing"><b>@Html.ActionLink("MOST COMMENTED", "MostCommentedMovie", "Movie")</b></p>
+                        </div>
+                        <div style="text-align: right; display: inline-flex">
+                            @Html.Action("Search", "Search")
+                        </div>
+                    </dív>
+                    <div class="H3Border" style="flex-wrap: wrap; display: inline-flex">
+                        <div style="display: inline-flex;"></div>
+                        <div style="display: inline-flex;text-align: right; flex-wrap: wrap;">
+                            <div>
+                                <b>@Html.Action("SignIn", "SignIn")</b>
+                            </div>
+                            <button class="H2Spacing b1 tekstColor-white">@Html.ActionLink("Not a member?", "SignUp", "SignUp")</button>
+                        </div>
+                    </div>
+                </div>*@
 
         </div>
 
@@ -140,6 +168,7 @@
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
     @RenderSection("scripts", required: false)
 </body>
 </html>

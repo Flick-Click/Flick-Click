@@ -17,7 +17,7 @@
     @Scripts.Render("~/bundles/jqueryval")
     
     
-    @using (Html.BeginForm()) 
+    @using (Html.BeginForm(new { UserID = Convert.ToInt32(Session["userID"].ToString()) }))
     {
         @Html.AntiForgeryToken()
         
@@ -31,9 +31,5 @@
             </div>
         </div>
     }
-    
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
 </body>
 </html>

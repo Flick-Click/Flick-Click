@@ -35,6 +35,13 @@ namespace FlickClick_ClassLibary.BusinessLogic
             return SqlDataAccess.LoadData<UserModel>(sql);
         }
 
+        public static List<UserModel> LoadAllUsers()
+        {
+            string sql = @"SELECT users.ID, FirstName, LastName, Email, TlfNr, groups.`Group` FROM users INNER JOIN groups ON users.Group_ID = groups.ID ;";
+
+            return SqlDataAccess.LoadData<UserModel>(sql);
+        }
+
         // ID is giving from frontend model.ID
         public static int DeleteUser(int ID)
         {
@@ -46,7 +53,7 @@ namespace FlickClick_ClassLibary.BusinessLogic
         //Compares the Email and Password that the user input with data in the database
         public static List<UserModel> SignInValidator(string Email, string Password)
         {
-            string sql = @"SELECT FirstName, LastName FROM users WHERE Email=@Email AND Password=@Password";
+            string sql = $"SELECT ID, FirstName, LastName, Group_ID FROM users WHERE Email='{Email}' AND Password='{Password}'";
 
             return SqlDataAccess.LoadData<UserModel>(sql);
         }
