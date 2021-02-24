@@ -52,6 +52,15 @@ namespace FlickClick_ClassLibary.BusinessLogic
             return SqlDataAccess.LoadData<MovieModel>(sql);
         }
 
+        public static List<MovieModel> LoadComingSoonMovies()
+        {
+            string sql = @"SELECT ID, Title, Description, Picture_Path, `Release`
+                           FROM movies 
+                           ORDER BY `Release` DESC;";
+
+            return SqlDataAccess.LoadData<MovieModel>(sql);
+        }
+
         public static List<MovieModel> LoadLatestMovies()
         {
             string sql = @"SELECT movies.ID, Title, Description, Duration, Rating, Picture_Path, Trailer, movies.`Release`, movies.Created, agerestrictions.AgeRestriction, COUNT(comments.Movie_ID) AS CommentCount FROM movies 
