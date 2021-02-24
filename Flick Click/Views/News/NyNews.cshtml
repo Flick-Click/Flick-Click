@@ -16,11 +16,11 @@
 
         if (item.Content.Length != 250)
         {
-            <p>@item.Content</p>
+            <p class="textLimited2">@item.Content</p>
         }
         else
         {
-            <p>@item.Content.Substring(0, 250)...</p>
+            <p class="textLimited2">@item.Content.Substring(0, 250)...</p>
         }
 
         <p class="RedColorUnderline" style="float: none">@Html.ActionLink("Read more", "NewsDetails", new { id = item.ID.ToString() }, null)</p>
