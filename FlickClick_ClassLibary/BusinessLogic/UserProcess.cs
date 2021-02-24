@@ -44,22 +44,12 @@ namespace FlickClick_ClassLibary.BusinessLogic
             return SqlDataAccess.SaveData<UserModel>(sql, data);
         }
 
-        public static int UpdateUser(int id, string firstname, string lastname, string email, string telephone, string img, int group)
+        public static int UpdateUser(int id, string firstname, string lastname, string email, string telephone, string img)
         {
-            UserModel data = new UserModel
-            {
-                ID = id,
-                FirstName = firstname,
-                LastName = lastname,
-                Email = email,
-                TlfNr = telephone,
-                ProfilePicture = img,
-                Group_ID = group
-            };
 
-            string sql = @"UPDATE users SET FirstName = @FirstName, LastName = @LastName, Email = @Email, TlfNr = @TlfNr, ProfilePicture = @ProfilePicture, Group_ID = @Group_ID WHERE ID = @ID;";
+            string sql = $"UPDATE users SET FirstName = '{firstname}', LastName = '{lastname}', Email = '{email}', TlfNr = '{telephone}', ProfilePicture = '{img}' WHERE ID = {id};";
 
-            return SqlDataAccess.SaveData<UserModel>(sql, data);
+            return SqlDataAccess.UpdateData(sql);
         }
 
         public static List<UserModel> LoadUser(Nullable<int> ID)
