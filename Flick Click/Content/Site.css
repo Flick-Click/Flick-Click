@@ -49,6 +49,10 @@ textarea {
     color: white;
 }
 
+.text-color-grey {
+    color: grey;
+}
+
 /*<-- links -->*/
 .redColorUnderline {
     color: red;
@@ -135,17 +139,31 @@ a:hover {
 }
 
 .fotter-Link {
-    color: white;
-    text-decoration: none;
+    color: grey;
+    text-decoration: underline;
 }
 
 .fotter-Link:hover {
     color: red;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 
 /*<-- Limited text -->*/
+
+.textLimited2 {
+    /*Makes it use the webkit*/
+    display: -webkit-box;
+    /*Cuts it at the requested line*/
+    -webkit-line-clamp: 2;
+    /*Let's it know it should use it on the vertical side*/
+    -webkit-box-orient: vertical;
+    /*Hides the text that fills too much*/
+    overflow: hidden;
+    /*Adds ... at the cutoff*/
+    text-overflow: ellipsis;
+}
+
 .textLimited3 {
     /*Makes it use the webkit*/
     display: -webkit-box;
@@ -159,15 +177,8 @@ a:hover {
     text-overflow: ellipsis;
 }
 
-.textLimited2 {
-    /*Makes it use the webkit*/
-    display: -webkit-box;
-    /*Cuts it at the requested line*/
-    -webkit-line-clamp: 2;
-    /*Let's it know it should use it on the vertical side*/
-    -webkit-box-orient: vertical;
-    /*Hides the text that fills too much*/
-    overflow: hidden;
-    /*Adds ... at the cutoff*/
-    text-overflow: ellipsis;
+
+/*Icons in footer*/
+.icon-placement img {
+    height: 20px;
 }

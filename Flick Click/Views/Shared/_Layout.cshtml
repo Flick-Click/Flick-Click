@@ -114,7 +114,7 @@
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <b>COMING SOON</b>
-                    <p class="redColorUnderline">@Html.ActionLink("LATEST MOVIES", "LatestMovies", "Movie")</p>
+                    <p class="redColorUnderline">@Html.ActionLink("SHOW ALL", "LatestMovies", "Movie")</p>
                     <div class="row">
                         @Html.Action("ComingSoonMovies", "Movie")
                     </div>
@@ -126,8 +126,14 @@
     <div class="text-center fotter-backgrund" id="footer">
         <footer class="tekst-color-white FooterPadding ">
             <p><b>@Html.ActionLink("HOME", "Index", "Home", null, new { @class = "fotter-Link" })</b> | <b>@Html.ActionLink("NEWS", "News", "News", null, new { @class = "fotter-Link" })</b> | <b>@Html.ActionLink("CONTACT", "Contact", "Contact", null, new { @class = "fotter-Link" })</b></p>
-            <p class="text-color-white"> social media icons here</p>
-            <p class="text-color-white">&copy; @DateTime.Now.Year Flick Click ApS</p>
+            <p class="icon-placement">
+                <img src="~/Content/Pictures/facebook-logo-grey.png" />
+                <img src="/Content/Pictures/twitter-icon.png" />
+                <img src="~/Content/Pictures/instagram-icon.png" />
+                <img src="~/Content/Pictures/youtube-icon.png" />
+
+            </p>
+            <p class="text-color-grey">&copy; @DateTime.Now.Year Flick Click ApS</p>
         </footer>
     </div>
     @Scripts.Render("~/bundles/jquery")
