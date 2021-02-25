@@ -351,11 +351,11 @@ namespace Flick_Click.Controllers
                 Comments.Add(new CommentsModel
                 {
                     ID = Comment.ID,
-                    Movie_ID = Comment.Movie_ID,
+                    MovieID = Comment.MovieID,
                     Name = Comment.Name,
                     Created = Comment.Created,
                     Content = Comment.Content,
-                    User_ID = Comment.User_ID
+                    UserID = Comment.UserID
                 });
             }
 
@@ -379,13 +379,13 @@ namespace Flick_Click.Controllers
             if (Session["userID"] != null)
             {
                 var data = LoadComment(id);
-                if (Session["Group_ID"].ToString() == "2" || Convert.ToInt32(Session["userID"].ToString()) == data[0].User_ID)
+                if (Session["Group_ID"].ToString() == "2" || Convert.ToInt32(Session["userID"].ToString()) == data[0].UserID)
                 {
                     CommentsModel comment = new CommentsModel
                     {
                         ID = data[0].ID,
                         Content = data[0].Content,
-                        Movie_ID = data[0].Movie_ID
+                        MovieID = data[0].MovieID
                     };
 
                     return View(comment);
@@ -410,7 +410,7 @@ namespace Flick_Click.Controllers
         // Get: CreateGenre
         public ActionResult CreateGenre()
         {
-            if (Session["userID"] != null)
+            if (Session["UserID"] != null)
             {
                 if (Session["Group_ID"].ToString() == "2")
                 {
@@ -449,7 +449,7 @@ namespace Flick_Click.Controllers
             {
                 UpdateComment(model.ID, model.Content);
             }
-            return RedirectToAction("MovieDetails", "Movie", new { id = model.Movie_ID });
+            return RedirectToAction("MovieDetails", "Movie", new { id = model.MovieID });
         }
 
         // ----------------- Delete Section ------------------

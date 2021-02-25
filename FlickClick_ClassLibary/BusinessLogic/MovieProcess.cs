@@ -31,7 +31,7 @@ namespace FlickClick_ClassLibary.BusinessLogic
             
         }
 
-        public static int CreateMovieGenre(int movie_ID, string[] genres)
+        public static int CreateMovieGenre(int MovieID, string[] genres)
         {
             
             foreach (var genre in genres)
@@ -39,15 +39,15 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
                 GenreModel data = new GenreModel
                 {
-                    Movie_ID = movie_ID,
-                    Genre_ID = Convert.ToInt32(genre)
+                    MovieID = MovieID,
+                    GenreID = Convert.ToInt32(genre)
                };
-                string sql = @"INSERT INTO movie_genres (Movie_ID,Genre_ID) VALUES (@Movie_ID, @Genre_ID)";
+                string sql = @"INSERT INTO movie_genres (MovieID,GenreID) VALUES (@MovieID, @GenreID)";
                 SqlDataAccess.SaveData(sql,data);
             }
             return 1;
         }
-        public static int CreateMovieWriter(int movie_ID, string[] writers)
+        public static int CreateMovieWriter(int MovieID, string[] writers)
         {
 
             foreach (var writer in writers)
@@ -55,7 +55,7 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
                 WritersModel data = new WritersModel
                 {
-                    movieID = movie_ID,
+                    MovieID = MovieID,
                     PeopleID = Convert.ToInt32(writer)
                 };
                 string sql = @"INSERT INTO movie_writers (movieID, PeopleID) VALUES (@movieID, @PeopleID)";
@@ -63,7 +63,7 @@ namespace FlickClick_ClassLibary.BusinessLogic
             }
             return 1;
         }
-        public static int CreateMovieDirector(int movie_ID, string[] directors)
+        public static int CreateMovieDirector(int MovieID, string[] directors)
         {
 
             foreach (var director in directors)
@@ -71,7 +71,7 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
                 DirectorsModel data = new DirectorsModel
                 {
-                    movieID = movie_ID,
+                    MovieID = MovieID,
                     PeopleID = Convert.ToInt32(director)
                 };
                 string sql = @"INSERT INTO movie_directors (movieID, PeopleID) VALUES (@movieID, @PeopleID)";
@@ -88,9 +88,9 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
         public static List<MovieModel> LoadMovies()
         {
-            string sql = @"SELECT movies.ID, Title, Description, Duration, Rating, Picture_Path, Trailer, movies.`Release`, movies.Created, agerestrictions.AgeRestriction, COUNT(comments.Movie_ID) AS CommentCount FROM movies 
+            string sql = @"SELECT movies.ID, Title, Description, Duration, Rating, Picture_Path, Trailer, movies.`Release`, movies.Created, agerestrictions.AgeRestriction, COUNT(comments.MovieID) AS CommentCount FROM movies 
                                 INNER JOIN agerestrictions ON movies.Age_Rating = agerestrictions.ID
-                                LEFT JOIN comments ON comments.Movie_ID = movies.ID 
+                                LEFT JOIN comments ON comments.MovieID = movies.ID 
                                 GROUP BY movies.ID;";
 
             return SqlDataAccess.LoadData<MovieModel>(sql);
@@ -107,9 +107,9 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
         public static List<MovieModel> LoadLatestMovies()
         {
-            string sql = @"SELECT movies.ID, Title, Description, Duration, Rating, Picture_Path, Trailer, movies.`Release`, movies.Created, agerestrictions.AgeRestriction, COUNT(comments.Movie_ID) AS CommentCount FROM movies 
+            string sql = @"SELECT movies.ID, Title, Description, Duration, Rating, Picture_Path, Trailer, movies.`Release`, movies.Created, agerestrictions.AgeRestriction, COUNT(comments.MovieID) AS CommentCount FROM movies 
                                 INNER JOIN agerestrictions ON movies.Age_Rating = agerestrictions.ID
-                                LEFT JOIN comments ON comments.Movie_ID = movies.ID 
+                                LEFT JOIN comments ON comments.MovieID = movies.ID 
                                 GROUP BY movies.ID ORDER BY Created DESC;";
 
             return SqlDataAccess.LoadData<MovieModel>(sql);
@@ -117,9 +117,9 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
         public static List<MovieModel> LoadMovieMostComments()
         {
-            string sql = @"SELECT movies.ID, Title, Description, Duration, Rating, Picture_Path, Trailer, movies.`Release`, movies.Created, agerestrictions.AgeRestriction, COUNT(comments.Movie_ID) AS CommentCount FROM movies 
+            string sql = @"SELECT movies.ID, Title, Description, Duration, Rating, Picture_Path, Trailer, movies.`Release`, movies.Created, agerestrictions.AgeRestriction, COUNT(comments.MovieID) AS CommentCount FROM movies 
                                 INNER JOIN agerestrictions ON movies.Age_Rating = agerestrictions.ID
-                                LEFT JOIN comments ON comments.Movie_ID = movies.ID 
+                                LEFT JOIN comments ON comments.MovieID = movies.ID 
                                 GROUP BY movies.ID ORDER BY CommentCount DESC;";
 
             return SqlDataAccess.LoadData<MovieModel>(sql);
@@ -155,12 +155,12 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
             if (id == null)
             {
-                sql = $"SELECT movies.ID, Title, Description, Duration, Rating, Picture_Path, Trailer, movies.`Release`, movies.Created, agerestrictions.AgeRestriction, COUNT(comments.Movie_ID) AS CommentCount FROM movies INNER JOIN agerestrictions ON movies.Age_Rating = agerestrictions.ID INNER JOIN comments ON comments.Movie_ID = movies.ID WHERE movies.ID = 0";
+                sql = $"SELECT movies.ID, Title, Description, Duration, Rating, Picture_Path, Trailer, movies.`Release`, movies.Created, agerestrictions.AgeRestriction, COUNT(comments.MovieID) AS CommentCount FROM movies INNER JOIN agerestrictions ON movies.Age_Rating = agerestrictions.ID INNER JOIN comments ON comments.MovieID = movies.ID WHERE movies.ID = 0";
 
             }
             else
             {
-                sql = $"SELECT movies.ID, Title, Description, Duration, Rating, Picture_Path, Trailer, movies.`Release`, movies.Created, agerestrictions.AgeRestriction, COUNT(comments.Movie_ID) AS CommentCount FROM movies INNER JOIN agerestrictions ON movies.Age_Rating = agerestrictions.ID INNER JOIN comments ON comments.Movie_ID = movies.ID WHERE movies.ID = {id}";
+                sql = $"SELECT movies.ID, Title, Description, Duration, Rating, Picture_Path, Trailer, movies.`Release`, movies.Created, agerestrictions.AgeRestriction, COUNT(comments.MovieID) AS CommentCount FROM movies INNER JOIN agerestrictions ON movies.Age_Rating = agerestrictions.ID INNER JOIN comments ON comments.MovieID = movies.ID WHERE movies.ID = {id}";
             }
 
             return SqlDataAccess.LoadData<MovieModel>(sql);
@@ -194,12 +194,12 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
             if (id == null)
             {
-                sql = $"SELECT Genre FROM movie_genres INNER JOIN movies ON movie_genres.Movie_ID = movies.ID INNER JOIN genres ON movie_genres.Genre_ID = genres.ID WHERE movies.ID = 0";
+                sql = $"SELECT Genre FROM movie_genres INNER JOIN movies ON movie_genres.MovieID = movies.ID INNER JOIN genres ON movie_genres.GenreID = genres.ID WHERE movies.ID = 0";
 
             }
             else
             {
-                sql = $"SELECT Genre FROM movie_genres INNER JOIN movies ON movie_genres.Movie_ID = movies.ID INNER JOIN genres ON movie_genres.Genre_ID = genres.ID WHERE movies.ID = {id}";
+                sql = $"SELECT Genre FROM movie_genres INNER JOIN movies ON movie_genres.MovieID = movies.ID INNER JOIN genres ON movie_genres.GenreID = genres.ID WHERE movies.ID = {id}";
             }
 
             return SqlDataAccess.LoadData<GenreModel>(sql);
