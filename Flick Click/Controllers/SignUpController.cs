@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using static FlickClick_ClassLibary.BusinessLogic.UserProcess;
+using static Flick_Click.Crypto;
 
 namespace Flick_Click.Controllers
 {
@@ -53,6 +54,10 @@ namespace Flick_Click.Controllers
                 {
                     model.Img = "/Content/Pictures/UserDefault.png";
                 }
+
+                // Hash Password
+                model.Password = Hash(model.Password);
+                model.ConfirmPassword = Hash(model.ConfirmPassword);
 
                 CreateUser(model.FirstName, model.LastName, model.Password, model.EmailAddress, model.TelefonNummer, model.Img);
                 return RedirectToAction("../Home/Index");

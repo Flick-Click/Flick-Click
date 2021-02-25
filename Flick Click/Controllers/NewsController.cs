@@ -76,13 +76,20 @@ namespace Flick_Click.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(NewsModel model)
         {
-            if (ModelState.IsValid)
+            if (Session["userID"] != null)
             {
-                CreateNews(model.Title, model.Content);
-                return RedirectToAction("News", "News");
-            }
+                if (Session["Group_ID"].ToString() == "2")
+                {
+                    if (ModelState.IsValid)
+                    {
+                        CreateNews(model.Title, model.Content);
+                        return RedirectToAction("News", "News");
+                    }
 
-            return View();
+                    return View();
+                }
+            }
+            return RedirectToAction("News", "News");
         }
 
         // ----------------- Read Section ------------------
@@ -112,41 +119,67 @@ namespace Flick_Click.Controllers
         // Get: News
         public ActionResult Create()
         {
-            return View();
+            if (Session["userID"] != null)
+            {
+                if (Session["Group_ID"].ToString() == "2")
+                {
+                    return View();
+                }
+            }
+            return RedirectToAction("News", "News");
         }
 
         // Get: EditNews
         public ActionResult EditNews(int id)
         {
-            var data = LoadSingleNews(id);
-            NewsModel news = new NewsModel
+            if (Session["userID"] != null)
             {
-                ID = id,
-                Title = data[0].Title,
-                Content = data[0].Content
-            };
-            
-            return View(news);
+                if (Session["Group_ID"].ToString() == "2")
+                {
+                    var data = LoadSingleNews(id);
+                    NewsModel news = new NewsModel
+                    {
+                        ID = id,
+                        Title = data[0].Title,
+                        Content = data[0].Content
+                    };
+
+                    return View(news);
+                }
+            }
+            return RedirectToAction("News", "News");
         }
 
         // ----------------- Update Section ------------------
         [HttpPost]
         public ActionResult SaveEditNews(NewsModel model)
         {
-            UpdateNews(model.ID, model.Title, model.Content);
+            if (Session["userID"] != null)
+            {
+                if (Session["Group_ID"].ToString() == "2")
+                {
+                    UpdateNews(model.ID, model.Title, model.Content);
 
-            return RedirectToAction("NewsDetails", "News", new { id = model.ID });
+                    return RedirectToAction("NewsDetails", "News", new { id = model.ID });
+                }
+            }
+            return RedirectToAction("News", "News");
         }
 
         // ----------------- Delete Section ------------------
         [HttpPost]
         public ActionResult DeleteNews(Nullable<int> id)
         {
-            Deletenews(id);
+            if (Session["userID"] != null)
+            {
+                if (Session["Group_ID"].ToString() == "2")
+                {
+                    Deletenews(id);
 
+                    return RedirectToAction("News", "News");
+                }
+            }
             return RedirectToAction("News", "News");
         }
-        
-
     }
 }
