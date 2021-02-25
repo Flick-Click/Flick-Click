@@ -5,6 +5,10 @@
     color:red;
 }
 
+.movie-img {
+    width: 100%
+}
+
 .MatchedTop {
     padding: 2px 0 20px 0;
 }
