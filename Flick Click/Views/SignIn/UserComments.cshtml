@@ -24,7 +24,7 @@
         </div>
         <hr />
         <div class="col-12">
-            <p>@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })</p>
+            <p>@Html.ActionLink("Edit", "EditComment", "Movie", new { id = item.ID }, null) | @Html.ActionLink("Details", "MovieDetails", "Movie", new { id = item.MovieID }, FormMethod.Get) | @Html.ActionLink("Delete", "Deletecomment", new { item.ID })</p>
         </div>
         <hr />
     </div>

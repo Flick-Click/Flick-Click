@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using static FlickClick_ClassLibary.BusinessLogic.UserProcess;
 using static Flick_Click.Crypto;
+using static FlickClick_ClassLibary.BusinessLogic.CommentProcess;
 using Flick_Click.Models;
 using System.Web.Mvc;
 using System.IO;
@@ -162,8 +163,10 @@ namespace Flick_Click.Controllers
                     {
                         commets.Add(new UserCommetModel
                         {
+                            ID = row.ID,
                             Title = row.Title,
                             Created = row.Created,
+                            MovieID = row.MovieID,
                             Content = row.Content
                         });
 
@@ -172,6 +175,15 @@ namespace Flick_Click.Controllers
                 }
             }
             return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult Deletecomment(Nullable<int> id)
+        {
+            if (Session["userID"] != null)
+            {
+                DeleteComment(id);
+            }
+            return RedirectToAction("UserComments", "SignIn", new { id = Convert.ToInt32(Session["userID"].ToString()) });
         }
     }
 }
