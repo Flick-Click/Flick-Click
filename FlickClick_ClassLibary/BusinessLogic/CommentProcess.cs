@@ -10,16 +10,16 @@ namespace FlickClick_ClassLibary.BusinessLogic
 {
     public class CommentProcess
     {
-        public static int CreateComment(string content, int movie_ID, int user_ID)
+        public static int CreateComment(string content, int MovieID, int UserID)
         {
             CommentModel data = new CommentModel
             {
                 Content = content,
-                Movie_ID = movie_ID,
-                User_ID = user_ID
+                MovieID = MovieID,
+                UserID = UserID
             };
 
-            string sql = @"INSERT INTO comments (Content, Movie_ID, User_ID) VALUES (@Content, @Movie_ID, @User_ID)";
+            string sql = @"INSERT INTO comments (Content, MovieID, UserID) VALUES (@Content, @MovieID, @UserID)";
 
             return SqlDataAccess.SaveData<CommentModel>(sql, data);
         }
@@ -30,12 +30,12 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
             if (id == null)
             {
-                sql = $"SELECT comments.ID, Content, comments.Created, Movie_ID, CONCAT(users.FirstName, ' ', users.LastName) AS Name, User_ID FROM comments LEFT JOIN users ON comments.User_ID = users.ID WHERE Movie_ID = 0 ORDER BY comments.Created DESC;";
+                sql = $"SELECT comments.ID, Content, comments.Created, MovieID, CONCAT(users.FirstName, ' ', users.LastName) AS Name, UserID FROM comments LEFT JOIN users ON comments.UserID = users.ID WHERE MovieID = 0 ORDER BY comments.Created DESC;";
 
             }
             else
             {
-                sql = $"SELECT comments.ID, Content, comments.Created, Movie_ID, CONCAT(users.FirstName, ' ', users.LastName) AS Name, User_ID FROM comments LEFT JOIN users ON comments.User_ID = users.ID WHERE Movie_ID = {id} ORDER BY comments.Created DESC;";
+                sql = $"SELECT comments.ID, Content, comments.Created, MovieID, CONCAT(users.FirstName, ' ', users.LastName) AS Name, UserID FROM comments LEFT JOIN users ON comments.UserID = users.ID WHERE MovieID = {id} ORDER BY comments.Created DESC;";
             }
 
             return SqlDataAccess.LoadData<CommentModel>(sql);
@@ -45,11 +45,11 @@ namespace FlickClick_ClassLibary.BusinessLogic
         {
 
 
-            string sql = $"SELECT comments.ID, Content, comments.Created, Movie_ID, " +
+            string sql = $"SELECT comments.ID, Content, comments.Created, MovieID, " +
                 $"CONCAT(users.FirstName, ' ', users.LastName) " +
-                $"AS Name, User_ID " +
+                $"AS Name, UserID " +
                 $"FROM comments " +
-                $"LEFT JOIN users ON comments.User_ID = users.ID ORDER BY comments.Created DESC;";
+                $"LEFT JOIN users ON comments.UserID = users.ID ORDER BY comments.Created DESC;";
 
             return SqlDataAccess.LoadData<CommentModel>(sql);
         }
@@ -60,12 +60,12 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
             if (id == null)
             {
-                sql = $"SELECT comments.ID, Content, Movie_ID FROM comments WHERE ID = 0;";
+                sql = $"SELECT comments.ID, Content, MovieID FROM comments WHERE ID = 0;";
 
             }
             else
             {
-                sql = $"SELECT comments.ID, Content, Movie_ID FROM comments WHERE ID = {id}";
+                sql = $"SELECT comments.ID, Content, MovieID FROM comments WHERE ID = {id}";
             }
 
             return SqlDataAccess.LoadData<CommentModel>(sql);

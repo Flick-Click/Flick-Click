@@ -100,7 +100,7 @@ namespace Flick_Click.Controllers
                         {
                             ID = row.ID,
                             Name = row.Name,
-                            Movie_ID = row.Movie_ID,
+                            MovieID = row.MovieID,
                             Content = row.Content,
                             Created = row.Created
                         });

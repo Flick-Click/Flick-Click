@@ -12,18 +12,6 @@
 @{
     foreach (var item in Model)
     {
-        if (Session["Group_ID"] != null)
-        {
-            if (Session["Group_ID"].ToString() == "2")
-            {
-                using (Html.BeginForm("DeleteMovie", "Movie", new { id = item.ID }, FormMethod.Post))
-                {
-                    <input type="submit" value="DeleteMovie" onclick="return confirm('Are you sure you want to delete this movie?');" />
-                }
-
-            }
-        }
-
         TimeSpan t = TimeSpan.FromSeconds(item.Duration);
 
         string answer = string.Format("{0:D2}h {1:D2}m",
