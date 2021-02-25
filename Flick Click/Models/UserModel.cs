@@ -55,6 +55,8 @@ namespace Flick_Click.Models
 
         public HttpPostedFileBase ImageFile { get; set; }
 
+        public string FileErrorMessage { get; set; }
+
         public DateTime Created { get; set; }
     }
 }

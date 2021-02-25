@@ -51,7 +51,8 @@
             @Html.LabelFor(model => model.Img, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.HiddenFor(model => model.Img)
-                <input type="file" name="ImageFile" value="ImageFile" />
+                <input type="file" name="ImageFile" value="ImageFile" accept=".png,.jpg,.jpeg,.gif" />
+                <p>@Html.DisplayFor(model => model.FileErrorMessage)</p>
             </div>
         </div>
 
