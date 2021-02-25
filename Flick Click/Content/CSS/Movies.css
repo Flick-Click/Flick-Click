@@ -10,5 +10,17 @@
 }
 
 .placingTop {
-    padding: 10px 0 4px -10px;
+    padding: 5px 0 10px 0px;
+}
+
+.no-padding{
+    padding: 0px;
+}
+
+.padding-bot {
+    padding-bottom: 20px;
+}
+
+.spacing {
+    padding: 5px 0 10px 0;
 }

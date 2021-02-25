@@ -12,24 +12,25 @@
 @foreach (var item in Model)
 {
 
-    <div>
-        <div class="placingTop">
-            <span>@item.Release.ToString("dd.MM.yy")</span><br />
-            <strong class="MovieTitel">@item.Title</strong>
+    
+    <div class="col-12 placingTop">
+        <span class="spacing">@item.Release.ToString("dd.MM.yy")</span><br />
+        <strong class="MovieTitel spacing">@item.Title</strong>
+    </div>
+    <div class="row padding-bot">
+        <div class="col-2 no-padding">
+            <img class="movie-img" src="@item.Img" />
         </div>
-        
-        <div class="row">
-            <div>
-                <img class="movie-img" src="@item.Img" />
-            </div>
+        <div class="col-10">
+            <p class="textLimited3">@item.Description</p>
+            <p class="RedColorUnderline" style="float: none">@Html.ActionLink("Read more", "NewsDetails", new { id = item.ID.ToString() }, null)</p>
+        </div>
+    </div>
             
-            <div class="col">
-                <p class="textLimited3">@item.Description</p>
-                <p class="RedColorUnderline" style="float: none">@Html.ActionLink("Read more", "NewsDetails", new { id = item.ID.ToString() }, null)</p>
-            </div>
-        </div>
+            
+    
         
-    </div><br />
+    <br />
     
 
 }
