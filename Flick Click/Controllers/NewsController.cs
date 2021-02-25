@@ -165,21 +165,5 @@ namespace Flick_Click.Controllers
             }
             return RedirectToAction("News", "News");
         }
-
-        // ----------------- Delete Section ------------------
-        [HttpPost]
-        public ActionResult DeleteNews(Nullable<int> id)
-        {
-            if (Session["userID"] != null)
-            {
-                if (Session["Group_ID"].ToString() == "2")
-                {
-                    Deletenews(id);
-
-                    return RedirectToAction("News", "News");
-                }
-            }
-            return RedirectToAction("News", "News");
-        }
     }
 }

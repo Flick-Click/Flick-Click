@@ -462,18 +462,5 @@ namespace Flick_Click.Controllers
             }
             return RedirectToAction("MovieDetails", "Movie", new { id = MovieID });
         }
-
-        [HttpPost]
-        public ActionResult DeleteMovie(Nullable<int> id)
-        {
-            if (Session["userID"] != null)
-            {
-                if (Session["Group_ID"].ToString() == "2")
-                {
-                    Deletemovie(id);
-                }
-            }
-            return RedirectToAction("Index", "Home");
-        }
     }
 }
