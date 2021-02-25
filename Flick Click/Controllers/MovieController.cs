@@ -120,7 +120,12 @@ namespace Flick_Click.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Comment(CommentModel model, int id)
         {
-            CreateComment(model.Comment, id, model.UserID);
+            if (Session["userID"] != null)
+            {
+                CreateComment(model.Comment, id, model.UserID);
+
+                return RedirectToAction("MovieDetails", "Movie", new { id });
+            }
 
             return RedirectToAction("MovieDetails", "Movie", new { id });
         }
@@ -129,22 +134,29 @@ namespace Flick_Click.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreatePeople(DirectorModel model)
         {
-            var data = LoadPeople();
-            bool Exists = false;
-
-            foreach (var Person in data)
+            if (Session["userID"] != null)
             {
-                if (Person.FirstName == model.FirstName && Person.LastName == model.LastName)
+                if (Session["Group_ID"].ToString() == "2")
                 {
-                    Exists = true;
+                    var data = LoadPeople();
+                    bool Exists = false;
+
+                    foreach (var Person in data)
+                    {
+                        if (Person.FirstName == model.FirstName && Person.LastName == model.LastName)
+                        {
+                            Exists = true;
+                        }
+                    }
+
+                    if (!Exists)
+                    {
+                        Createpeople(model.FirstName, model.LastName);
+                    }
+
+                    return RedirectToAction("Index", "Home");
                 }
             }
-
-            if (!Exists)
-            {
-                Createpeople(model.FirstName, model.LastName);
-            }
-
             return RedirectToAction("Index", "Home");
         }
 
@@ -152,22 +164,29 @@ namespace Flick_Click.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreateGenre(GenresModel model)
         {
-            var data = Loadgenre();
-            bool Exists = false;
-
-            foreach (var genre in data)
+            if (Session["userID"] != null)
             {
-                if (genre.Genre == model.Genre)
+                if (Session["Group_ID"].ToString() == "2")
                 {
-                    Exists = true;
+                    var data = Loadgenre();
+                    bool Exists = false;
+
+                    foreach (var genre in data)
+                    {
+                        if (genre.Genre == model.Genre)
+                        {
+                            Exists = true;
+                        }
+                    }
+
+                    if (!Exists)
+                    {
+                        Creategenre(model.Genre);
+                    }
+
+                    return RedirectToAction("Index", "Home");
                 }
             }
-
-            if (!Exists)
-            {
-                Creategenre(model.Genre);
-            }
-
             return RedirectToAction("Index", "Home");
         }
 
@@ -175,44 +194,51 @@ namespace Flick_Click.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreateMovie(CreateMovieModel model, FormCollection form)
         {
-            var data = LoadMovies();
-            bool Exists = false;
-
-            foreach (var Movie in data)
+            if (Session["userID"] != null)
             {
-                if (Movie.Title == model.Title)
+                if (Session["Group_ID"].ToString() == "2")
                 {
-                    Exists = true;
+                    var data = LoadMovies();
+                    bool Exists = false;
+
+                    foreach (var Movie in data)
+                    {
+                        if (Movie.Title == model.Title)
+                        {
+                            Exists = true;
+                        }
+                    }
+
+                    if (!Exists)
+                    {
+                        // Get file name
+                        string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
+                        // Get file extension like jpg, gif etc.
+                        string extension = Path.GetExtension(model.ImageFile.FileName);
+                        // Set date on file name so no duplicates.
+                        fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                        // Set path
+                        model.Img = "/Content/Pictures/" + fileName;
+                        fileName = Path.Combine(Server.MapPath("/Content/Pictures/"), fileName);
+                        // Save image
+                        model.ImageFile.SaveAs(fileName);
+                        int ageRating;
+                        int.TryParse(form["Age_rating"], out ageRating);
+
+                        string[] genres = form["Genre"].Split(',');
+                        string[] writers = form["Writers"].Split(',');
+                        string[] Directores = form["Directors"].Split(',');
+
+                        int MovieID = Createmovie(model.Title, model.Description, model.Duration, model.Img, model.Trailer, model.Release, model.Rating, ageRating);
+                        CreateMovieGenre(MovieID, genres);
+                        CreateMovieWriter(MovieID, writers);
+                        CreateMovieDirector(MovieID, Directores);
+                    }
+
+                    return RedirectToAction("Index", "Home");
                 }
             }
-
-            if (!Exists)
-            {
-                // Get file name
-                string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
-                // Get file extension like jpg, gif etc.
-                string extension = Path.GetExtension(model.ImageFile.FileName);
-                // Set date on file name so no duplicates.
-                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                // Set path
-                model.Img = "/Content/Pictures/" + fileName;
-                fileName = Path.Combine(Server.MapPath("/Content/Pictures/"), fileName);
-                // Save image
-                model.ImageFile.SaveAs(fileName);
-                int ageRating;
-                int.TryParse(form["Age_rating"],out ageRating);
-
-                string[] genres = form["Genre"].Split(',');
-                string[] writers = form["Writers"].Split(',');
-                string[] Directores = form["Directors"].Split(',');
-
-                int MovieID = Createmovie(model.Title, model.Description, model.Duration, model.Img, model.Trailer, model.Release, model.Rating, ageRating);
-                CreateMovieGenre(MovieID, genres);
-                CreateMovieWriter(MovieID, writers);
-                CreateMovieDirector(MovieID, Directores);
-            }
-
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
 
         // ----------------- Read Section ------------------
@@ -350,51 +376,79 @@ namespace Flick_Click.Controllers
         // Get: EditComment
         public ActionResult EditComment(int id)
         {
-            var data = LoadComment(id);
-            CommentsModel comment = new CommentsModel
+            if (Session["userID"] != null)
             {
-                ID = data[0].ID,
-                Content = data[0].Content,
-                Movie_ID = data[0].Movie_ID
-            };
+                var data = LoadComment(id);
+                if (Session["Group_ID"].ToString() == "2" || Convert.ToInt32(Session["userID"].ToString()) == data[0].User_ID)
+                {
+                    CommentsModel comment = new CommentsModel
+                    {
+                        ID = data[0].ID,
+                        Content = data[0].Content,
+                        Movie_ID = data[0].Movie_ID
+                    };
 
-            return View(comment);
+                    return View(comment);
+                }
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         // Get: CreatePeople
         public ActionResult CreatePeople()
         {
-
-            return View();
+            if (Session["userID"] != null)
+            {
+                if (Session["Group_ID"].ToString() == "2")
+                {
+                    return View();
+                }
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         // Get: CreateGenre
         public ActionResult CreateGenre()
         {
-
-            return View();
+            if (Session["userID"] != null)
+            {
+                if (Session["Group_ID"].ToString() == "2")
+                {
+                    return View();
+                }
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         // Get: CreateMovie
         public ActionResult CreateMovie()
         {
-            var ageRating = LoadAgeRating();
-            ViewBag.ageRating = new SelectList(ageRating, "ID", "AgeRestriction");
+            if (Session["userID"] != null)
+            {
+                if (Session["Group_ID"].ToString() == "2")
+                {
+                    var ageRating = LoadAgeRating();
+                    ViewBag.ageRating = new SelectList(ageRating, "ID", "AgeRestriction");
 
-            var genre = Loadgenre();
-            ViewBag.genre =  new MultiSelectList(genre, "ID", "Genre");
+                    var genre = Loadgenre();
+                    ViewBag.genre = new MultiSelectList(genre, "ID", "Genre");
 
-            var people = LoadPeople();
-            ViewBag.people = new MultiSelectList(people, "ID", "FirstName");
-            return View();
+                    var people = LoadPeople();
+                    ViewBag.people = new MultiSelectList(people, "ID", "FirstName");
+                    return View();
+                }
+            }
+            return RedirectToAction("Index", "Home");
         }
         // ----------------- Update Section ------------------
 
         [HttpPost]
         public ActionResult SaveEditComment(CommentsModel model)
         {
-            UpdateComment(model.ID, model.Content);
-
+            if (Session["userID"] != null)
+            {
+                UpdateComment(model.ID, model.Content);
+            }
             return RedirectToAction("MovieDetails", "Movie", new { id = model.Movie_ID });
         }
 
@@ -402,16 +456,23 @@ namespace Flick_Click.Controllers
         [HttpPost]
         public ActionResult DeletecommentMovie(Nullable<int> id, int MovieID)
         {
-            DeleteComment(id);
-
+            if (Session["userID"] != null)
+            {
+                DeleteComment(id);
+            }
             return RedirectToAction("MovieDetails", "Movie", new { id = MovieID });
         }
 
         [HttpPost]
         public ActionResult DeleteMovie(Nullable<int> id)
         {
-            Deletemovie(id);
-
+            if (Session["userID"] != null)
+            {
+                if (Session["Group_ID"].ToString() == "2")
+                {
+                    Deletemovie(id);
+                }
+            }
             return RedirectToAction("Index", "Home");
         }
     }

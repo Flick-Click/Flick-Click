@@ -33,5 +33,7 @@ namespace Flick_Click.Models
         public List<DirectorModel> People { get; set; }
         public List<AgeRatingModel> Age_rating { get; set; }
         public HttpPostedFileBase ImageFile { get; set; }
+        public string FileErrorMessage { get; set; }
+
     }
 }

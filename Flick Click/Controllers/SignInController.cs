@@ -123,13 +123,23 @@ namespace Flick_Click.Controllers
                         string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
                         // Get file extension like jpg, gif etc.
                         string extension = Path.GetExtension(model.ImageFile.FileName);
-                        // Set date on file name so no duplicates.
-                        fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                        // Set path
-                        model.Img = "/Content/Pictures/" + fileName;
-                        fileName = Path.Combine(Server.MapPath("/Content/Pictures/"), fileName);
-                        // Save image
-                        model.ImageFile.SaveAs(fileName);
+
+                        // Checks if file is actually an image and not a file that is a danger.
+                        if (extension.ToLower() == ".jpg" || extension.ToLower() == ".gif" || extension.ToLower() == ".png" || extension.ToLower() == ".jpeg")
+                        {
+                            // Set date on file name so no duplicates.
+                            fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                            // Set path
+                            model.Img = "/Content/Pictures/" + fileName;
+                            fileName = Path.Combine(Server.MapPath("/Content/Pictures/"), fileName);
+                            // Save image
+                            model.ImageFile.SaveAs(fileName);
+                        }
+                        else
+                        {
+                            model.FileErrorMessage = "File uploaded was not a jpg, png, jpeg or gif";
+                            return View(model);
+                        }
                     }
 
                     UpdateUser(model.ID, model.FirstName, model.LastName, model.EmailAddress, model.TelefonNummer, model.Img);
