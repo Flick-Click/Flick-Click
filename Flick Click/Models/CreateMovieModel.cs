@@ -18,6 +18,7 @@ namespace Flick_Click.Models
         public string Trailer { get; set; }
         [DisplayName("Upload Image")]
         public string Img { get; set; }
+        [RegularExpression("([0-5])", ErrorMessage = "The rating must be between 0 and 5")]
         public int Rating { get; set; }
         public int CommentCount { get; set; }
 
@@ -32,7 +33,6 @@ namespace Flick_Click.Models
         public List<DirectorModel> People { get; set; }
         public List<AgeRatingModel> Age_rating { get; set; }
         public HttpPostedFileBase ImageFile { get; set; }
-        public string FileErrorMessage { get; set; }
 
     }
 }
