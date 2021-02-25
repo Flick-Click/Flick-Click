@@ -4,16 +4,14 @@
     ViewBag.Title = "CreatePeople";
 }
 
-<h2>CreatePeople</h2>
+<h2>Create People To choose as Director or Writer</h2>
+<hr />
 
-
-@using (Html.BeginForm("CreatePeople", "Movie", FormMethod.Post)) 
+@using (Html.BeginForm("CreatePeople", "Movie", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>DirectorModel</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
