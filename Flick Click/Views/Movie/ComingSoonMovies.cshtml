@@ -6,13 +6,10 @@
 
 <head>
     <link rel="stylesheet" href="~/Content/CSS/Movies.css" />
-    <link rel="stylesheet" href="~/Content/Site.css" />
 </head>
 
 @foreach (var item in Model)
 {
-
-    
     <div class="col-12 placingTop">
         <span class="spacing">@item.Release.ToString("dd.MM.yy")</span><br />
         <strong class="MovieTitel spacing">@item.Title</strong>
@@ -26,12 +23,6 @@
             <p class="RedColorUnderline" style="float: none">@Html.ActionLink("Read more", "NewsDetails", new { id = item.ID.ToString() }, null)</p>
         </div>
     </div>
-            
-            
-    
-        
     <br />
-    
-
 }
 
