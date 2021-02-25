@@ -152,6 +152,8 @@ namespace Flick_Click.Controllers
                 {
                     var data = LoadUser(id);
                     UserModel User = new UserModel();
+                    var user = Getuser();
+                    ViewBag.user = new SelectList(user, "ID", "Group");
 
                     foreach (var row in data)
                     {
@@ -199,13 +201,15 @@ namespace Flick_Click.Controllers
         // ----------------- Update Section ------------------
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditUserAdmin(UserModel model)
+        public ActionResult EditUserAdmin(UserModel model, FormCollection form)
         {
             if (Session["Group_ID"] != null)
             {
                 if (Session["Group_ID"].ToString() == "2")
                 {
-                    UpdateUserAdmin(model.ID, model.FirstName, model.LastName, model.Group_ID);
+                    int group;
+                    int.TryParse(form["Group"], out group);
+                    UpdateUserAdmin(model.ID, model.FirstName, model.LastName, group);
 
                     return RedirectToAction("../Administration/Allusers");
                 }

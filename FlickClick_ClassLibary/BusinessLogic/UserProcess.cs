@@ -66,6 +66,12 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
             return SqlDataAccess.LoadData<UserModel>(sql);
         }
+        public static List<UserModel> Getuser()
+        {
+            string sql = @"SELECT * FROM groups";
+
+            return SqlDataAccess.LoadData<UserModel>(sql);
+        }
 
         public static List<UserModel> LoadUsersEmail()
         {
