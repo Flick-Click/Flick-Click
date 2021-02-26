@@ -86,7 +86,7 @@
                                                 <p class="text-color-white search-text" style="margin-bottom: 0px;">Welcome @Session["firstName"].ToString() @Session["lastName"].ToString()</p>
                                             </li>
                                             <li class="nav-item">
-                                                <button class="fill-the-height b1 tekstColor-white">@Html.ActionLink("Edit User Info", "ViewUser", "SignIn", new { id = Convert.ToInt32(Session["userID"].ToString()) }, null)</button>
+                                                <button class="fill-the-height b1 tekstColor-white">@Html.ActionLink("User Info", "ViewUser", "SignIn", new { id = Convert.ToInt32(Session["userID"].ToString()) }, null)</button>
                                             </li>
                                             <li class="nav-item">
                                                 <button class="fill-the-height b1 tekstColor-white">@Html.ActionLink("Logout", "Logout", "SignIn")</button>
