@@ -57,11 +57,11 @@ namespace FlickClick_ClassLibary.BusinessLogic
             string sql;
             if (ID == null)
             {
-                sql = $"SELECT users.ID, FirstName, LastName, Email, TlfNr, ProfilePicture, Group_ID, groups.`Group` FROM users INNER JOIN groups ON users.Group_ID = groups.ID WHERE users.ID = 0;";
+                sql = $"SELECT users.ID, FirstName, LastName, Email, TlfNr, ProfilePicture, Group_ID, groups.`Group`, Created FROM users INNER JOIN groups ON users.Group_ID = groups.ID WHERE users.ID = 0;";
             }
             else
             {
-                sql = $"SELECT users.ID, FirstName, LastName, Email, TlfNr, ProfilePicture, Group_ID, groups.`Group` FROM users INNER JOIN groups ON users.Group_ID = groups.ID WHERE users.ID = {ID};";
+                sql = $"SELECT users.ID, FirstName, LastName, Email, TlfNr, ProfilePicture, Group_ID, groups.`Group`, Created FROM users INNER JOIN groups ON users.Group_ID = groups.ID WHERE users.ID = {ID};";
             }
 
             return SqlDataAccess.LoadData<UserModel>(sql);
