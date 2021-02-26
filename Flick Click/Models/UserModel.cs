@@ -8,7 +8,7 @@ using System.Web;
 
 namespace Flick_Click.Models
 {
-    public class UserModel
+    public class UserModel : IPeople
     {
         public int ID { get; set; }
 
@@ -33,6 +33,7 @@ namespace Flick_Click.Models
         [Display(Name = "Password")]
         [DataType(DataType.Password)]
         [StringLength(100, MinimumLength = 7, ErrorMessage = "You need to provide a long enough password.")]
+        
         [Required(ErrorMessage = "You need to set a password.")]
         public string Password { get; set; }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlickClick_ClassLibary.Models
 {
-    public class UserModel
+    public class UserModel : IPeople
     {
         public int ID { get; set; }
         public string FirstName { get; set; }
