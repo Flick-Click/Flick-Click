@@ -109,7 +109,7 @@ namespace FlickClick_ClassLibary.BusinessLogic
 
             if (id == null)
             {
-                sql = $"SELECT comments.Content, comments.Created, movies.Title FROM comments " +
+                sql = $"SELECT comments.ID, comments.Content, comments.Created, movies.ID as MovieID, movies.Title FROM comments " +
                     $"LEFT JOIN users ON comments.UserID = users.ID " +
                     $"LEFT JOIN movies ON comments.MovieID = movies.ID " +
                     $"WHERE Users.ID = 0  " +
@@ -118,7 +118,7 @@ namespace FlickClick_ClassLibary.BusinessLogic
             }
             else
             {
-                sql = $"SELECT comments.Content, comments.Created, movies.Title FROM comments " +
+                sql = $"SELECT comments.ID, comments.Content, comments.Created, movies.ID as MovieID, movies.Title FROM comments " +
                     $"LEFT JOIN users ON comments.UserID = users.ID " +
                     $"LEFT JOIN movies ON comments.MovieID = movies.ID " +
                     $"WHERE Users.ID = {id}  " +

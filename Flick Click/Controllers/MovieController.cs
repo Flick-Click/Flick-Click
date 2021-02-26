@@ -235,7 +235,7 @@ namespace Flick_Click.Controllers
                         CreateMovieDirector(MovieID, Directores);
                     }
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("index", "Administration");
                 }
             }
             return RedirectToAction("Index", "Home");
