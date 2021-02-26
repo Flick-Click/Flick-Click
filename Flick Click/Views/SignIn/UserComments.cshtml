@@ -9,25 +9,26 @@
 
 @foreach (var item in Model)
 {
-    <table>
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Content)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Created)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-    </table>
-    <hr />
+    <div class="row">
+        <div class="col-12">
+            @Html.DisplayFor(modelItem => item.Created)
+
+        </div>
+        <div class="col-12">
+            @Html.DisplayFor(modelItem => item.Title)
+        </div>
+        <hr />
+        <div class="col-12">
+            @Html.DisplayFor(modelItem => item.Content)
+
+        </div>
+        <hr />
+        <div class="col-12">
+            <p>@Html.ActionLink("Edit", "EditComment", "Movie", new { id = item.ID }, null) | @Html.ActionLink("Details", "MovieDetails", "Movie", new { id = item.MovieID }, FormMethod.Get) | @Html.ActionLink("Delete", "Deletecomment", new { item.ID })</p>
+        </div>
+        <hr />
+    </div>
+    
 
 
 }
