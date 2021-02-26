@@ -1,7 +1,7 @@
 ﻿@model Flick_Click.Models.CreateMovieModel
 
 <head>
-    <link href="~/Content/CSS/MovieDetails.css" rel="stylesheet" />
+
 </head>
 
 @{
@@ -17,110 +17,111 @@
 {
     @Html.AntiForgeryToken()
 
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Duration, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Duration, new { htmlAttributes = new { @class = "form-control", placeholder = "Seconds" } })
+                @Html.ValidationMessageFor(model => model.Duration, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-<div class="form-horizontal">
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Release, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Release, new { htmlAttributes = new { @class = "form-control", placeholder = "YYYY-MM-DD " } })
+                @Html.ValidationMessageFor(model => model.Release, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Trailer, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <p>The trailer need to be an embeded link and might look like this (/embed/5S0X8jcBmnQ) it needs to be after .com </p>
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Trailer, new { htmlAttributes = new { @class = "form-control", placeholder = "https://www.youtube.com/embed/PDFzO_X9vo4" } })
+                @Html.ValidationMessageFor(model => model.Trailer, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Img, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="ImageFile" value="ImageFile" required accept=".png,.jpg,.jpeg" />
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Rating, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Rating, new { htmlAttributes = new { @class = "form-control", placeholder = "0-5" } })
+                @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Age_rating, htmlAttributes: new { @class = "Control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Age_rating, ViewBag.ageRating as SelectList, " Select the age rating ")
+                @Html.ValidationMessageFor(model => model.Age_rating, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            <p>To sellect more then one <b>Genre, Director and Writer</b> press control before clicking on the name</p>
         </div>
-    </div>
+        <div class="col-12">
+            <p>If a Genre isn't in the list you can create one here @Html.ActionLink("Create Genre", "CreateGenre", "Movie")</p>
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Genre, htmlAttributes: new { @class = "Control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ListBoxFor(model => model.Genre, ViewBag.genre as MultiSelectList, " Select Genre ")
+                @Html.ValidationMessageFor(model => model.Genre, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
+        <div class="col-12">
+            <p>If a Writer or director name isn't in the list you can create one here @Html.ActionLink("Create Writer or director", "CreatePeople", "Movie")</p>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Directors, htmlAttributes: new { @class = "Control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ListBoxFor(model => model.Directors, ViewBag.people as MultiSelectList, " Select Directors")
+                @Html.ValidationMessageFor(model => model.Directors, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Duration, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Duration, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Duration, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Writers, htmlAttributes: new { @class = "Control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ListBoxFor(model => model.Writers, ViewBag.people as MultiSelectList, " Select Writers")
+                @Html.ValidationMessageFor(model => model.Writers, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Release, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Release, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Release, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Trailer, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <p>The trailer need to be an embeded link and have this (/embed/5S0X8jcBmnQ) after .com </p>
-        </div>
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Trailer, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Trailer, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Img, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <input type="file" name="ImageFile" value="ImageFile" required  accept=".png,.jpg,.jpeg"/>
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Rating, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Rating, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Age_rating, htmlAttributes: new { @class = "Control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.Age_rating, ViewBag.ageRating as SelectList, " Select the age rating ")
-            @Html.ValidationMessageFor(model => model.Age_rating, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="col-md-10">
-        <p>To sellect more then one <b>Genre, Director and Writer</b> press control before clicking on the name</p>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Genre, htmlAttributes: new { @class = "Control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.ListBoxFor(model => model.Genre, ViewBag.genre as MultiSelectList, " Select Genre ")
-            @Html.ValidationMessageFor(model => model.Genre, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Directors, htmlAttributes: new { @class = "Control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.ListBoxFor(model => model.Directors, ViewBag.people as MultiSelectList, " Select Directors")
-            @Html.ValidationMessageFor(model => model.Directors, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Writers, htmlAttributes: new { @class = "Control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.ListBoxFor(model => model.Writers, ViewBag.people as MultiSelectList, " Select Writers")
-            @Html.ValidationMessageFor(model => model.Writers, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
-        </div>
-    </div>
-</div>
 }
 
 <div>
