@@ -9,7 +9,7 @@ namespace FlickClick_ClassLibary.Models
     public class WritersModel: IPeople
     {
         public int MovieID { get; set; }
-        public int PeopleID { get; set; }
+        public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
     }

@@ -56,9 +56,9 @@ namespace FlickClick_ClassLibary.BusinessLogic
                 WritersModel data = new WritersModel
                 {
                     MovieID = MovieID,
-                    PeopleID = Convert.ToInt32(writer)
+                    ID = Convert.ToInt32(writer)
                 };
-                string sql = @"INSERT INTO movie_writers (movieID, PeopleID) VALUES (@movieID, @PeopleID)";
+                string sql = @"INSERT INTO movie_writers (movieID, PeopleID) VALUES (@movieID, @ID)";
                 SqlDataAccess.SaveData(sql, data);
             }
             return 1;
@@ -72,9 +72,9 @@ namespace FlickClick_ClassLibary.BusinessLogic
                 DirectorsModel data = new DirectorsModel
                 {
                     MovieID = MovieID,
-                    PeopleID = Convert.ToInt32(director)
+                    ID = Convert.ToInt32(director)
                 };
-                string sql = @"INSERT INTO movie_directors (movieID, PeopleID) VALUES (@movieID, @PeopleID)";
+                string sql = @"INSERT INTO movie_directors (movieID, PeopleID) VALUES (@movieID, @ID)";
                 SqlDataAccess.SaveData(sql, data);
             }
             return 1;
